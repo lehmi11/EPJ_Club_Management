@@ -9,9 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Club Manager - Dashboard</title>
+    <title>Club Manager - Mein Profil</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -169,19 +169,130 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Titel</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i
-                            class="fas fa-edit fa-sm text-white-50"></i> Bearbeiten</a>
+                    <h1 class="h3 mb-0 text-gray-800">Profil</h1>
+                    <button class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" id="editProfile">
+                        <i class="fas fa-edit fa-sm text-white-50"></i> Bearbeiten
+                    </button>
                 </div>
-
 
                 <!-- Content Row -->
                 <div class="row">
 
-                    <!-- Start Here -->
-                    <!-- make sure to use columns "col" in your div! -->
+                    <div class="col-xl-4 col-md-8">
+                        <div class="img mx-auto">
+                            <img src="img/jane_doe.png" class="img-fluid rounded d-block mx-auto" style="width: 75%;" alt="Jane Doe Profile Picture">
+                        </div>
 
+                    </div>
+
+                    <div class="col-xl-8 col-md-8">
+                        <div id="profileCard">
+                            <h1>Jane Doe, <span id="age">28</span></h1>
+
+                            <div class="lead">
+                                <i class="fas fa-map-marker-alt"></i><span id="adressConcat"> Oberseestrasse 10, 8640 Rapperswil SG</span>
+                            </div>
+
+                            <div class="lead">
+                                <i class="fas fa-envelope"></i><span id="email"> jane.doe@loremipsum.com</span>
+                            </div>
+
+                            <div class="lead">
+                                <i class="fas fa-phone"></i><span id="phone"> +41 81 756 11 11</span>
+                            </div>
+
+                            <div class="lead">
+                                <i class="fas fa-birthday-cake"></i><time id="birthday" datetime="1991-01-01"> 01.01.1991</time>
+                            </div>
+                        </div>
+
+                        <div id="profileForm" style="display: none;">
+                            <form class="form-horizontal" >
+                                <fieldset>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="surnameInput">Vorname</label>
+                                        <div class="col-xl-8 col-md-8">
+                                            <input id="surnameInput" name="surname" type="text" placeholder="Vorname" value="Jane" class="form-control input-md">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="nameInput">Nachname</label>
+                                        <div class="col-xl-8 col-md-8">
+                                            <input id="nameInput" name="name" type="text" placeholder="Nachname" value="Doe" class="form-control input-md">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Date picker -->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="birthdayInput">Geburtstag</label>
+                                        <div class="col-xl-8 col-md-8">
+                                            <input id="birthdayInput" name="street" type="date" placeholder="01.01.2019"  value="1991-01-01" class="form-control input-md">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="emailInput">E-Mail Adresse</label>
+                                        <div class="col-xl-8 col-md-8">
+                                            <input id="emailInput" name="email" type="email" placeholder="E-Mail Adresse" value="jane.doe@loremipsum.com" class="form-control input-md">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="phoneInput">Telefonnummer</label>
+                                        <div class="col-xl-8 col-md-8">
+                                            <input id="phoneInput" name="phone" type="tel" placeholder="Telefonnummer" value="+41 81 756 00 00" class="form-control input-md">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="streetInput">Strasse</label>
+                                        <div class="col-xl-8 col-md-8">
+                                            <input id="streetInput" name="street" type="text" placeholder="Strasse" value="Oberseestrasse 10" class="form-control input-md">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-xl-4 col-md-8 control-label" for="cityInput">Stadt / PLZ</label>
+                                        <div class="row form-group">
+                                            <div class="col-xl-4 col-md-4">
+                                                <input id="cityInput" name="city" type="text" placeholder="Stadt" value="Rapperswil" class="form-control input-md">
+                                            </div>
+                                            <div class="col-xl-3 col-md-4">
+                                                <input id="zipINput" name="zip" type="text" placeholder="PLZ" value="8640" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button (Double) -->
+                                    <div class="form-group">
+                                        <label class="col-xl-8 col-md-8 control-label" for="saveProfileEdit"></label>
+                                        <div class="col-md-8">
+                                            <button id="saveProfileEdit" name="save" class="btn btn-primary">Speichern</button>
+                                            <button id="cancelProfileEdit" name="cancel" class="btn btn-secondary">Abbrechen</button>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
+
 
             </div>
             <!-- /.container-fluid -->
@@ -189,19 +300,19 @@
         </div>
         <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Club Manager 2019</span>
-                    </div>
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Club Manager 2019</span>
                 </div>
-            </footer>
-            <!-- End of Footer -->
+            </div>
+        </footer>
+        <!-- End of Footer -->
 
-        </div>
     </div>
-    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Content Wrapper -->
 
 </div>
 <!-- End of Page Wrapper -->
@@ -239,6 +350,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+
+<!-- Custom scripts for specific page-->
+<script src="js/userprofile.js"></script>
 
 </body>
 
