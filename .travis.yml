@@ -1,5 +1,5 @@
 language: nodejs
 
 script:
-  - npm run build
+  - npm build
 
