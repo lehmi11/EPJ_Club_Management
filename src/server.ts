@@ -1,11 +1,17 @@
-import express = require("express");
+import bodyparser from "body-parser";
+import express from "express";
+import {Request, Response} from "express-serve-static-core";
 
-const app: express.Application = express();
 
-app.get("/", function (req, res) {
+
+const app = express();
+app.get("/", function (req: Request, res: Response) {
   res.send("Hello EPJ Club Manager!");
 });
 
-app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+const hostname = "127.0.0.1";
+const port = 3001;
+app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
+
