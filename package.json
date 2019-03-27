@@ -6,8 +6,9 @@
     "build": "tsc",
     "serve": "node dist/server.js",
     "prestart": "npm run build",
-    "start": "npm run serve" ,
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint --project ."
   },
   "repository": {
     "type": "git",
