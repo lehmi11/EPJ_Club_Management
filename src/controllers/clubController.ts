@@ -1,3 +1,4 @@
+/*
 import {Request, Response} from "express-serve-static-core";
 import {clubStore} from "../services/clubStore";
 
@@ -12,3 +13,4 @@ export class ClubController {
 
 
 export const clubController = new ClubController();
+*/
