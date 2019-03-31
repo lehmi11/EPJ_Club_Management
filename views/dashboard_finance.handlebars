@@ -1,0 +1,400 @@
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Suche..." aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                <li class="nav-item dropdown no-arrow d-sm-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-search fa-fw"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                        <form class="form-inline mr-auto w-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Suche..." aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Jane Doe</span>
+                        <img class="img-profile rounded-circle" src="../public/img/jane_doe.png" alt="Profile Image">
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="/profile">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profil
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Einstellungen
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Abmelden
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Generiere Report</a>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- pending payment amount -->
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bofld text-success text-uppercase mb-1">
+                                        Bezahlte Mitgliederbeiträge
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">CHF 3500</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- pending payment amount -->
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Offene Mitgliederbeiträge
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">CHF 3000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- due payment amount -->
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-danger shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                        Überfällige Mitgliederbeiträge
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">CHF 1500</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Pie Chart -->
+                <div class="col-xl-4 col-lg-5">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Mitgliederbeiträge</h6>
+                            <a class="card-link" href="" role="button" id="refresh">
+                                <i class="fas fa-redo-alt fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-pie pt-4 pb-2">
+                                <canvas id="paymentStatus"></canvas>
+                            </div>
+                            <div class="mt-4 text-center small">
+                                <span class="mr-2">
+                                        <i class="fas fa-circle text-success"></i> Bezahlt
+                                    </span>
+                                <span class="mr-2">
+                                        <i class="fas fa-circle text-warning"></i> Ausstehend
+                                    </span>
+                                <span class="mr-2">
+                                        <i class="fas fa-circle text-danger"></i> Mahnung
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DataTales Example -->
+                <div class="col-xl-8" col-lg-10>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Mitglieder mit offenem Beitrag</h6>
+                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
+                                aria-label="Search">
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm table-hover" id="dataTable" data-page-length='6'>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Adresse</th>
+                                        <th>Stadt</th>
+                                        <th>Betrag</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Charles Carson</td>
+                                        <td>Ap #489-2114 A, Street</td>
+                                        <td>Beaufays</td>
+                                        <td>112 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oscar Pierce</td>
+                                        <td>Ap #261-930 Mauris Av.</td>
+                                        <td>Madrid</td>
+                                        <td>107 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chaney Diaz</td>
+                                        <td>181-2756 Suspendisse St.</td>
+                                        <td>Crowsnest Pass</td>
+                                        <td>173 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kennan Lewis</td>
+                                        <td>P.O. Box 441, 6286 Est Avenue</td>
+                                        <td>Dillenburg</td>
+                                        <td>242 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hashim Rodriquez</td>
+                                        <td>475-906 Phasellus St.</td>
+                                        <td>Santiago</td>
+                                        <td>114 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rooney Holland</td>
+                                        <td>721-3062 Ornare Rd.</td>
+                                        <td>Memphis</td>
+                                        <td>136 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Herman Ayala</td>
+                                        <td>Ap #537-6453 Tincidunt St.</td>
+                                        <td>Baie-Saint-Paul</td>
+                                        <td>124 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Declan Woodard</td>
+                                        <td>375-1399 Orci, Ave</td>
+                                        <td>Pincher Creek</td>
+                                        <td>180 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Porter Dennis</td>
+                                        <td>822-8215 Ad Av.</td>
+                                        <td>Saarlouis</td>
+                                        <td>188 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Reece Mathews</td>
+                                        <td>157-4854 Donec St.</td>
+                                        <td>Houdemont</td>
+                                        <td>229 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jesse Hull</td>
+                                        <td>900-5015 Venenatis Rd.</td>
+                                        <td>Nazilli</td>
+                                        <td>114 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Steel Pickett</td>
+                                        <td>541-5797 Mollis. St.</td>
+                                        <td>Esen</td>
+                                        <td>183 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bruce Boyer</td>
+                                        <td>895-2785 Placerat Road</td>
+                                        <td>Dieppe</td>
+                                        <td>172 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Christopher Maynard</td>
+                                        <td>Ap #134-6612 Velit Avenue</td>
+                                        <td>Maple Creek</td>
+                                        <td>203 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Buckminster Tran</td>
+                                        <td>401-373 Felis Av.</td>
+                                        <td>Portofino</td>
+                                        <td>142 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ross Rollins</td>
+                                        <td>280-6173 Et Av.</td>
+                                        <td>Akhisar</td>
+                                        <td>194 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bert Patterson</td>
+                                        <td>105-2477 Mauris. Rd.</td>
+                                        <td>Lang</td>
+                                        <td>195 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hyatt Mueller</td>
+                                        <td>Ap #107-7337 Lobortis, Rd.</td>
+                                        <td>Municipal District</td>
+                                        <td>203 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wing Delacruz</td>
+                                        <td>P.O. Box 874, 7616 Orci, Av.</td>
+                                        <td>Mustafakemalpaşa</td>
+                                        <td>194 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Castor Kramer</td>
+                                        <td>Ap #397-5256 Eu, Rd.</td>
+                                        <td>Springfield</td>
+                                        <td>107 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Perry Buckner</td>
+                                        <td>956-8221 Libero. Avenue</td>
+                                        <td>Tiegem</td>
+                                        <td>225 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dominic Snider</td>
+                                        <td>Ap #881-331 Dolor. Av.</td>
+                                        <td>Alexandra</td>
+                                        <td>125 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Burton Finch</td>
+                                        <td>Ap #344-3548 Vel St.</td>
+                                        <td>Detroit</td>
+                                        <td>101 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mufutau Norman</td>
+                                        <td>539-2995 Convallis St.</td>
+                                        <td>Tiruvannamalai</td>
+                                        <td>127 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hilel Knowles</td>
+                                        <td>224-7846 Amet, Rd.</td>
+                                        <td>Spy</td>
+                                        <td>134 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jameson Sandoval</td>
+                                        <td>463-7739 Mauris Avenue</td>
+                                        <td>Orp-Jauche</td>
+                                        <td>177 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basil Sweet</td>
+                                        <td>475-5222 Imperdiet Avenue</td>
+                                        <td>St. Andrä</td>
+                                        <td>111 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brendan Sanders</td>
+                                        <td>Ap #419-2334 Sed Avenue</td>
+                                        <td>Krefeld</td>
+                                        <td>233 CHF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ulric Hendricks</td>
+                                        <td>Ap #861-5822 Curabitur St.</td>
+                                        <td>Malvern</td>
+                                        <td>193 CHF</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Club Manager 2019</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
