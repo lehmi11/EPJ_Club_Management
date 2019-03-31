@@ -15,3 +15,8 @@ Start server
 $ npm run start
 ```
 
+Run tests
+```sh
+$ npm test
+```
+
