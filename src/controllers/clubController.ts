@@ -3,7 +3,7 @@ import {clubStore} from "../services/clubStore";
 
 
 export class ClubController {
-    public async showMitglieder (req: Request, res: Response) {
+    public async showMitglieder(req: Request, res: Response) {
         res.render("members", {mitglieder: await clubStore.getMitglieder()});
     }
 

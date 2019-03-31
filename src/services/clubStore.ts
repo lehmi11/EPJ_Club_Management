@@ -1,10 +1,12 @@
-const {Client} = require("pg");
+import {Client} from "pg";
 const client = new Client({
+    /* tslint:disable:object-literal-sort-keys */
     user: "postgres",
     password: "postgres",
     host: "localhost",
     port: 5432,
     database: "ClubManagerDB",
+    /* tslint:enable:object-literal-sort-keys */
 });
 
 export class ClubStore {
@@ -12,7 +14,7 @@ export class ClubStore {
     public async getMitglieder() {
         await client.connect();
         const results = await client.query("select * from mitglied");
-        console.table(results.row);
+        console.table(results.rows);
         await client.end();
     }
 
