@@ -20,3 +20,6 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
+      
+notifications:
+  slack: epj-clubmanager:$SLACK_TOKEN
