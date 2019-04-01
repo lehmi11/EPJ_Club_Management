@@ -13,7 +13,7 @@
     "prestart": "npm run build",
     "start": "node ./dist/server.js",
     "clean": "shx rm -fr node_modules/ dist/ docs/",
-    "mocha": "mocha -r ts-node/register test/*.ts",
+    "mocha": "mocha --require @babel/register -r ts-node/register test/*.ts",
     "lint": "tslint --project ."
   },
   "repository": {
@@ -38,6 +38,8 @@
     "tslib": "^1.9.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/register": "^7.4.0",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "@types/pg": "^7.4.14",
