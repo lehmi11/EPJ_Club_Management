@@ -6,8 +6,11 @@
     "build": "tsc",
     "serve": "node dist/server.js",
     "prestart": "npm run build",
-    "start": "npm run serve" ,
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-win": "xcopy /S /Y src\\views\\* dist\\views\\",
+    "copy-linux": "cp -R src/views/* dist/views/"
+  
   },
   "repository": {
     "type": "git",

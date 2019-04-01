@@ -1,21 +1,19 @@
-import bodyparser from "body-parser";
 import express from "express";
-import hbs from "express-hbs";
+// tslint:disable-next-line: ordered-imports
+import bodyParser from "body-parser";
+var hbs = require("express-hbs");
 import {Request, Response} from "express-serve-static-core";
-
+import {clubRoutes} from "./routes/clubRoutes";
 
 
 const app = express();
-app.engine("hbs", hbs.express4());
-app.set("view engine", "hbs");
+app.engine('hbs', hbs.express4());
+app.set('view engine', 'hbs');
 app.set("views", __dirname + "/views");
 
+app.use(clubRoutes);
+app.use(bodyParser.urlencoded({extended: false}));
 
-
-
-app.get("/", function(req: Request, res: Response) {
-  res.send("Hello EPJ Club Manager!");
-});
 
 const hostname = "127.0.0.1";
 const port = 3001;
