@@ -8,11 +8,13 @@
     "setup": "npm install",
     "build": "tsc",
     "build-watch": "tsc --watch",
-    "test-only": "tslint --project .",
+    "test-only": "npm run lint && npm run mocha",
     "test": "npm run test-only",
     "prestart": "npm run build",
     "start": "node ./dist/server.js",
-    "clean": "shx rm -fr node_modules/ dist/ docs/"
+    "clean": "shx rm -fr node_modules/ dist/ docs/",
+    "mocha": "mocha -r ts-node/register test/*.ts",
+    "lint": "tslint --project ."
   },
   "repository": {
     "type": "git",
@@ -36,7 +38,12 @@
     "tslib": "^1.9.3"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
     "@types/pg": "^7.4.14",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
   }
