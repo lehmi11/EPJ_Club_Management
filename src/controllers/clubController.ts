@@ -10,6 +10,9 @@ export class ClubController {
             totalMembershipWarning: (await clubStore.getTotalMembershipWarning()).warning
         });
     }
+    public async showMitglieder(req: Request, res: Response) {
+        res.render("members", {mitglieder: await clubStore.getMitglieder()});
+    }
 }
 
 export const clubController = new ClubController();

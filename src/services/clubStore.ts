@@ -11,7 +11,6 @@ const client = new Client({
     database: "clubManager", */
 });
 
-
 export class ClubStore {
 
     public async getMembersFeeNotPaid() {
@@ -22,7 +21,7 @@ export class ClubStore {
                     mit.plz AS "PLZ", mit.ort AS "ORT"
                 FROM mitglied mit INNER JOIN
                     mitgliedschaft mitgliedsch ON mitgliedsch.mitgliedid = mit.id
-                WHERE mitgliedsch.beitragbezahlt = false `);           
+                WHERE mitgliedsch.beitragbezahlt = false `);
             // console.table(rows);
             return rows;
         } catch (error) {
@@ -80,7 +79,6 @@ export class ClubStore {
             await client.end();
         }
     }
-
 }
 
 export const clubStore = new ClubStore();

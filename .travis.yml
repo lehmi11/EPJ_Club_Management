@@ -1,5 +1,25 @@
-language: nodejs
+language: node_js
+node_js:
+  - "10"
+
+before_script:
+  - npm run setup
+  - npm run build
 
 script:
-  - npm build
+  - npm run test-only
 
+after_success:
+  - npm pack
+
+deploy:
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file_glob: true
+    file: "epjClubManager-*.tgz"
+    skip_cleanup: true
+    on:
+      tags: true
+      
+notifications:
+  slack: epj-clubmanager:$SLACK_TOKEN
