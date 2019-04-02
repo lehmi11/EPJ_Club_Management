@@ -7,7 +7,7 @@ before_script:
   - npm run build
 
 script:
-  - npm run test-only
+  - npm test
 
 after_success:
   - npm pack
