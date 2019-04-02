@@ -35,11 +35,11 @@ export class ClubStore {
         try {
             await client.connect();
             const {rows} = await client.query(
-                `SELECT COUNT(*)*100 as paidMembership
+                `SELECT COUNT(*)*100 as "paidMembership"
                 FROM mitgliedschaft 
                 WHERE beitragbezahlt = true`);
             // console.table(rows);
-            return rows;
+            return rows[0];
         } catch (error) {
             console.log(`Error-Message: ${error}`);
         } finally {
@@ -51,11 +51,12 @@ export class ClubStore {
         try {
             await client.connect();
             const {rows} = await client.query(
-                `SELECT COUNT(*)*100 as notPaidMembership
+                `SELECT COUNT(*)*100 AS "notPaidMembership"
                 FROM mitgliedschaft 
-                WHERE mitgliedschaft.beitragbezahlt = false"`);
+                WHERE mitgliedschaft.beitragbezahlt = false`);
             // console.table(rows);
-            return rows;
+            console.log(`Output-Methode: ${rows}`);
+            return rows[0];
         } catch (error) {
             console.log(`Error-Message: ${error}`);
         } finally {
@@ -67,12 +68,11 @@ export class ClubStore {
         try {
             await client.connect();
             const {rows} = await client.query(`
-                SELECT COUNT(*)*100 AS warning 
+                SELECT COUNT(*)*100 AS "warning" 
                 FROM mitgliedschaft 
                 WHERE mitgliedschaft.beitragbezahlt = false 
                 AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
-            // console.table(rows);
-            return rows;
+            return rows[0];
         } catch (error) {
             console.log(`Error-Message: ${error}`);
         } finally {
