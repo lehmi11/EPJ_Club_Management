@@ -21,8 +21,20 @@ app.get("/teams", (req, res) => {
   res.render("teams", { title: "Teams"});
 });
 
+app.get("/teams_detail", (req, res) => {
+  res.render("teams_detail", { title: "Team Detail"});
+});
+
+app.get("/teams_change", (req, res) => {
+  res.render("teams_change", { title: "Team bearbeiten"});
+});
+
 app.get("/events", (req, res) => {
   res.render("events", { title: "Teamübersicht"});
+});
+
+app.get("/events_detail", (req, res) => {
+  res.render("events_detail", { title: "Event Detail"});
 });
 
 app.get("/dashboard", (req, res) => {
