@@ -13,6 +13,10 @@ app.get("/", (req, res) => {
   res.render("login", { title: "Login", hideSidebar: "true"});
 });
 
+app.get("/forgot-password", (req, res) => {
+  res.render("forgot-password", { title: "Password vergessen", hideSidebar: "true"});
+});
+
 app.get("/members", (req, res) => {
   res.render("members", { title: "Mitglieder"});
 });
