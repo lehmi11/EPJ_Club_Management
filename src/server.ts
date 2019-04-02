@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from "express";
 // tslint:disable-next-line: ordered-imports
 import bodyParser from "body-parser";
@@ -36,6 +37,9 @@ app.get("/dashboard", (req, res) => {
 app.get("/profile", (req, res) => {
   res.render("profile", { title: "mein Profil"});
 });
+=======
+import app from "./app";
+>>>>>>> 9f9709d1663f54303d086b78fb01f80702081533
 
 const hostname = "127.0.0.1";
 const port = 3001;
