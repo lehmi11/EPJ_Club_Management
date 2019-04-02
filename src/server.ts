@@ -1,45 +1,4 @@
-<<<<<<< HEAD
-import express from "express";
-// tslint:disable-next-line: ordered-imports
-import bodyParser from "body-parser";
-import hbs from "express-handlebars";
-import {Request, Response} from "express-serve-static-core";
-import {clubRoutes} from "./routes/clubRoutes";
-
-
-const app = express();
-app.use(clubRoutes);
-app.use(bodyParser.urlencoded({extended: false}));
-app.engine("handlebars", hbs({defaultLayout: "main"}));
-app.set("view engine", "handlebars");
-app.use("/public", express.static("public"));
-
-app.get("/", (req, res) => {
-  res.render("login", { title: "Login", hideSidebar: "true"});
-});
-
-app.get("/members", (req, res) => {
-  res.render("members", { title: "Mitglieder"});
-});
-
-app.get("/teams", (req, res) => {
-  res.render("teams", { title: "Teams"});
-});
-
-app.get("/events", (req, res) => {
-  res.render("events", { title: "Teamübersicht"});
-});
-
-app.get("/dashboard", (req, res) => {
-  res.render("dashboard_finance", { title: "Dashboard"});
-});
-
-app.get("/profile", (req, res) => {
-  res.render("profile", { title: "mein Profil"});
-});
-=======
 import app from "./app";
->>>>>>> 9f9709d1663f54303d086b78fb01f80702081533
 
 const hostname = "127.0.0.1";
 const port = 3001;
