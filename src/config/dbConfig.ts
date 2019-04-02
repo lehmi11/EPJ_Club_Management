@@ -1,8 +1,8 @@
-const connectionString = "postgresql://postgres:clubmanager@sinv-56037.edu.hsr.ch:5432/clubManager"
+const connectionString = "postgresql://postgres:clubmanager@sinv-56037.edu.hsr.ch:5432/clubManager";
 
-const {Client} = require("pg");
+import {Client} from "pg";
 export const client = new Client({
-    connectionString: connectionString,
+    connectionString,
 /*  user: "postgres",
     password: "clubmanager",
     host: "152.96.56.37",

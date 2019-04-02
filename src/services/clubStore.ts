@@ -16,7 +16,7 @@ export class ClubStore {
     public async getTotalMembershipPaid() {
         const {rows} = await db.client.query(
             `SELECT COUNT(*)*100 as "paidMembership"
-            FROM mitgliedschaft 
+            FROM mitgliedschaft
             WHERE beitragbezahlt = true`);
         return rows[0];
     }
@@ -24,16 +24,16 @@ export class ClubStore {
     public async getTotalMembershipNotPaid() {
         const {rows} = await db.client.query(
             `SELECT COUNT(*)*100 AS "notPaidMembership"
-            FROM mitgliedschaft 
+            FROM mitgliedschaft
             WHERE mitgliedschaft.beitragbezahlt = false`);
         return rows[0];
     }
 
     public async getTotalMembershipWarning() {
         const {rows} = await db.client.query(`
-            SELECT COUNT(*)*100 AS "warning" 
-            FROM mitgliedschaft 
-            WHERE mitgliedschaft.beitragbezahlt = false 
+            SELECT COUNT(*)*100 AS "warning"
+            FROM mitgliedschaft
+            WHERE mitgliedschaft.beitragbezahlt = false
             AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
         return rows[0];
     }

@@ -1,14 +1,15 @@
 import {Request, Response} from "express-serve-static-core";
-import {clubStore} from "../services/clubStore";
 import * as db from "../config/dbConfig";
+import {clubStore} from "../services/clubStore";
+
 export class ClubController {
 
     public async showFinanceDashboard(req: Request, res: Response) {
         try {
             await db.client.connect();
-            let totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
-            let totalMembershipPaid= await (clubStore.getTotalMembershipPaid());
-            let totalMembershipWarning= await (clubStore.getTotalMembershipWarning());
+            const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
+            const totalMembershipPaid = await (clubStore.getTotalMembershipPaid());
+            const totalMembershipWarning = await (clubStore.getTotalMembershipWarning());
 
             res.render("dashboard_finance", {
                 totalMembershipNotPaid: totalMembershipNotPaid.notPaidMembership + " CHF",
