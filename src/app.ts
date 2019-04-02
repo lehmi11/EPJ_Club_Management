@@ -13,7 +13,7 @@ const app = express();
 // Express configuration
 app.engine("handlebars", hbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
-app.use("/public", express.static("public"));
+app.use("/views", express.static("views"));
 
 // Primary routes
 app.get("/", demoController.index);
