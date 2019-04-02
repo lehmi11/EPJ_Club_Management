@@ -1,20 +1,27 @@
 import {Request, Response} from "express-serve-static-core";
 import {clubStore} from "../services/clubStore";
-
+import * as db from "../config/dbConfig";
 export class ClubController {
 
     public async showFinanceDashboard(req: Request, res: Response) {
-        res.render("dashboard_finance", {
-            totalMembershipNotPaid: (await clubStore.getTotalMembershipNotPaid()).notPaidMembership,
-           // totalMembershipPaid: (await clubStore.getTotalMembershipPaid()).paidMembership,
-           // totalMembershipWarning: (await clubStore.getTotalMembershipWarning()).warning,
-        });
+        try {
+            await db.client.connect();
+            let totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
+            let totalMembershipPaid= await (clubStore.getTotalMembershipPaid());
+            let totalMembershipWarning= await (clubStore.getTotalMembershipWarning());
+
+            res.render("dashboard_finance", {
+                totalMembershipNotPaid: totalMembershipNotPaid.notPaidMembership + " CHF",
+                totalMembershipPaid: totalMembershipPaid.paidMembership + " CHF",
+                totalMembershipWarning: totalMembershipWarning.warning + " CHF",
+            });
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        } finally {
+            await db.client.end();
+        }
     }
-    /*
-    public async showMitglieder(req: Request, res: Response) {
-        res.render("members", {mitglieder: await clubStore.getMitglieder()});
-    }
-    */
 }
 
 export const clubController = new ClubController();

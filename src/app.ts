@@ -5,6 +5,7 @@ import {clubRoutes} from "./routes/clubRoutes";
 
 // Controllers
 import * as demoController from "./controllers/demoController";
+import { clubController } from './controllers/clubController';
 
 // Create express server
 const app = express();
@@ -17,7 +18,8 @@ app.set("view engine", "handlebars");
 app.use("/views", express.static("views"));
 
 // Primary routes
-app.get("/", demoController.index);
+//app.get("/", demoController.index);
+app.get("/", clubController.showFinanceDashboard);
 app.get("/forgot-password", demoController.forgotPassword);
 app.get("/members", demoController.membersView);
 app.get("/teams", demoController.teamsView);
