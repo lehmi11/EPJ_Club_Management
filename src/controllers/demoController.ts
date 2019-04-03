@@ -16,8 +16,20 @@ export let teamsView = (req: Request, res: Response) => {
     res.render("teams", { title: "Teams" });
 };
 
+export let teamsDetailView = (req: Request, res: Response) => {
+    res.render("teams_detail", { title: "Team Detail"});
+};
+
+export let teamsChangeView = (req: Request, res: Response) => {
+    res.render("teams_change", { title: "Team bearbeiten"});
+};
+
 export let eventsView = (req: Request, res: Response) => {
     res.render("events", { title: "Terminübersicht" });
+};
+
+export let eventsDetailView = (req: Request, res: Response) => {
+    res.render("events_detail", { title: "Event Detail"});
 };
 
 export let dashboard = (req: Request, res: Response) => {

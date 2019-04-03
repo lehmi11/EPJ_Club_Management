@@ -21,11 +21,13 @@ app.use("/views", express.static("views"));
 
 // Primary routes
 app.get("/", demoController.index);
-// app.get("/", clubController.showFinanceDashboard);
 app.get("/forgot-password", demoController.forgotPassword);
 app.get("/members", demoController.membersView);
 app.get("/teams", demoController.teamsView);
+app.get("/teams_detail", demoController.teamsDetailView);
+app.get("/teams_change", demoController.teamsChangeView);
 app.get("/events", demoController.eventsView);
+app.get("/events_detail", demoController.eventsDetailView);
 app.get("/dashboard", clubController.showFinanceDashboard);
 app.get("/profile", demoController.profile);
 

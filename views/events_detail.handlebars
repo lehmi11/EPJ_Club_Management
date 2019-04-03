@@ -40,8 +40,8 @@
                                 <input type="text" class="form-control bg-light border-0 small" placeholder="Suche..." aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -53,7 +53,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Jane Doe</span>
-                        <img class="img-profile rounded-circle" src="../public/img/jane_doe.png" alt="Profile Image">
+                        <img class="img-profile rounded-circle" src="../views/img/jane_doe.png" alt="Profile Image">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -80,105 +80,89 @@
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Teamübersicht</h1>
-                <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#newTeamModal">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                    <span class="text">Hinzufügen</span>
-                </a>
+                <h1 class="h3 mb-0 text-gray-800">Termin Details</h1>
+                <a href="/events" class="btn btn-danger">Zurück</a>
 
                 <!-- Modal -->
-                <div class="modal fade" id="newTeamModal" tabindex="-1" role="dialog" aria-labelledby="newTeamModal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="newTeamLabel">Team hinzufügen</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="inputTeam">Team</label>
-                                        <input type="text" class="form-control" id="inputTeam" placeholder="Team">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputVerantwortlicher">Verantwortlicher</label>
-                                        <input type="text" class="form-control" id="inputVerantwortlicher" placeholder="Verantwortlicher">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
-                                <button type="button" class="btn btn-primary">Hinzufügen</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade " id="bearbeitenModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Anmeldung</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Sie haben sich erfolgreich für den Anlass angemeldet.
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
             <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="card-img-top" src="../views/img/ostern.png" alt="Card image" style="width:100%">
+                            </div>
+                            <div class="col-md8 px-3">
+                                <br>
+                                <h4 class="card-title">Oster-Event</h4>
+                                <p>
+                                <span>Ort: Zürich</span><br>
+                                <span>Datum: 18.04.2019</span><br>
+                                <span>Uhrzeit: 14:00 - 21:00</span>
+                                </p>
+                                <h5 class="card-text">Verantwortlicher:</h5>
+                                <span class="card-text">Jameson Sandoval</span>
+                                <span class="card-text">
+                                    <a href="mailto:some@email.com" target="_blank" class="btn btn-primary btn-sm ml-2">E-Mail</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
 
-                <!-- DataTales Example -->
+            <div class="row">
                 <div class="col-xl-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Teams</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Teilnehmer</h6>
                         </div>
                         <div class="card-body">
                             <table class="table table-sm table-hover" id="dataTable" data-page-length='15'>
                                 <thead>
                                 <tr>
-                                    <th>Mannschaft</th>
-                                    <th>Anzahl Mitglieder</th>
-                                    <th>Verantwortlicher</th>
+                                    <th>Name</th>
+                                    <th>Team</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>Junioren Mannschaft</td>
-                                    <td>18</td>
-                                    <td>Basil Sweet</td>
+                                    <td>Hilel Knowles</td>
+                                    <td>Senioren-Mannschaft</td>
                                     <td>
-                                        <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
-                                        <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>
+                                        <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Senioren Mannschaft</td>
-                                    <td>13</td>
-                                    <td>Hilel Knowles</td>
+                                    <td>Jameson Sandoval</td>
+                                    <td>Senioren-Mannschaft</td>
                                     <td>
-                                        <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
-                                        <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>
+                                        <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Basil Sweet</td>
+                                    <td>Junioren-Mannschaft</td>
+                                    <td>
+                                        <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Brendan Sanders</td>
+                                    <td>Senioren-Mannschaft</td>
+                                    <td>
+                                        <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ulric Hendricks</td>
+                                    <td>Junioren-Mannschaft</td>
+                                    <td>
+                                        <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
                                     </td>
                                 </tr>
                                 </tbody>
