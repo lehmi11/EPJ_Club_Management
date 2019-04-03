@@ -8,24 +8,26 @@
     "setup": "npm install",
     "build": "tsc",
     "build-watch": "tsc --watch",
-    "test-only": "npm run lint && npm run mocha",
-    "test": "npm run test-only",
+    "pretest": "npm run lint",
+    "test": "npm run mocha",
     "prestart": "npm run build",
     "start": "node ./dist/server.js",
     "clean": "shx rm -fr node_modules/ dist/ docs/",
     "mocha": "mocha --require @babel/register -r ts-node/register test/*.ts",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "copy-win": "xcopy /S /Y src\\views\\* dist\\views\\",
+    "copy-linux": "cp -R src/views/* dist/views/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lehmi11/EPJ_Club_Management.git"
+    "url": "git+https://github.com/monzond/EPJ_Club_Management.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lehmi11/EPJ_Club_Management/issues"
+    "url": "https://github.com/monzond/EPJ_Club_Management/issues"
   },
-  "homepage": "https://github.com/lehmi11/EPJ_Club_Management#readme",
+  "homepage": "https://github.com/monzond/EPJ_Club_Management#readme",
   "dependencies": {
     "@types/express": "^4.16.1",
     "@types/express-handlebars": "0.0.30",

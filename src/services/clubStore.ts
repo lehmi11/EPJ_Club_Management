@@ -1,37 +1,43 @@
-import {Client} from "pg";
-const client = new Client({
-    /* tslint:disable:object-literal-sort-keys */
-    user: "postgres",
-    password: "postgres",
-    host: "localhost",
-    port: 5432,
-    database: "ClubManagerDB",
-    /* tslint:enable:object-literal-sort-keys */
-});
+
+import * as db from "../config/dbConfig";
 
 export class ClubStore {
 
-    public async getMitglieder() {
-        await client.connect();
-        const results = await client.query("select * from mitglied");
-        console.table(results.rows);
-        await client.end();
+    public async getMembersFeeNotPaid() {
+        const {rows} = await db.client.query(
+            `SELECT mit.name AS "Nachname", mit.vorname AS "Vorname", mit.strasse AS "Strasse",
+                mit.plz AS "PLZ", mit.ort AS "ORT"
+            FROM mitglied mit INNER JOIN
+                mitgliedschaft mitgliedsch ON mitgliedsch.mitgliedid = mit.id
+            WHERE mitgliedsch.beitragbezahlt = false `);
+        return rows;
     }
 
-    public async addMitglied() {
-        try {
-            await client.connect();
-            await client.query("BEGIN");
-            await client.query("Insert into mitglied values ($1, $2, $3)", [6, "Michi", "Meier"]);
-        } catch {
-            await client.query("ROLLBACK");
-        } finally {
-            await client.end();
-        }
+    public async getTotalMembershipPaid() {
+        const {rows} = await db.client.query(
+            `SELECT COUNT(*)*100 as "paidMembership"
+            FROM mitgliedschaft
+            WHERE beitragbezahlt = true`);
+        return rows[0];
     }
 
+    public async getTotalMembershipNotPaid() {
+        const {rows} = await db.client.query(
+            `SELECT COUNT(*)*100 AS "notPaidMembership"
+            FROM mitgliedschaft
+            WHERE mitgliedschaft.beitragbezahlt = false`);
+        return rows[0];
+    }
+
+    public async getTotalMembershipWarning() {
+        const {rows} = await db.client.query(`
+            SELECT COUNT(*)*100 AS "warning"
+            FROM mitgliedschaft
+            WHERE mitgliedschaft.beitragbezahlt = false
+            AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
+        return rows[0];
+    }
 }
-
 
 export const clubStore = new ClubStore();
 
