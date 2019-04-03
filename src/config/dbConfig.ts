@@ -1,4 +1,4 @@
-const connectionString = "postgresql://postgres:clubmanager@sinv-56037.edu.hsr.ch:5432/clubManager";
+const connectionString = "postgresql://postgres:clubmanager@sinv-56037.edu.hsr.ch:40000/clubManager";
 
 import {Pool} from "pg";
 export const pool = new Pool();

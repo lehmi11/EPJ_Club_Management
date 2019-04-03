@@ -1,8 +1,8 @@
 import * as bodyParser from "body-parser";
 import express from "express";
 import hbs from "express-handlebars";
-import {clubRoutes} from "./routes/clubRoutes";
 import * as db from "./config/dbConfig";
+import {clubRoutes} from "./routes/clubRoutes";
 
 // Controllers
 import { clubController } from "./controllers/clubController";
