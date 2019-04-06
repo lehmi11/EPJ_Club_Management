@@ -3,6 +3,17 @@ import {clubStore} from "../services/clubStore";
 
 export class ApiController {
 
+    public async getMembers(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getMembers());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getMembersNotPaid(req: Request, res: Response) {
         try {
             const members = await (clubStore.getMembersFeeNotPaid());
