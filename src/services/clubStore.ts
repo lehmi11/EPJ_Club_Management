@@ -5,7 +5,7 @@ export class ClubStore {
 
     public async getMembersFeeNotPaid() {
         const {rows} = await db.client.query(
-            `SELECT mit.name AS "Nachname", mit.vorname AS "Vorname", mit.strasse AS "Strasse",
+            `SELECT mit.name AS "Nachname", mit.vorname AS "Vorname", mit.strasse AS "Strasse", mitgliedsch.mitgliederbeitrag AS "Betrag",
                 mit.plz AS "PLZ", mit.ort AS "ORT"
             FROM mitglied mit INNER JOIN
                 mitgliedschaft mitgliedsch ON mitgliedsch.mitgliedid = mit.id

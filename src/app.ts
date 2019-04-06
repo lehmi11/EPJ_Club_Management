@@ -2,6 +2,7 @@ import * as bodyParser from "body-parser";
 import express from "express";
 import hbs from "express-handlebars";
 import * as db from "./config/dbConfig";
+import {apiRoutes} from "./routes/apiRoutes";
 import {clubRoutes} from "./routes/clubRoutes";
 
 // Controllers
@@ -19,6 +20,8 @@ app.engine("handlebars", hbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 app.use("/views", express.static("views"));
 
+app.use("/api", apiRoutes);
+
 // Primary routes
 app.get("/", demoController.index);
 app.get("/forgot-password", demoController.forgotPassword);
@@ -28,7 +31,8 @@ app.get("/teams_detail", demoController.teamsDetailView);
 app.get("/teams_change", demoController.teamsChangeView);
 app.get("/events", demoController.eventsView);
 app.get("/events_detail", demoController.eventsDetailView);
-app.get("/dashboard", clubController.showFinanceDashboard);
+app.get("/dashboard", demoController.dashboard);
 app.get("/profile", demoController.profile);
+
 
 export default app;

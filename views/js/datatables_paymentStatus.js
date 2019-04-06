@@ -1,7 +1,7 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  // Datatable settings
-  $('#dataTable').DataTable( {
+
+  window.globalDataTableConf = {
     "lengthChange": false,
     language: {
       "sEmptyTable":      "Keine Daten in der Tabelle vorhanden",
@@ -44,7 +44,10 @@ $(document).ready(function() {
         }
       }
     }
-  });
+  };
+
+  // Datatable settings
+  $('#dataTable').DataTable( window.globalDataTableConf );
 
   // Disable Datatable search field
   $('#dataTable_filter').hide();

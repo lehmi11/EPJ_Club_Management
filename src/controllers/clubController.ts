@@ -1,5 +1,4 @@
 import {Request, Response} from "express-serve-static-core";
-// import * as db from "../config/dbConfig";
 import {clubStore} from "../services/clubStore";
 
 export class ClubController {
@@ -18,8 +17,6 @@ export class ClubController {
 
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
-        } finally {
-            // await db.client.end();
         }
     }
 }
