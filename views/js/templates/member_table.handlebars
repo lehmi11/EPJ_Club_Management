@@ -1,0 +1,20 @@
+<table class="table table-sm table-hover" id="memberTable" data-page-length='6'>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Adresse</th>
+        <th>Stadt</th>
+        <th>Betrag</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each members}}
+        <tr>
+            <td>{{ Nachname }} {{ Vorname }}</td>
+            <td>{{ Strasse }} {{ PLZ }} </td>
+            <td>{{ ORT }}</td>
+            <td>{{ Betrag }} CHF</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
