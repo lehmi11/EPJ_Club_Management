@@ -14,6 +14,25 @@ export class ApiController {
         }
     }
 
+    public async getMembersPaymentStatus(req: Request, res: Response) {
+        try {
+            const membersPaidCount = await (clubStore.getTotalMembershipPaidCount());
+            const membersNotPaidCount = await (clubStore.getTotalMembershipNotPaidCount());
+            const membersWarningCount = await (clubStore.getTotalMembershipWarningCount());
+
+            res.json( {
+                paymentStatus: [
+                    membersPaidCount.paidMembershipCount,
+                    membersNotPaidCount.notPaidMembershipCount,
+                    membersWarningCount.warningCount,
+                ],
+            });
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getFinanceDashboard(req: Request, res: Response) {
         try {
             const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
