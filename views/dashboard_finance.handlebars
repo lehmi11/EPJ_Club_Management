@@ -156,31 +156,23 @@
                         <!-- Card Header -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Mitgliederbeiträge</h6>
-                            <a class="card-link" href="" role="button" id="refresh">
-                                <i class="fas fa-redo-alt fa-sm fa-fw text-gray-400"></i>
-                            </a>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
                             <div class="chart-pie pt-4 pb-2">
-                                <canvas id="paymentStatus"></canvas>
+                                <canvas id="paymentChart"></canvas>
                             </div>
                             <div class="mt-4 text-center small">
-                                <span class="mr-2">
-                                        <i class="fas fa-circle text-success"></i> Bezahlt
-                                    </span>
-                                <span class="mr-2">
-                                        <i class="fas fa-circle text-warning"></i> Ausstehend
-                                    </span>
-                                <span class="mr-2">
-                                        <i class="fas fa-circle text-danger"></i> Mahnung
-                                    </span>
+                                <span class="mr-2"><i class="fas fa-circle text-success"></i> Bezahlt</span>
+                                <span class="mr-2"><i class="fas fa-circle text-warning"></i> Ausstehend</span>
+                                <span class="mr-2"><i class="fas fa-circle text-danger"></i> Mahnung</span>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
-                <!-- DataTales Example -->
+                <!-- DataTable Members Unpaid -->
                 <div class="col-xl-8 col-lg-10">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -218,5 +210,3 @@
 <script src="../views/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="../views/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="../views/js/chart-pie_payment.js"></script>

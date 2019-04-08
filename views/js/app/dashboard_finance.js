@@ -80,4 +80,50 @@ $(document).ready(function() {
             });
         });
     }
+
+    let $paymentChart = $("#paymentChart");
+
+    // check if we found the char element
+    if ($paymentChart.length > 0) {
+
+        // get payment count
+        $.getJSON( "/api/members/paymentStatus", function(data) {
+            initChart(data.paymentStatus);
+        });
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = "Nunito", '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = "#858796";
+
+        function initChart(data) {
+            let myPieChart = new Chart($paymentChart, {
+                type: "doughnut",
+                data: {
+                    labels: ["Bezahlt", "Ausstehend", "Mahnung"],
+                    datasets: [{
+                        data: data,
+                        backgroundColor: ["#1cc88a", "#f6c23e", "#e74a3b"],
+                        hoverBackgroundColor: ["#0fcb87", "#f2b927", "#ea3b2f"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                    }],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        backgroundColor: "rgb(255,255,255)",
+                        bodyFontColor: "#858796",
+                        borderColor: "#dddfeb",
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        caretPadding: 10,
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    cutoutPercentage: 80,
+                },
+            });
+        }
+    }
 });
