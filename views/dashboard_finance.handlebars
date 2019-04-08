@@ -86,7 +86,7 @@
             </div>
 
             <!-- Content Row -->
-            <div class="row">
+            <div class="row" id="app_dashboard_finance">
 
                 <!-- pending payment amount -->
                 <div class="col-xl-4 col-md-6 mb-4">
@@ -97,7 +97,7 @@
                                     <div class="text-xs font-weight-bofld text-success text-uppercase mb-1">
                                         Bezahlte Mitgliederbeiträge
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalMembershipPaid}}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 app_total"></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -116,7 +116,7 @@
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Offene Mitgliederbeiträge
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalMembershipNotPaid}}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 app_notpaid"></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -135,7 +135,7 @@
                                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                         Überfällige Mitgliederbeiträge
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalMembershipWarning}}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 app_warning"></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -156,31 +156,23 @@
                         <!-- Card Header -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Mitgliederbeiträge</h6>
-                            <a class="card-link" href="" role="button" id="refresh">
-                                <i class="fas fa-redo-alt fa-sm fa-fw text-gray-400"></i>
-                            </a>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
                             <div class="chart-pie pt-4 pb-2">
-                                <canvas id="paymentStatus"></canvas>
+                                <canvas id="paymentChart"></canvas>
                             </div>
                             <div class="mt-4 text-center small">
-                                <span class="mr-2">
-                                        <i class="fas fa-circle text-success"></i> Bezahlt
-                                    </span>
-                                <span class="mr-2">
-                                        <i class="fas fa-circle text-warning"></i> Ausstehend
-                                    </span>
-                                <span class="mr-2">
-                                        <i class="fas fa-circle text-danger"></i> Mahnung
-                                    </span>
+                                <span class="mr-2"><i class="fas fa-circle text-success"></i> Bezahlt</span>
+                                <span class="mr-2"><i class="fas fa-circle text-warning"></i> Ausstehend</span>
+                                <span class="mr-2"><i class="fas fa-circle text-danger"></i> Mahnung</span>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
-                <!-- DataTales Example -->
+                <!-- DataTable Members Unpaid -->
                 <div class="col-xl-8 col-lg-10">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -188,193 +180,7 @@
                             <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
                                 aria-label="Search">
                         </div>
-                        <div class="card-body">
-                            <table class="table table-sm table-hover" id="dataTable" data-page-length='6'>
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Adresse</th>
-                                        <th>Stadt</th>
-                                        <th>Betrag</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Charles Carson</td>
-                                        <td>Ap #489-2114 A, Street</td>
-                                        <td>Beaufays</td>
-                                        <td>112 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Oscar Pierce</td>
-                                        <td>Ap #261-930 Mauris Av.</td>
-                                        <td>Madrid</td>
-                                        <td>107 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chaney Diaz</td>
-                                        <td>181-2756 Suspendisse St.</td>
-                                        <td>Crowsnest Pass</td>
-                                        <td>173 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kennan Lewis</td>
-                                        <td>P.O. Box 441, 6286 Est Avenue</td>
-                                        <td>Dillenburg</td>
-                                        <td>242 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hashim Rodriquez</td>
-                                        <td>475-906 Phasellus St.</td>
-                                        <td>Santiago</td>
-                                        <td>114 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rooney Holland</td>
-                                        <td>721-3062 Ornare Rd.</td>
-                                        <td>Memphis</td>
-                                        <td>136 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Herman Ayala</td>
-                                        <td>Ap #537-6453 Tincidunt St.</td>
-                                        <td>Baie-Saint-Paul</td>
-                                        <td>124 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Declan Woodard</td>
-                                        <td>375-1399 Orci, Ave</td>
-                                        <td>Pincher Creek</td>
-                                        <td>180 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Porter Dennis</td>
-                                        <td>822-8215 Ad Av.</td>
-                                        <td>Saarlouis</td>
-                                        <td>188 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Reece Mathews</td>
-                                        <td>157-4854 Donec St.</td>
-                                        <td>Houdemont</td>
-                                        <td>229 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jesse Hull</td>
-                                        <td>900-5015 Venenatis Rd.</td>
-                                        <td>Nazilli</td>
-                                        <td>114 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Steel Pickett</td>
-                                        <td>541-5797 Mollis. St.</td>
-                                        <td>Esen</td>
-                                        <td>183 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bruce Boyer</td>
-                                        <td>895-2785 Placerat Road</td>
-                                        <td>Dieppe</td>
-                                        <td>172 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Christopher Maynard</td>
-                                        <td>Ap #134-6612 Velit Avenue</td>
-                                        <td>Maple Creek</td>
-                                        <td>203 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Buckminster Tran</td>
-                                        <td>401-373 Felis Av.</td>
-                                        <td>Portofino</td>
-                                        <td>142 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ross Rollins</td>
-                                        <td>280-6173 Et Av.</td>
-                                        <td>Akhisar</td>
-                                        <td>194 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bert Patterson</td>
-                                        <td>105-2477 Mauris. Rd.</td>
-                                        <td>Lang</td>
-                                        <td>195 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hyatt Mueller</td>
-                                        <td>Ap #107-7337 Lobortis, Rd.</td>
-                                        <td>Municipal District</td>
-                                        <td>203 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wing Delacruz</td>
-                                        <td>P.O. Box 874, 7616 Orci, Av.</td>
-                                        <td>Mustafakemalpaşa</td>
-                                        <td>194 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castor Kramer</td>
-                                        <td>Ap #397-5256 Eu, Rd.</td>
-                                        <td>Springfield</td>
-                                        <td>107 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Perry Buckner</td>
-                                        <td>956-8221 Libero. Avenue</td>
-                                        <td>Tiegem</td>
-                                        <td>225 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dominic Snider</td>
-                                        <td>Ap #881-331 Dolor. Av.</td>
-                                        <td>Alexandra</td>
-                                        <td>125 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Burton Finch</td>
-                                        <td>Ap #344-3548 Vel St.</td>
-                                        <td>Detroit</td>
-                                        <td>101 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mufutau Norman</td>
-                                        <td>539-2995 Convallis St.</td>
-                                        <td>Tiruvannamalai</td>
-                                        <td>127 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hilel Knowles</td>
-                                        <td>224-7846 Amet, Rd.</td>
-                                        <td>Spy</td>
-                                        <td>134 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jameson Sandoval</td>
-                                        <td>463-7739 Mauris Avenue</td>
-                                        <td>Orp-Jauche</td>
-                                        <td>177 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Basil Sweet</td>
-                                        <td>475-5222 Imperdiet Avenue</td>
-                                        <td>St. Andrä</td>
-                                        <td>111 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brendan Sanders</td>
-                                        <td>Ap #419-2334 Sed Avenue</td>
-                                        <td>Krefeld</td>
-                                        <td>233 CHF</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ulric Hendricks</td>
-                                        <td>Ap #861-5822 Curabitur St.</td>
-                                        <td>Malvern</td>
-                                        <td>193 CHF</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="card-body" id="app_members_not_paid">
                         </div>
                     </div>
                 </div>
@@ -404,6 +210,3 @@
 <script src="../views/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="../views/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="../views/js/chart-pie_payment.js"></script>
-<script src="../views/js/datatables_paymentStatus.js"></script>
