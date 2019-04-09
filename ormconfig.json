@@ -1,0 +1,16 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "sinv-56037.edu.hsr.ch",
+    "port": 40000,
+    "username": "postgres",
+    "password": "clubmanager",
+    "database": "clubManager",
+    "schema": "public",
+    "synchronize": false,
+    "entities": [
+      "dist/entities/*.js"
+    ]
+  }
+]

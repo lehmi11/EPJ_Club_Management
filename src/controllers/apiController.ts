@@ -3,17 +3,6 @@ import {clubStore} from "../services/clubStore";
 
 export class ApiController {
 
-    public async getMembersNotPaid(req: Request, res: Response) {
-        try {
-            const members = await (clubStore.getMembersFeeNotPaid());
-
-            res.json(members);
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-
     public async getMembersPaymentStatus(req: Request, res: Response) {
         try {
             const membersPaidCount = await (clubStore.getTotalMembershipPaidCount());
@@ -27,6 +16,16 @@ export class ApiController {
                     membersWarningCount.warningCount,
                 ],
             });
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getMembersNotPaid(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getMembersFeeNotPaid());
+
+            res.json(members);
 
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);

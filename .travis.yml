@@ -5,6 +5,7 @@ node_js:
 before_script:
   - npm run setup
   - npm run build
+  - npm run build-templates
 
 script:
   - npm test
