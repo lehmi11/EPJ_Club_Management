@@ -12,7 +12,7 @@ export class ClubStore {
 
         const connection = await createConnection();
 
-        let repository = getRepository(Mitglied);
+        const repository = getRepository(Mitglied);
 
         const mitglieds: Mitglied[] = await repository.find();
 
