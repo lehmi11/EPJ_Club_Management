@@ -1,7 +1,25 @@
 
 import * as db from "../config/dbConfig";
 
+import {createConnection} from "typeorm";
+import {getRepository} from "typeorm";
+
+import {Mitglied} from "../entities/Mitglied";
+
 export class ClubStore {
+
+    public async getMembers() {
+
+        const connection = await createConnection();
+
+        const repository = getRepository(Mitglied);
+
+        const mitglieds: Mitglied[] = await repository.find();
+
+        // let mitglied = mitglieds[0];
+
+        return mitglieds;
+    }
 
     public async getMembersFeeNotPaid() {
         const {rows} = await db.client.query(
