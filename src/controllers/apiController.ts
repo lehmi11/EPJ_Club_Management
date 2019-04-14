@@ -59,6 +59,28 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+
+    public async getEvents(req: Request, res: Response) {
+        try {
+            const events = await (clubStore.getEvents());
+
+            res.json(events);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getGroupsWithCount(req: Request, res: Response) {
+        try {
+            const groups = await (clubStore.getGroupsWithCount());
+
+            res.json(groups);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
 }
 
 export const apiController = new ApiController();
