@@ -1,19 +1,19 @@
 $(document).ready(function() {
 
-    let $appGroups = $("#app_groups");
+    let $appMembersWithAdress = $("#app_membersWithAdress");
 
     // check if we found the dashboard element
-    if ($appGroups.length > 0) {
+    if ($appMembersWithAdress.length > 0) {
 
-        $.getJSON("/api/groups", function ( groups ) {
+        $.getJSON("/api/membersWithAdress", function ( members ) {
 
-            let groupsTable = Handlebars.templates.group_table({
-                groups: groups,
+            let membersWithAdressTable = Handlebars.templates.membersWithAdress_table({
+                members: members,
             });
 
-            $appGroups.html(groupsTable);
+            $appMembersWithAdress.html(membersWithAdressTable);
 
-            $("#dataTable").DataTable( {
+            $("#membersWithAdressTable").DataTable( {
                 "lengthChange": false,
                 language: {
                     "sEmptyTable":      "Keine Daten in der Tabelle vorhanden",

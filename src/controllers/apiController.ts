@@ -81,6 +81,17 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+
+    public async getMembersWithAdress(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getNameOfMembersWithAdress());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
 }
 
 export const apiController = new ApiController();

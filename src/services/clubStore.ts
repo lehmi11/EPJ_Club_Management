@@ -103,6 +103,16 @@ export class ClubStore {
                 GROUP BY gruppe.name, gruppe.verantwortlicher;`);
         return rows;
     }
+    public async getNameOfMembersWithAdress() {
+        const {rows} = await db.client.query(`
+            SELECT name AS "Name",
+            vorname AS "Vorname",
+            strasse AS "Adresse",
+            plz AS "PLZ",
+            ort AS "Ort"
+            FROM mitglied;`);
+        return rows;
+    }
 }
 
 export const clubStore = new ClubStore();

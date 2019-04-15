@@ -13,7 +13,7 @@ $(document).ready(function() {
 
             $appEvents.html(eventTable);
 
-            $("#memberTable").DataTable( {
+            $("#eventTable").DataTable( {
                 "lengthChange": false,
                 language: {
                     "sEmptyTable":      "Keine Daten in der Tabelle vorhanden",
