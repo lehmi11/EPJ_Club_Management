@@ -1,18 +1,32 @@
 $(document).ready(function() {
 
-    let $appMembersWithAdress = $("#app_membersWithAdress");
 
-    if ($appMembersWithAdress.length > 0) {
+    let $app_verantwortlicher = $("#verantwortlicher");
+    let $app_gruppenName = $("#Gruppenname");
 
-        $.getJSON("/api/membersWithAdress", function ( members ) {
+    if($app_verantwortlicher.length > 0){
 
-            let membersWithAdressTable = Handlebars.templates.membersWithAdress_table({
-                members: members,
+        $.getJSON( "/api/groupWithMembers", function( data ) {
+            $app_verantwortlicher.html(data[0].Verantwortlicher);
+            $app_gruppenName.html(data[0].Gruppenname)
+
+        });
+
+    }
+
+    let $appGroupDetail = $("#app_group_detail");
+
+    if ($appGroupDetail.length > 0) {
+
+        $.getJSON("/api/groupWithMembers", function ( groups ) {
+
+            let groupsTable = Handlebars.templates.group_detail_table({
+                groups: groups,
             });
 
-            $appMembersWithAdress.html(membersWithAdressTable);
+            $appGroupDetail.html(groupsTable);
 
-            $("#membersWithAdressTable").DataTable( {
+            $("#dataTable").DataTable( {
                 "lengthChange": false,
                 language: {
                     "sEmptyTable":      "Keine Daten in der Tabelle vorhanden",

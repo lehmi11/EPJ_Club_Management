@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     let $appGroups = $("#app_groups");
 
-    // check if we found the dashboard element
     if ($appGroups.length > 0) {
 
         $.getJSON("/api/groups", function ( groups ) {

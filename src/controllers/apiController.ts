@@ -82,6 +82,17 @@ export class ApiController {
         }
     }
 
+    public async getGroupWithMembers(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getGroupWithMembers());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getMembersWithAdress(req: Request, res: Response) {
         try {
             const members = await (clubStore.getNameOfMembersWithAdress());

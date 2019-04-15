@@ -5,7 +5,6 @@ $(document).ready(function() {
     // check if we found the dashboard element
     if ($appDashboardFinance.length > 0) {
 
-        // load dashboard values
         $.getJSON( "/api/dashboard", function( data ) {
             $appDashboardFinance.find(".app_total").html(data.totalMembershipPaid + " CHF");
             $appDashboardFinance.find(".app_notpaid").html(data.totalMembershipNotPaid + " CHF");
@@ -18,7 +17,6 @@ $(document).ready(function() {
     // check if we found the members not paid element
     if ($appMembersNotPaid.length > 0) {
 
-        // load dashboard members not paid
         $.getJSON( "/api/members/notpaid", function( members ) {
 
             let memberTable = Handlebars.templates.member_table({
@@ -27,7 +25,6 @@ $(document).ready(function() {
 
             $appMembersNotPaid.html(memberTable);
 
-            // Datatable settings
             $("#memberTable").DataTable( {
                 "lengthChange": false,
                 language: {

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     let $appEvents = $("#app_events");
 
-    // check if we found the dashboard element
     if ($appEvents.length > 0) {
 
         $.getJSON("/api/events", function ( events ) {
