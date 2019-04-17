@@ -19,17 +19,17 @@ $(document).ready(function() {
 
     }
 
-    let $appGroupDetail = $("#app_event_detail");
+    let $appEventDetail = $("#app_event_detail");
 
-    if ($appGroupDetail.length > 0) {
+    if ($appEventDetail.length > 0) {
 
-        $.getJSON("/api/groupWithMembers", function ( groups ) {
+        $.getJSON("/api/events/specific", function ( event ) {
 
-            let groupsTable = Handlebars.templates.event_detail_table({
+            let eventTable = Handlebars.templates.event_detail_table({
                 event: event,
             });
 
-            $appGroupDetail.html(groupsTable);
+            $appEventDetail.html(eventTable);
 
             $("#dataTable").DataTable( {
                 "lengthChange": false,

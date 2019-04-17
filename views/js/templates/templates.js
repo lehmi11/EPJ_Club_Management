@@ -8,7 +8,7 @@ templates['event_detail_table'] = template({"1":function(container,depth0,helper
     + " "
     + alias4(((helper = (helper = helpers.Mitgliedvorname || (depth0 != null ? depth0.Mitgliedvorname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Mitgliedvorname","hash":{},"data":data}) : helper)))
     + "</td>\n        <td>"
-    + alias4(((helper = (helper = helpers["Senioren-Mannschaft"] || (depth0 != null ? depth0["Senioren-Mannschaft"] : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Senioren-Mannschaft","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.Adresse || (depth0 != null ? depth0.Adresse : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Adresse","hash":{},"data":data}) : helper)))
     + "</td>\n        <td>"
     + alias4(((helper = (helper = helpers.PLZ || (depth0 != null ? depth0.PLZ : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"PLZ","hash":{},"data":data}) : helper)))
     + " "
