@@ -1,0 +1,21 @@
+<table class="table table-sm table-hover" id="dataTable" data-page-length='15'>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Adresse</th>
+        <th>Ort</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each event}}
+    <tr>
+        <td>{{Mitgliedname}} {{Mitgliedvorname}}</td>
+        <td>{{Senioren-Mannschaft}}</td>
+        <td>{{PLZ}} {{Ort}}</td>
+        <td>
+            <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
