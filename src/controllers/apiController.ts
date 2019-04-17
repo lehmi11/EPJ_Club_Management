@@ -84,7 +84,7 @@ export class ApiController {
 
     public async getGroupWithMembers(req: Request, res: Response) {
         try {
-            const members = await (clubStore.getGroupWithMembers());
+            const members = await (clubStore.getSpecificGroupWithMembers(1));
 
             res.json(members);
 
