@@ -1,15 +1,20 @@
 $(document).ready(function() {
 
 
-    let $app_verantwortlicher = $("#verantwortlicher");
-    let $app_gruppenName = $("#Gruppenname");
+    let $app_verantwortlicher = $("#eventVerantwortlicher");
+    let $app_datum = $("#eventDatum");
+    let $app_name = $("#eventName");
+    let $app_ort = $("#eventOrt");
+    let $app_zeit = $("#eventZeit");
 
     if($app_verantwortlicher.length > 0){
 
-        $.getJSON( "/api/groupWithMembers", function( data ) {
+        $.getJSON( "/api/events/specific", function( data ) {
             $app_verantwortlicher.html(data[0].Verantwortlicher);
-            $app_gruppenName.html(data[0].Gruppenname)
-
+            $app_datum.html(data[0].Datum);
+            $app_ort.html(data[0].Ort);
+            $app_zeit.html(data[0].Start+" - "+data[0].Ende);
+            $app_name.html(data[0].Name);
         });
 
     }
