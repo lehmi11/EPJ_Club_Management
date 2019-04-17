@@ -103,6 +103,17 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+
+    public async getSpecificEventWithMembers(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getSpecificEventWithMembers(1));
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
 }
 
 export const apiController = new ApiController();
