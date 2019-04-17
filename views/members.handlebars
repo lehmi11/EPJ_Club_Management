@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputBirthday">Geburtstag</label>
-                                        <input type="date" class="form-control" id="inputBirthday" placeholder="Geburtstag">
+                                        <input type="date" class="form-control" id="inputBirthday">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputEmail">E-Mail Adresse</label>
@@ -148,11 +148,12 @@
             <!-- Content Row -->
             <div class="row">
 
-                <!-- DataTales Example -->
                 <div class="col-xl-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Mitgliederliste</h6>
+                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
+                                   aria-label="Search">
                         </div>
                         <div class="card-body" id="app_membersWithAdress">
                         </div>
