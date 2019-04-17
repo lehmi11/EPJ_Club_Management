@@ -1,0 +1,25 @@
+<table class="table table-sm table-hover" id="eventTable" data-page-length='5'>
+    <thead>
+    <tr>
+        <th>Anlass</th>
+        <th>Datum</th>
+        <th>Uhrzeit</th>
+        <th>Ort</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each events}}
+    <tr>
+        <td>{{Anlass}}</td>
+        <td>{{Datum}}</td>
+        <td>{{Start}} - {{Ende}}</td>
+        <td>{{Ort}}</td>
+        <td>
+            <a href="/events_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#anmeldenModal">Anmelden</button>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>

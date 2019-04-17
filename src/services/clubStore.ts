@@ -15,9 +15,6 @@ export class ClubStore {
         const repository = getRepository(Mitglied);
 
         const mitglieds: Mitglied[] = await repository.find();
-
-        // let mitglied = mitglieds[0];
-
         return mitglieds;
     }
 
@@ -82,6 +79,55 @@ export class ClubStore {
             WHERE mitgliedschaft.beitragbezahlt = false
             AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
         return rows[0];
+    }
+
+    public async getEvents() {
+        const {rows} = await db.client.query(`
+            SELECT name AS "Anlass",
+            datum AS "Datum",
+            von AS "Start",
+            bis AS "Ende",
+            ort AS "Ort"
+            FROM anlass`);
+        return rows;
+    }
+
+    public async getGroupsWithCount() {
+        const {rows} = await db.client.query(`
+            SELECT gruppe.name AS "Name",
+            gruppe.verantwortlicher AS "Verantwortlicher",
+            COUNT(*) AS "Anzahl"
+            FROM gruppe INNER JOIN gruppenbelegung
+                ON gruppe.id = gruppenbelegung.gruppenid INNER JOIN
+                mitglied ON gruppenbelegung.mitgliedid = mitglied.id
+                GROUP BY gruppe.name, gruppe.verantwortlicher;`);
+        return rows;
+    }
+
+    public async getGroupWithMembers() {
+        const {rows} = await db.client.query(`
+            SELECT gruppe.name AS "Gruppenname",
+            gruppe.verantwortlicher AS "Verantwortlicher",
+            mitglied.name AS "Name",
+            mitglied.vorname AS "Vorname",
+            mitglied.strasse AS "Adresse",
+            mitglied.plz AS "PLZ",
+            mitglied.ort AS "Ort"
+            FROM gruppe INNER JOIN
+            Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
+            INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id;`);
+        return rows;
+    }
+
+    public async getNameOfMembersWithAdress() {
+        const {rows} = await db.client.query(`
+            SELECT name AS "Name",
+            vorname AS "Vorname",
+            strasse AS "Adresse",
+            plz AS "PLZ",
+            ort AS "Ort"
+            FROM mitglied;`);
+        return rows;
     }
 }
 
