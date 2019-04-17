@@ -19,14 +19,14 @@ $(document).ready(function() {
 
     }
 
-    let $appGroupDetail = $("#app_group_detail");
+    let $appGroupDetail = $("#app_event_detail");
 
     if ($appGroupDetail.length > 0) {
 
         $.getJSON("/api/groupWithMembers", function ( groups ) {
 
-            let groupsTable = Handlebars.templates.group_detail_table({
-                groups: groups,
+            let groupsTable = Handlebars.templates.event_detail_table({
+                event: event,
             });
 
             $appGroupDetail.html(groupsTable);
