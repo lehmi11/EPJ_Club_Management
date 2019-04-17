@@ -57,8 +57,11 @@ $(document).ready(function() {
                 }
             });
 
+            // Custom search field
+            $("#membersWithAdressTable_filter").hide();
+            $("#dataTableSearch").keyup(function() {
+                $("#membersWithAdressTable").DataTable().search($(this).val()).draw() ;
+            });
         });
-
     }
 });
-
