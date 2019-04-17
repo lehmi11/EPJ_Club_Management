@@ -116,7 +116,7 @@ export class ClubStore {
             FROM gruppe INNER JOIN
             Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
             INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id
-            WHERE gruppe.id = 1;`);
+            WHERE gruppe.id =` + ID + `;`);
         return rows;
     }
 
