@@ -57,6 +57,11 @@ $(document).ready(function() {
                 }
             });
 
+            // Custom search field
+            $("#eventTable_filter").hide();
+            $("#dataTableSearch").keyup(function() {
+                $("#eventTable").DataTable().search($(this).val()).draw() ;
+            });
         });
 
     }
