@@ -104,7 +104,7 @@ export class ClubStore {
         return rows;
     }
 
-    public async getGroupWithMembers() {
+    public async getSpecificGroupWithMembers( ID ) {
         const {rows} = await db.client.query(`
             SELECT gruppe.name AS "Gruppenname",
             gruppe.verantwortlicher AS "Verantwortlicher",
@@ -115,7 +115,8 @@ export class ClubStore {
             mitglied.ort AS "Ort"
             FROM gruppe INNER JOIN
             Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
-            INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id;`);
+            INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id
+            WHERE gruppe.id =` + ID + `;`);
         return rows;
     }
 
@@ -127,6 +128,25 @@ export class ClubStore {
             plz AS "PLZ",
             ort AS "Ort"
             FROM mitglied;`);
+        return rows;
+    }
+    public async getSpecificEventWithMembers( ID ) {
+        const {rows} = await db.client.query(`
+            SELECT anlass.name AS "Name",
+            anlass.ort AS "Ort",
+            anlass.datum AS "Datum",
+            anlass.von AS "Start",
+            anlass.bis AS "Ende",
+            anlass.verantwortlicher AS "Verantwortlicher",
+            mitglied.name AS "Mitgliedname",
+            mitglied.vorname AS "Mitgliedvorname",
+            mitglied.strasse AS "Adresse",
+            mitglied.plz AS "PLZ",
+            mitglied.ort AS "Ort"
+            FROM anlass INNER JOIN
+            anlassbelegung ON anlass.id = anlassbelegung.anlassid INNER JOIN
+            mitglied ON mitglied.id = anlassbelegung.mitgliedid
+            WHERE anlass.id =` + ID + `;`);
         return rows;
     }
 }
