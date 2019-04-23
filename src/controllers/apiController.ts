@@ -16,7 +16,7 @@ export class ApiController {
 
     public async getMembersPaymentStatus(req: Request, res: Response) {
         try {
-            const membersPaidCount = await (clubStore.getTotalMembershipPaidCountTest());
+            const membersPaidCount = await (clubStore.getTotalMembershipPaidCount());
             const membersNotPaidCount = await (clubStore.getTotalMembershipNotPaidCount());
             const membersWarningCount = await (clubStore.getTotalMembershipWarningCount());
 
