@@ -74,7 +74,7 @@ export class ApiController {
     public async createEvent(req: Request, res: Response) {
         try {
             clubStore.createEvent(req.body);
-            res.send('OK');
+            res.send("OK");
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
@@ -83,7 +83,7 @@ export class ApiController {
     public async deleteEvent(req: Request, res: Response) {
         try {
             clubStore.deleteEvent(req.params.eventId);
-            res.send('OK');
+            res.send("OK");
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
