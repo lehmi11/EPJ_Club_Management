@@ -39,16 +39,7 @@ export class ClubStore {
             WHERE beitragbezahlt = true`);
         return rows[0];
     }
-/*
     public async getTotalMembershipPaidCount() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*) as "paidMembershipCount"
-            FROM mitgliedschaft
-            WHERE beitragbezahlt = true`);
-        return rows[0];
-    }
-*/
-    public async getTotalMembershipPaidCountTest() {
         const connection = await createConnection();
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
