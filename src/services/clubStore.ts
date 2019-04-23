@@ -121,10 +121,8 @@ export class ClubStore {
 
     public async getNameOfMembersWithAdress() {
 
-        const connection = await createConnection();
-
+        const connection = getConnection();
         const repository = getRepository(Mitglied);
-
         const mitglieds: Mitglied[] = await repository.find({select: ["name", "vorname", "strasse", "plz", "ort"]});
         return mitglieds;
     }
