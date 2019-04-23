@@ -121,17 +121,6 @@ export class ClubStore {
     }
 
     public async getNameOfMembersWithAdress() {
-        const {rows} = await db.client.query(`
-            SELECT name AS "Name",
-            vorname AS "Vorname",
-            strasse AS "Adresse",
-            plz AS "PLZ",
-            ort AS "Ort"
-            FROM mitglied;`);
-        return rows;
-    }
-
-    public async getNameOfMembersWithAdressTest() {
 
         const connection = await createConnection();
 
@@ -139,19 +128,7 @@ export class ClubStore {
 
         const mitglieds: Mitglied[] = await repository.find({select: ["name", "vorname", "strasse", "plz", "ort"]});
         return mitglieds;
-
-
-
     }
-
-
-
-
-
-
-
-
-
     public async getSpecificEventWithMembers( ID ) {
         const {rows} = await db.client.query(`
             SELECT anlass.name AS "Name",
