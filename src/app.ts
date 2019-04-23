@@ -19,7 +19,7 @@ createConnection();
 
 // Express configuration
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: true,
 }));
 app.use(bodyParser.json());
 app.engine("handlebars", hbs({ defaultLayout: "main" }));
