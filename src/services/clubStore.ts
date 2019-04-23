@@ -127,7 +127,7 @@ export class ClubStore {
         return rows;
     }
 
-    public async getNameOfMembersWithAdress() {
+    public async getNameOfMembersWithAddress() {
         const {rows} = await db.client.query(`
             SELECT name AS "Name",
             vorname AS "Vorname",
