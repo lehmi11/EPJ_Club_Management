@@ -111,6 +111,10 @@ export class ClubStore {
 
     }
 
+    public async deleteEvent(idToDelete: number) {
+        await getConnection().createQueryBuilder().delete().from(Anlass).where("id = :id", { id: idToDelete}).execute() 
+    }
+
     public async getGroupsWithCount() {
         const {rows} = await db.client.query(`
             SELECT gruppe.name AS "Name",

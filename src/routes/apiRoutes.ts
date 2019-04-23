@@ -8,6 +8,7 @@ router.get("/members/paymentStatus", apiController.getMembersPaymentStatus.bind(
 router.get("/members", apiController.getMembers.bind(apiController));
 router.get("/events", apiController.getEvents.bind(apiController));
 router.post("/events", apiController.createEvent.bind(apiController));
+router.delete("/events/:eventId", apiController.deleteEvent.bind(apiController));
 router.get("/groups", apiController.getGroupsWithCount.bind(apiController));
 router.get("/groupWithMembers", apiController.getGroupWithMembers.bind(apiController));
 router.get("/membersWithAdress", apiController.getMembersWithAdress.bind(apiController));

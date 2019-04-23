@@ -80,6 +80,15 @@ export class ApiController {
         }
     }
 
+    public async deleteEvent(req: Request, res: Response) {
+        try {
+            clubStore.deleteEvent(req.params.eventId);
+            res.send('OK');
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getGroupsWithCount(req: Request, res: Response) {
         try {
             const groups = await (clubStore.getGroupsWithCount());
