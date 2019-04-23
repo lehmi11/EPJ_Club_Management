@@ -130,6 +130,28 @@ export class ClubStore {
             FROM mitglied;`);
         return rows;
     }
+
+    public async getNameOfMembersWithAdressTest() {
+
+        const connection = await createConnection();
+
+        const repository = getRepository(Mitglied);
+
+        const mitglieds: Mitglied[] = await repository.find({select: ["name", "vorname", "strasse", "plz", "ort"]});
+        return mitglieds;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
     public async getSpecificEventWithMembers( ID ) {
         const {rows} = await db.client.query(`
             SELECT anlass.name AS "Name",

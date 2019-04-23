@@ -104,6 +104,18 @@ export class ApiController {
         }
     }
 
+    public async getMembersWithAdressTest(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getNameOfMembersWithAdressTest());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+
     public async getSpecificEventWithMembers(req: Request, res: Response) {
         try {
             const members = await (clubStore.getSpecificEventWithMembers(1));
