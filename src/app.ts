@@ -18,11 +18,16 @@ db.client.connect();
 createConnection();
 
 // Express configuration
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 app.engine("handlebars", hbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use("/views", express.static("views"));
 app.use(clubRoutes);
 app.use("/api", apiRoutes);
+
 
 
 

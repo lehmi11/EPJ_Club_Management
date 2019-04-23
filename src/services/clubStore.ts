@@ -99,6 +99,18 @@ export class ClubStore {
         return result;
     }
 
+    public async createEvent(data: JSON) {
+        const connection = getConnection();
+
+        const eventRepo = getRepository(Anlass);
+        const newEvent = eventRepo.create({
+            ...data,
+            verein: {id: 1},
+        });
+        await eventRepo.save(newEvent);
+
+    }
+
     public async getGroupsWithCount() {
         const {rows} = await db.client.query(`
             SELECT gruppe.name AS "Name",
