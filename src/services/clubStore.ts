@@ -1,17 +1,20 @@
 
 import * as db from "../config/dbConfig";
 
-import {createConnection} from "typeorm";
+import {createConnection, getManager} from "typeorm";
+import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
+import {Anlass} from "../entities/Anlass";
 import {Mitglied} from "../entities/Mitglied";
 import {Mitgliedschaft} from "../entities/Mitgliedschaft";
+
 
 export class ClubStore {
 
     public async getMembers() {
 
-        const connection = await createConnection();
+        // const connection = await createConnection();
 
         const repository = getRepository(Mitglied);
 
@@ -84,6 +87,7 @@ export class ClubStore {
     }
 
     public async getEvents() {
+        /*
         const {rows} = await db.client.query(`
             SELECT name AS "Anlass",
             datum AS "Datum",
@@ -91,7 +95,11 @@ export class ClubStore {
             bis AS "Ende",
             ort AS "Ort"
             FROM anlass`);
-        return rows;
+        return rows;*/
+
+        const connection = getConnection();
+        const result = await connection.createQueryBuilder().select(["anl.id", "anl.name", "anl.datum", "anl.von", "anl.bis", "anl.ort"]).from(Anlass, "anl").getMany();
+        return result;
     }
 
     public async getGroupsWithCount() {

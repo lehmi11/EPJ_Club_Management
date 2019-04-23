@@ -5,7 +5,9 @@ import * as db from "./config/dbConfig";
 import {apiRoutes} from "./routes/apiRoutes";
 import {clubRoutes} from "./routes/clubRoutes";
 
+
 // Controllers
+import { createConnection } from "typeorm";
 import { clubController } from "./controllers/clubController";
 
 // Create express server
@@ -13,6 +15,7 @@ const app = express();
 
 // DB connection
 db.client.connect();
+createConnection();
 
 // Express configuration
 app.engine("handlebars", hbs({ defaultLayout: "main" }));
