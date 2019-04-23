@@ -5,6 +5,7 @@ import {createConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
 import {Mitglied} from "../entities/Mitglied";
+import {Mitgliedschaft} from "../entities/Mitgliedschaft";
 
 export class ClubStore {
 
@@ -38,13 +39,22 @@ export class ClubStore {
             WHERE beitragbezahlt = true`);
         return rows[0];
     }
-
+/*
     public async getTotalMembershipPaidCount() {
         const {rows} = await db.client.query(
             `SELECT COUNT(*) as "paidMembershipCount"
             FROM mitgliedschaft
             WHERE beitragbezahlt = true`);
         return rows[0];
+    }
+*/
+    public async getTotalMembershipPaidCountTest() {
+        const connection = await createConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "true"},
+            });
+        return mitglieds.length;
     }
 
     public async getTotalMembershipNotPaid() {

@@ -16,13 +16,13 @@ export class ApiController {
 
     public async getMembersPaymentStatus(req: Request, res: Response) {
         try {
-            const membersPaidCount = await (clubStore.getTotalMembershipPaidCount());
+            const membersPaidCount = await (clubStore.getTotalMembershipPaidCountTest());
             const membersNotPaidCount = await (clubStore.getTotalMembershipNotPaidCount());
             const membersWarningCount = await (clubStore.getTotalMembershipWarningCount());
 
             res.json( {
                 paymentStatus: [
-                    membersPaidCount.paidMembershipCount,
+                    membersPaidCount,
                     membersNotPaidCount.notPaidMembershipCount,
                     membersWarningCount.warningCount,
                 ],
@@ -35,6 +35,17 @@ export class ApiController {
     public async getMembersNotPaid(req: Request, res: Response) {
         try {
             const members = await (clubStore.getMembersFeeNotPaid());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getMembersNotPaidtesttest(req: Request, res: Response) {
+        try {
+            const members = await (clubStore.getTotalMembershipPaidCountTest());
 
             res.json(members);
 
