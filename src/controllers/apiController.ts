@@ -42,18 +42,6 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-
-    public async getMembersNotPaidtesttest(req: Request, res: Response) {
-        try {
-            const members = await (clubStore.getTotalMembershipPaidCountTest());
-
-            res.json(members);
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-
     public async getFinanceDashboard(req: Request, res: Response) {
         try {
             const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
