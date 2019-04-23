@@ -23,7 +23,7 @@ export class ApiController {
             res.json( {
                 paymentStatus: [
                     membersPaidCount,
-                    membersNotPaidCount.notPaidMembershipCount,
+                    membersNotPaidCount,
                     membersWarningCount.warningCount,
                 ],
             });

@@ -11,7 +11,6 @@ router.get("/events/:eventId", apiController.getSpecificEventWithMembers.bind(ap
 router.get("/groups", apiController.getGroupsWithCount.bind(apiController));
 router.get("/groupWithMembers", apiController.getGroupWithMembers.bind(apiController));
 router.get("/membersWithAdress", apiController.getMembersWithAdress.bind(apiController));
-router.get("/test", apiController.getMembersNotPaidtesttest.bind(apiController));
 
 
 export const apiRoutes = router;
