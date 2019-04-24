@@ -22,8 +22,8 @@ export class ApiController {
 
             res.json( {
                 paymentStatus: [
-                    membersPaidCount.paidMembershipCount,
-                    membersNotPaidCount.notPaidMembershipCount,
+                    membersPaidCount,
+                    membersNotPaidCount,
                     membersWarningCount.warningCount,
                 ],
             });
@@ -42,7 +42,6 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-
     public async getFinanceDashboard(req: Request, res: Response) {
         try {
             const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
@@ -94,6 +93,7 @@ export class ApiController {
     }
 
     public async getMembersWithAddress(req: Request, res: Response) {
+
         try {
             const members = await (clubStore.getNameOfMembersWithAddress());
 
@@ -103,7 +103,6 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-
     public async getSpecificEventWithMembers(req: Request, res: Response) {
         try {
             const members = await (clubStore.getSpecificEventWithMembers(1));

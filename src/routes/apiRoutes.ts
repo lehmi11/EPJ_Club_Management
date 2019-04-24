@@ -12,4 +12,5 @@ router.get("/groups", apiController.getGroupsWithCount.bind(apiController));
 router.get("/groupWithMembers", apiController.getGroupWithMembers.bind(apiController));
 router.get("/membersWithAddress", apiController.getMembersWithAddress.bind(apiController));
 
+
 export const apiRoutes = router;
