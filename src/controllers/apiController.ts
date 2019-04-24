@@ -89,6 +89,16 @@ export class ApiController {
         }
     }
 
+    public async getEventById(req: Request, res: Response) {
+        try {
+            const event = await clubStore.getEventById(req.params.eventId);
+            
+            res.json(event);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getGroupsWithCount(req: Request, res: Response) {
         try {
             const groups = await (clubStore.getGroupsWithCount());
@@ -117,6 +127,16 @@ export class ApiController {
 
             res.json(members);
 
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getMemberById(req: Request, res: Response) {
+        try {
+            const member = await clubStore.getMemberById(req.params.memberId);
+            
+            res.json(member);
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }

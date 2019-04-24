@@ -152,6 +152,14 @@ export class ClubStore {
             FROM mitglied;`);
         return rows;
     }
+
+    public async getMemberById(memberId: number) {
+        return await getConnection()
+            .getRepository(Mitglied)
+            .createQueryBuilder()
+            .where("id = :id", { id: memberId })
+            .getOne();
+    }
 }
 
 export const clubStore = new ClubStore();
