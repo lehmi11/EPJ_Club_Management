@@ -119,7 +119,7 @@ export class ClubStore {
         return rows;
     }
 
-    public async getNameOfMembersWithAdress() {
+    public async getNameOfMembersWithAddress() {
 
         const connection = getConnection();
         const repository = getRepository(Mitglied);

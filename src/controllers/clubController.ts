@@ -22,11 +22,11 @@ export class ClubController {
     }
 
     public async showIndex(req: Request, res: Response) {
-        res.render("login", { title: "login", hideSidebar: "true" });
+        res.render("login", { title: "login", onlyShowMainContent: "true" });
     }
 
     public async showForgotPassword(req: Request, res: Response) {
-        res.render("forgot-password", { title: "Passwort vergessen", hideSidebar: "true" });
+        res.render("forgot-password", { title: "Passwort vergessen", onlyShowMainContent: "true" });
     }
 
     public async showMembersView(req: Request, res: Response) {

@@ -91,9 +91,11 @@ export class ApiController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-    public async getMembersWithAdress(req: Request, res: Response) {
+
+    public async getMembersWithAddress(req: Request, res: Response) {
+
         try {
-            const members = await (clubStore.getNameOfMembersWithAdress());
+            const members = await (clubStore.getNameOfMembersWithAddress());
 
             res.json(members);
 

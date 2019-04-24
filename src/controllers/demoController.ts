@@ -2,11 +2,11 @@ import { Request, Response } from "express";
 
 
 export let index = (req: Request, res: Response) => {
-    res.render("login", { title: "login", hideSidebar: "true" });
+    res.render("login", { title: "login", onlyShowMainContent: "true" });
 };
 
 export let forgotPassword = (req: Request, res: Response) => {
-    res.render("forgot-password", { title: "Passwort vergessen", hideSidebar: "true" });
+    res.render("forgot-password", { title: "Passwort vergessen", onlyShowMainContent: "true" });
 };
 
 export let membersView = (req: Request, res: Response) => {
