@@ -82,7 +82,7 @@ export class ApiController {
 
     public async deleteEvent(req: Request, res: Response) {
         try {
-            clubStore.deleteEvent(req.params.eventId);
+            await clubStore.deleteEvent(req.params.eventId);
             res.send("OK");
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
