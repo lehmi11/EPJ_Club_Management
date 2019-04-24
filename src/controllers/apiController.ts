@@ -93,9 +93,9 @@ export class ApiController {
         }
     }
 
-    public async getMembersWithAdress(req: Request, res: Response) {
+    public async getMembersWithAddress(req: Request, res: Response) {
         try {
-            const members = await (clubStore.getNameOfMembersWithAdress());
+            const members = await (clubStore.getNameOfMembersWithAddress());
 
             res.json(members);
 

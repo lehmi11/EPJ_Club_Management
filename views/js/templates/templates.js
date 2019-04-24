@@ -82,7 +82,7 @@ templates['group_table'] = template({"1":function(container,depth0,helpers,parti
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.groups : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </tbody>\r\n</table>\r\n";
 },"useData":true});
-templates['membersWithAdress_table'] = template({"1":function(container,depth0,helpers,partials,data) {
+templates['membersWithAddress_table'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "        <tr>\r\n            <td>"
@@ -99,7 +99,7 @@ templates['membersWithAdress_table'] = template({"1":function(container,depth0,h
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"membersWithAdressTable\"  data-page-length='10'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Adresse</th>\r\n        <th>Stadt</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
+  return "<table class=\"table table-sm table-hover\" id=\"membersWithAddressTable\"  data-page-length='10'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Adresse</th>\r\n        <th>Stadt</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.members : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </tbody>\r\n</table>\r\n";
 },"useData":true});
