@@ -13,7 +13,7 @@ templates['event_table'] = template({"1":function(container,depth0,helpers,parti
     + alias4(((helper = (helper = helpers.bis || (depth0 != null ? depth0.bis : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"bis","hash":{},"data":data}) : helper)))
     + "</td>\r\n        <td>"
     + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
-    + "</td>\r\n        <td>\r\n            <a href=\"/events/"
+    + "</td>\r\n        <td>\r\n            <a href=\"/api/events/"
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\" class=\"btn btn-outline-primary btn-sm mr-1\">Details</a>\r\n            <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#anmeldenModal\">Anmelden</button>\r\n        </td>\r\n    </tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

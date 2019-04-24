@@ -73,8 +73,8 @@ export class ApiController {
 
     public async createEvent(req: Request, res: Response) {
         try {
-            clubStore.createEvent(req.body);
-            res.send("OK");
+            await clubStore.createEvent(req.body);
+            res.redirect("/events");
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
