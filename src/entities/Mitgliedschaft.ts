@@ -46,7 +46,6 @@ export class Mitgliedschaft {
     @JoinColumn({ name: "mitgliedid" })
     public mitglied: Mitglied | null;
 
-
     @Column("date", {
         nullable: true,
         name: "rechnungsdatum",

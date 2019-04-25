@@ -26,9 +26,7 @@ export class Gruppe {
     })
     public berechtigung: string | null;
 
-
-
-    @ManyToMany((type) => Mitglied, (mitglied) => mitglied.gruppes, { nullable: false })
+    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.gruppes, { nullable: false })
     @JoinTable({ name: "gruppenbelegung" })
     public mitglieds: Mitglied[];
 

@@ -71,30 +71,20 @@ export class Mitglied {
     })
     public email: string | null;
 
-
-
     @ManyToOne((type) => Verein, (verein) => verein.mitglieds, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein2: Verein | null;
 
+    @ManyToOne((type) => Gruppe, (gruppe) => gruppe.mitglieds)
+    public gruppes: Gruppe[];
 
+    @ManyToOne((type) => Verein, (verein) => verein.mitglieds)
+    public vereins: Verein[];
 
     @OneToMany((type) => Mitgliedschaft, (mitgliedschaft) => mitgliedschaft.mitglied)
     public mitgliedschafts: Mitgliedschaft[];
 
-
-
-    @ManyToMany((type) => Verein, (verein) => verein.mitglieds)
-    public vereins: Verein[];
-
-
-
-    @ManyToMany((type) => Gruppe, (gruppe) => gruppe.mitglieds)
-    public gruppes: Gruppe[];
-
-
-
-    @ManyToMany((type) => Anlass, (anlass) => anlass.mitglieds, { nullable: false })
+    @ManyToOne((type) => Anlass, (anlass) => anlass.mitglieds, { nullable: false })
     @JoinTable({ name: "anlassbelegung" })
     public anlasss: Anlass[];
 
