@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
     let $appDashboardFinance = $("#app_dashboard_finance");
 
@@ -25,56 +25,7 @@ $(document).ready(function() {
 
             $appMembersNotPaid.html(memberTable);
 
-            $("#memberTable").DataTable( {
-                "lengthChange": false,
-                language: {
-                    "sEmptyTable":      "Keine Daten in der Tabelle vorhanden",
-                    "sInfo":            "_START_ bis _END_ von _TOTAL_ Einträgen",
-                    "sInfoEmpty":       "Keine Daten vorhanden",
-                    "sInfoFiltered":    "(gefiltert von _MAX_ Einträgen)",
-                    "sInfoPostFix":     "",
-                    "sInfoThousands":   ".",
-                    "sLengthMenu":      "_MENU_ Einträge",
-                    "sLoadingRecords":  "Wird geladen ..",
-                    "sProcessing":      "Bitte warten ..",
-                    "sSearch":          "Suchen",
-                    "sZeroRecords":     "Keine Einträge vorhanden",
-                    "oPaginate": {
-                        "sFirst":       "Erste",
-                        "sPrevious":    "Zurück",
-                        "sNext":        "Nächste",
-                        "sLast":        "Letzte"
-                    },
-                    "oAria": {
-                        "sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
-                        "sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
-                    },
-                    "select": {
-                        "rows": {
-                            "_": "%d Zeilen ausgewählt",
-                            "0": "",
-                            "1": "1 Zeile ausgewählt"
-                        }
-                    },
-                    "buttons": {
-                        "print":    "Drucken",
-                        "colvis":   "Spalten",
-                        "copy":     "Kopieren",
-                        "copyTitle":    "In Zwischenablage kopieren",
-                        "copyKeys": "Taste <i>ctrl</i> oder <i>\u2318</i> + <i>C</i> um Tabelle<br>in Zwischenspeicher zu kopieren.<br><br>Um abzubrechen die Nachricht anklicken oder Escape drücken.",
-                        "copySuccess": {
-                            "_": "%d Spalten kopiert",
-                            "1": "1 Spalte kopiert"
-                        }
-                    }
-                }
-            });
-
-            // Custom search field
-            $("#memberTable_filter").hide();
-            $("#dataTableSearch").keyup(function() {
-                $("#memberTable").DataTable().search($(this).val()).draw() ;
-            });
+            initDatatable("memberTable");
         });
     }
 
@@ -85,17 +36,17 @@ $(document).ready(function() {
 
         // get payment count
         $.getJSON( "/api/members/paymentStatus", function(data) {
-            initChart(data.paymentStatus);
+            initChart( $paymentChart, ["Bezahlt", "Ausstehend", "Mahnung"], data.paymentStatus);
         });
         // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = "Nunito", '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = "#858796";
 
-        function initChart(data) {
-            let myPieChart = new Chart($paymentChart, {
+        function initChart(target, labels, data) {
+            let myPieChart = new Chart(target, {
                 type: "doughnut",
                 data: {
-                    labels: ["Bezahlt", "Ausstehend", "Mahnung"],
+                    labels: labels,
                     datasets: [{
                         data: data,
                         backgroundColor: ["#1cc88a", "#f6c23e", "#e74a3b"],
@@ -116,7 +67,8 @@ $(document).ready(function() {
                         caretPadding: 10,
                     },
                     legend: {
-                        display: false,
+                        display: true,
+                        position: "bottom",
                     },
                     cutoutPercentage: 80,
                 },
