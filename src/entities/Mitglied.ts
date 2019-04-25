@@ -87,7 +87,7 @@ export class Mitglied {
     @OneToMany((type) => Mitgliedschaft, (mitgliedschaft) => mitgliedschaft.mitglied)
     public mitgliedschafts: Mitgliedschaft[];
 
-    @ManyToMany((type) => Anlass, (anlass) => anlass.mitglieds, { nullable: false })
+    @ManyToOne((type) => Anlass, (anlass) => anlass.mitglieds, { nullable: false })
     @JoinTable({ name: "anlassbelegung" })
     public anlasss: Anlass[];
 
