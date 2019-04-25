@@ -24,6 +24,6 @@ router.get("/groups", teamController.getGroupsWithCount.bind(apiController));
 router.get("/groupWithMembers", teamController.getGroupWithMembers.bind(apiController));
 
 // TODO
-router.get("/membersWithAdress", memberController.getMembersWithAdress.bind(apiController));
+router.get("/membersWithAddress", memberController.getMembersWithAddress.bind(apiController));
 
 export const apiRoutes = router;
