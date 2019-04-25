@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
-    let $appMembersWithAdress = $("#app_membersWithAdress");
+    let $appMembersWithAddress = $("#app_membersWithAddress");
 
-    if ($appMembersWithAdress.length > 0) {
+    if ($appMembersWithAddress.length > 0) {
 
-        $.getJSON("/api/membersWithAdress", function ( members ) {
+        $.getJSON("/api/membersWithAddress", function ( members ) {
 
-            let membersWithAdressTable = Handlebars.templates.membersWithAdress_table({
+            let membersWithAddressTable = Handlebars.templates.membersWithAddress_table({
                 members: members,
             });
 
-            $appMembersWithAdress.html(membersWithAdressTable);
+            $appMembersWithAddress.html(membersWithAddressTable);
 
-            $("#membersWithAdressTable").DataTable( {
+            $("#membersWithAddressTable").DataTable( {
                 "lengthChange": false,
                 language: {
                     "sEmptyTable":      "Keine Daten in der Tabelle vorhanden",
@@ -57,8 +57,11 @@ $(document).ready(function() {
                 }
             });
 
+            // Custom search field
+            $("#membersWithAddressTable_filter").hide();
+            $("#dataTableSearch").keyup(function() {
+                $("#membersWithAddressTable").DataTable().search($(this).val()).draw() ;
+            });
         });
-
     }
 });
-

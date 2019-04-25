@@ -3,6 +3,8 @@ import * as db from "../config/dbConfig";
 import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
+import {Mitgliedschaft} from "../entities/Mitgliedschaft";
+
 export class ClubStore {
 
     public async getMembersFeeNotPaid() {
@@ -27,11 +29,12 @@ export class ClubStore {
     }
 
     public async getTotalMembershipPaidCount() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*) as "paidMembershipCount"
-            FROM mitgliedschaft
-            WHERE beitragbezahlt = true`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "true"},
+            });
+        return mitglieds.length;
     }
 
     public async getTotalMembershipNotPaid() {
@@ -43,11 +46,12 @@ export class ClubStore {
     }
 
     public async getTotalMembershipNotPaidCount() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*) AS "notPaidMembershipCount"
-            FROM mitgliedschaft
-            WHERE mitgliedschaft.beitragbezahlt = false`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "false"},
+        });
+        return mitglieds.length;
     }
 
     public async getTotalMembershipWarning() {
