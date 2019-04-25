@@ -6,7 +6,7 @@ $(function() {
 
         $.getJSON("/api/membersWithAdress", function( members ) {
 
-            let membersWithAdressTable = Handlebars.templates.membersWithAdress_table({
+            let membersWithAdressTable = Handlebars.templates.membersWithAddress_table({
                 members: members,
             });
 
