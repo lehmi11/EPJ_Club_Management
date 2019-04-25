@@ -28,32 +28,32 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form id="newEventForm" action="/api/events" method="POST">
                                     <div class="form-group">
                                         <label for="inputEvent">Anlass</label>
-                                        <input type="text" class="form-control" id="inputEvent" placeholder="Anlass">
+                                        <input type="text" class="form-control" id="inputEvent" name="name" placeholder="Anlass" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDate">Datum</label>
-                                        <input type="date" class="form-control" id="inputDate" placeholder="Datum">
+                                        <input type="date" class="form-control" id="inputDate" name="datum" placeholder="Datum" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputFrom">Von</label>
-                                        <input type="time" class="form-control" id="inputFrom" aria-describedby="emailHelp" placeholder="Von">
+                                        <input type="time" class="form-control" id="inputFrom" name="von" aria-describedby="emailHelp" placeholder="Von" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputTo">Bis</label>
-                                        <input type="time" class="form-control" id="inputTo" aria-describedby="emailHelp" placeholder="Bis">
+                                        <input type="time" class="form-control" id="inputTo" name="bis" aria-describedby="emailHelp" placeholder="Bis" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPlace">Ort</label>
-                                        <input type="text" class="form-control" id="inputPlace" placeholder="Ort">
+                                        <input type="text" class="form-control" id="inputPlace" name="ort" placeholder="Ort" >
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
-                                <button type="button" class="btn btn-primary">Hinzufügen</button>
+                                <button type="submit" form="newEventForm" class="btn btn-primary">Hinzufügen</button>
                             </div>
                         </div>
                     </div>

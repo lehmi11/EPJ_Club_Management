@@ -3,9 +3,18 @@ import * as db from "../config/dbConfig";
 import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
-import {Mitgliedschaft} from "../entities/Mitgliedschaft";
+import { Mitglied } from "../entities/Mitglied";
+import { Mitgliedschaft } from "../entities/Mitgliedschaft";
 
-export class ClubStore {
+export class MemberService {
+
+    public async getMembers() {
+
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const mitglieds: Mitglied[] = await repository.find();
+        return mitglieds;
+    }
 
     public async getMembersFeeNotPaid() {
         const {rows} = await db.client.query(
@@ -71,7 +80,21 @@ export class ClubStore {
             AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
         return rows[0];
     }
+
+    public async getNameOfMembersWithAddress() {
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const mitglieds: Mitglied[] = await repository.find({select: ["name", "vorname", "strasse", "plz", "ort"]});
+        return mitglieds;
+    }
+
+    public async getMemberById(memberId: number) {
+        return await getConnection()
+            .getRepository(Mitglied)
+            .createQueryBuilder()
+            .where("id = :id", { id: memberId })
+            .getOne();
+    }
 }
 
-export const clubStore = new ClubStore();
-
+export const memberService = new MemberService();
