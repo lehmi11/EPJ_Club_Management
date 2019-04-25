@@ -1,18 +1,18 @@
 $(function() {
 
-    let $appMembersWithAdress = $("#app_membersWithAdress");
+    let $appMembersWithAddress = $("#app_membersWithAddress");
 
-    if ($appMembersWithAdress.length > 0) {
+    if ($appMembersWithAddress.length > 0) {
 
-        $.getJSON("/api/membersWithAdress", function( members ) {
+        $.getJSON("/api/membersWithAddress", function( members ) {
 
-            let membersWithAdressTable = Handlebars.templates.membersWithAddress_table({
+            let membersWithAddressTable = Handlebars.templates.membersWithAddress_table({
                 members: members,
             });
 
-            $appMembersWithAdress.html(membersWithAdressTable);
+            $appMembersWithAddress.html(membersWithAddressTable);
 
-            initDatatable("membersWithAdressTable");
+            initDatatable("membersWithAddressTable");
         });
     }
 });
