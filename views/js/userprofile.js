@@ -1,14 +1,14 @@
-$(document).ready(function() {
+$(window).on("load", function() {
 
-    let profileCard = $('#profileCard');
-    let profileForm = $('#profileForm');
+    let profileCard = $("#profileCard");
+    let profileForm = $("#profileForm");
 
-    function toggleProfileView () {
+    function toggleProfileView() {
         profileForm.toggle();
         profileCard.toggle();
     }
 
-    $('#editProfile').click( toggleProfileView);
-    $('#cancelProfileEdit').click(toggleProfileView);
-    $('#saveProfileEdit').click(toggleProfileView);
+    $("#editProfile").click( toggleProfileView);
+    $("#cancelProfileEdit").click(toggleProfileView);
+    $("#saveProfileEdit").click(toggleProfileView);
 });
