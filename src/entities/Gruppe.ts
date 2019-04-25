@@ -28,7 +28,7 @@ export class Gruppe {
 
 
 
-    @ManyToMany((type) => Mitglied, (mitglied) => mitglied.gruppes, { nullable: false })
+    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.gruppes, { nullable: false })
     @JoinTable({ name: "gruppenbelegung" })
     public mitglieds: Mitglied[];
 

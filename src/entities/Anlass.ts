@@ -77,7 +77,7 @@ export class Anlass {
 
 
 
-    @ManyToMany((type) => Mitglied, (mitglied) => mitglied.anlasss)
+    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.anlasss)
     public mitglieds: Mitglied[];
 
 }

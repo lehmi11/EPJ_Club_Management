@@ -38,8 +38,6 @@ export class Verein {
     public mitglieds: Mitglied[];
 
 
-
-    @ManyToMany((type) => Mitglied, (mitglied) => mitglied.vereins, { nullable: false})
     @JoinTable({ name: "vereinsvorstand" })
     public mitgliedsVerein: Mitglied[];
 
