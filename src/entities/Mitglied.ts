@@ -71,12 +71,9 @@ export class Mitglied {
     })
     public email: string | null;
 
-
-
     @ManyToOne((type) => Verein, (verein) => verein.mitglieds, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein2: Verein | null;
-
 
     @ManyToOne((type) => Gruppe, (gruppe) => gruppe.mitglieds)
     public gruppes: Gruppe[];

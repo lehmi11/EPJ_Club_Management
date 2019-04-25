@@ -70,11 +70,9 @@ export class Anlass {
     public traktadenliste: string | null;
 
 
-
     @ManyToOne((type) => Verein, (verein) => verein.anlasss, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein: Verein | null;
-
 
 
     @ManyToOne((type) => Mitglied, (mitglied) => mitglied.anlasss)

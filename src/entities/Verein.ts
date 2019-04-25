@@ -28,10 +28,8 @@ export class Verein {
     public name: string;
 
 
-
     @OneToMany((type) => Anlass, (anlass) => anlass.verein)
     public anlasss: Anlass[];
-
 
 
     @OneToMany((type) => Mitglied, (mitglied) => mitglied.verein2)
