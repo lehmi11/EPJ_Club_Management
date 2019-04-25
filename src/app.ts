@@ -28,7 +28,4 @@ app.use("/views", express.static("views"));
 app.use(clubRoutes);
 app.use("/api", apiRoutes);
 
-
-
-
 export default app;

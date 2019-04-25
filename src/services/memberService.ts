@@ -3,7 +3,18 @@ import * as db from "../config/dbConfig";
 import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
-export class ClubStore {
+import { Mitglied } from "../entities/Mitglied";
+import { Mitgliedschaft } from "../entities/Mitgliedschaft";
+
+export class MemberService {
+
+    public async getMembers() {
+
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const mitglieds: Mitglied[] = await repository.find();
+        return mitglieds;
+    }
 
     public async getMembersFeeNotPaid() {
         const {rows} = await db.client.query(
@@ -27,11 +38,12 @@ export class ClubStore {
     }
 
     public async getTotalMembershipPaidCount() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*) as "paidMembershipCount"
-            FROM mitgliedschaft
-            WHERE beitragbezahlt = true`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "true"},
+            });
+        return mitglieds.length;
     }
 
     public async getTotalMembershipNotPaid() {
@@ -43,11 +55,12 @@ export class ClubStore {
     }
 
     public async getTotalMembershipNotPaidCount() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*) AS "notPaidMembershipCount"
-            FROM mitgliedschaft
-            WHERE mitgliedschaft.beitragbezahlt = false`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "false"},
+        });
+        return mitglieds.length;
     }
 
     public async getTotalMembershipWarning() {
@@ -67,7 +80,21 @@ export class ClubStore {
             AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
         return rows[0];
     }
+
+    public async getNameOfMembersWithAdress() {
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const mitglieds: Mitglied[] = await repository.find({select: ["name", "vorname", "strasse", "plz", "ort"]});
+        return mitglieds;
+    }
+
+    public async getMemberById(memberId: number) {
+        return await getConnection()
+            .getRepository(Mitglied)
+            .createQueryBuilder()
+            .where("id = :id", { id: memberId })
+            .getOne();
+    }
 }
 
-export const clubStore = new ClubStore();
-
+export const memberService = new MemberService();
