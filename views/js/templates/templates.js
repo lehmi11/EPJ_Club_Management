@@ -17,7 +17,7 @@ templates['event_detail_table'] = template({"1":function(container,depth0,helper
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"dataTable\" data-page-length='15'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Adresse</th>\r\n        <th>Ort</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
+  return "<table class=\"table table-sm table-hover\" id=\"event_detailTable\" data-page-length='15'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Adresse</th>\r\n        <th>Ort</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.event : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </tbody>\r\n</table>\r\n";
 },"useData":true});
@@ -61,7 +61,7 @@ templates['group_detail_table'] = template({"1":function(container,depth0,helper
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "\r\n<div class=\"row\">\r\n    <div class=\"col-xl-12\">\r\n        <div class=\"card shadow mb-4\">\r\n            <div class=\"card-header py-3 d-flex flex-row align-items-center justify-content-between\">\r\n                <h6 class=\"m-0 font-weight-bold text-primary\">Team Mitglieder</h6>\r\n            </div>\r\n            <div class=\"card-body\">\r\n                <table class=\"table table-sm table-hover\" id=\"dataTable\" data-page-length='15'>\r\n                    <thead>\r\n                    <tr>\r\n                        <th>Name</th>\r\n                        <th>Adresse</th>\r\n                        <th>Stadt</th>\r\n                        <th></th>\r\n                    </tr>\r\n                    </thead>\r\n                    <tbody>\r\n"
+  return "\r\n<div class=\"row\">\r\n    <div class=\"col-xl-12\">\r\n        <div class=\"card shadow mb-4\">\r\n            <div class=\"card-header py-3 d-flex flex-row align-items-center justify-content-between\">\r\n                <h6 class=\"m-0 font-weight-bold text-primary\">Team Mitglieder</h6>\r\n            </div>\r\n            <div class=\"card-body\">\r\n                <table class=\"table table-sm table-hover\" id=\"group_detailTable\" data-page-length='15'>\r\n                    <thead>\r\n                    <tr>\r\n                        <th>Name</th>\r\n                        <th>Adresse</th>\r\n                        <th>Stadt</th>\r\n                        <th></th>\r\n                    </tr>\r\n                    </thead>\r\n                    <tbody>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.groups : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 },"useData":true});
@@ -78,7 +78,7 @@ templates['group_table'] = template({"1":function(container,depth0,helpers,parti
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"dataTable\" data-page-length='15'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Anzahl Mitglieder</th>\r\n        <th>Verantwortlicher</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
+  return "<table class=\"table table-sm table-hover\" id=\"groupTable\" data-page-length='15'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Anzahl Mitglieder</th>\r\n        <th>Verantwortlicher</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.groups : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </tbody>\r\n</table>\r\n";
 },"useData":true});
