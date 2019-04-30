@@ -1,9 +1,9 @@
 import express = require("express");
 const router = express.Router();
-import {apiController} from "../controllers/apiController";
-import {eventController} from "../controllers/eventController";
-import {memberController} from "../controllers/memberController";
-import {teamController} from "../controllers/teamController";
+import { apiController } from "../controllers/apiController";
+import { eventController } from "../controllers/eventController";
+import { memberController } from "../controllers/memberController";
+import { teamController } from "../controllers/teamController";
 
 router.get("/dashboard", apiController.getFinanceDashboard.bind(apiController));
 
@@ -21,6 +21,7 @@ router.delete("/events/:eventId", eventController.deleteEvent.bind(apiController
 router.get("/events/:eventId", eventController.getEventById.bind(apiController));
 
 router.get("/groups", teamController.getGroupsWithCount.bind(apiController));
+router.post("/groups", teamController.createTeam.bind(apiController));
 router.get("/groupWithMembers", teamController.getGroupWithMembers.bind(apiController));
 
 // TODO
