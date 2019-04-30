@@ -1,5 +1,5 @@
-import {Request, Response} from "express-serve-static-core";
-import {teamService} from "../services/teamService";
+import { Request, Response } from "express-serve-static-core";
+import { teamService } from "../services/teamService";
 
 export class TeamController {
     public async getGroupsWithCount(req: Request, res: Response) {
@@ -23,6 +23,17 @@ export class TeamController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+
+    public async createTeam(req: Request, res: Response) {
+        try {
+            await teamService.createTeam(req.body);
+
+            res.redirect("/groups");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const teamController = new TeamController();

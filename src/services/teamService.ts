@@ -1,13 +1,13 @@
 import * as db from "../config/dbConfig";
 
-import {getConnection} from "typeorm";
-import {getRepository} from "typeorm";
+import { getConnection } from "typeorm";
+import { getRepository } from "typeorm";
 
 import { Gruppe } from "../entities/Gruppe";
 
 export class TeamService {
     public async getGroupsWithCount() {
-        const {rows} = await db.client.query(`
+        const { rows } = await db.client.query(`
             SELECT gruppe.name AS "Name",
             gruppe.verantwortlicher AS "Verantwortlicher",
             COUNT(*) AS "Anzahl"
@@ -19,7 +19,7 @@ export class TeamService {
     }
 
     public async getGroupWithMembers() {
-        const {rows} = await db.client.query(`
+        const { rows } = await db.client.query(`
             SELECT gruppe.name AS "Gruppenname",
             gruppe.verantwortlicher AS "Verantwortlicher",
             mitglied.name AS "Name",
@@ -31,6 +31,17 @@ export class TeamService {
             Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
             INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id;`);
         return rows;
+    }
+
+    public async createTeam(data: JSON) {
+        const connection = getConnection();
+        const teamRepo = getRepository(Gruppe);
+        const newTeam = teamRepo.create({
+            ...data,
+            mitglieds: null,
+
+        });
+        await teamRepo.save(newTeam);
     }
 }
 
