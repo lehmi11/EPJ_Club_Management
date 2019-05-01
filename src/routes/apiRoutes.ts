@@ -22,6 +22,7 @@ router.get("/events/:eventId", eventController.getEventById.bind(apiController))
 
 router.get("/groups", teamController.getGroupsWithCount.bind(apiController));
 router.post("/groups", teamController.createTeam.bind(apiController));
+// router.delete("/groups/:groupId", teamController.deleteTeam.bind(apiController));
 router.get("/groupWithMembers", teamController.getGroupWithMembers.bind(apiController));
 
 // TODO

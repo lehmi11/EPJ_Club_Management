@@ -39,9 +39,17 @@ export class TeamService {
         const newTeam = teamRepo.create({
             ...data,
             mitglieds: null,
-
         });
         await teamRepo.save(newTeam);
+    }
+
+    public async deleteTeam(idToDelete: number) {
+        await getConnection()
+            .createQueryBuilder()
+            .delete()
+            .from(Gruppe)
+            .where("id = :id", { id: idToDelete })
+            .execute();
     }
 }
 

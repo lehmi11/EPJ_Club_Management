@@ -27,7 +27,15 @@ export class TeamController {
     public async createTeam(req: Request, res: Response) {
         try {
             await teamService.createTeam(req.body);
+            res.redirect("/groups");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
 
+    public async deleteTeam(req: Request, res: Response) {
+        try {
+            await teamService.deleteTeam(req.body);
             res.redirect("/groups");
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
