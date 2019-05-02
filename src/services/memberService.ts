@@ -70,7 +70,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false"},
+            where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
         });
         return mitglieds.length * 100;
     }
