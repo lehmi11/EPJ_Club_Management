@@ -36,7 +36,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "true", rechnungsdatum: "< 25.04.2019"},
+            where: {beitragbezahlt: "true"},
         });
         return mitglieds.length * 100;
     }

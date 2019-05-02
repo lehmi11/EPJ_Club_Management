@@ -35,9 +35,9 @@ export class MemberController {
 
     public async getFinanceDashboard(req: Request, res: Response) {
         try {
-            const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
-            const totalMembershipPaid = await (clubStore.getTotalMembershipPaid());
-            const totalMembershipWarning = await (clubStore.getTotalMembershipWarning());
+            const totalMembershipNotPaid = await (memberService.getTotalMembershipNotPaid());
+            const totalMembershipPaid = await (memberService.getTotalMembershipPaid());
+            const totalMembershipWarning = await (memberService.getTotalMembershipWarning());
 
             res.json({
                 totalMembershipNotPaid,

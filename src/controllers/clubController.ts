@@ -4,21 +4,7 @@ import { clubStore } from "../services/clubStore";
 export class ClubController {
 
     public async showFinanceDashboard(req: Request, res: Response) {
-        try {
-            const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
-            const totalMembershipPaid = await (clubStore.getTotalMembershipPaid());
-            const totalMembershipWarning = await (clubStore.getTotalMembershipWarning());
-
-            res.render("dashboard_finance", {
-                title: "Finanz Dashboard",
-                totalMembershipNotPaid: totalMembershipNotPaid + " CHF",
-                totalMembershipPaid: totalMembershipPaid + " CHF",
-                totalMembershipWarning: totalMembershipWarning + " CHF",
-            });
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
+        res.render("dashboard_finance", { title: "dashboard_finance" });
     }
 
     public async showIndex(req: Request, res: Response) {
