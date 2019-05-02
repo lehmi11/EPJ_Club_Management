@@ -1,6 +1,6 @@
 import * as db from "../config/dbConfig";
 
-import {getConnection} from "typeorm";
+import {getConnection, Raw} from "typeorm";
 import {getRepository} from "typeorm";
 import {Anlassbelegung} from "../entities/Anlassbelegung";
 
@@ -36,7 +36,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "true"},
+            where: {beitragbezahlt: "true", rechnungsdatum: "< 25.04.2019"},
         });
         return mitglieds.length * 100;
     }
@@ -81,7 +81,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false"},
+            where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
         });
         return mitglieds.length;
     }

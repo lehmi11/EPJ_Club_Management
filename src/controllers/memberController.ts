@@ -1,4 +1,5 @@
 import {Request, Response} from "express-serve-static-core";
+import {clubStore} from "../services/clubStore";
 import {memberService} from "../services/memberService";
 
 export class MemberController {
@@ -27,6 +28,23 @@ export class MemberController {
                     membersWarningCount,
                 ],
             });
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getFinanceDashboard(req: Request, res: Response) {
+        try {
+            const totalMembershipNotPaid = await (clubStore.getTotalMembershipNotPaid());
+            const totalMembershipPaid = await (clubStore.getTotalMembershipPaid());
+            const totalMembershipWarning = await (clubStore.getTotalMembershipWarning());
+
+            res.json({
+                totalMembershipNotPaid,
+                totalMembershipPaid,
+                totalMembershipWarning,
+            });
+
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
