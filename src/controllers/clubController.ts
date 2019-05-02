@@ -41,6 +41,10 @@ export class ClubController {
     public async showProfile(req: Request, res: Response) {
         res.render("profile", { title: "Profil" });
     }
+
+    public async showVorstand(req: Request, res: Response) {
+        res.render("vorstand", { title: "Vorstand" });
+    }
 }
 
 export const clubController = new ClubController();

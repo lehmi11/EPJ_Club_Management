@@ -2,7 +2,6 @@ import * as db from "../config/dbConfig";
 
 import {getConnection, Raw} from "typeorm";
 import {getRepository} from "typeorm";
-import {Anlassbelegung} from "../entities/Anlassbelegung";
 
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
