@@ -27,16 +27,11 @@ export class Verein {
     })
     public name: string;
 
-
     @OneToMany((type) => Anlass, (anlass) => anlass.verein)
     public anlasss: Anlass[];
 
-
-    @OneToMany((type) => Mitglied, (mitglied) => mitglied.verein2)
+    @OneToMany((type) => Mitglied, (mitglied) => mitglied.verein)
     public mitglieds: Mitglied[];
 
-
-    @JoinTable({ name: "vereinsvorstand" })
-    public mitgliedsVerein: Mitglied[];
 
 }

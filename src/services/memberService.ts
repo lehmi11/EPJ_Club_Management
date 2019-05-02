@@ -12,6 +12,7 @@ export class MemberService {
 
         const connection = getConnection();
         const repository = getRepository(Mitglied);
+        console.log(repository);
         const mitglieds: Mitglied[] = await repository.find();
         return mitglieds;
     }
