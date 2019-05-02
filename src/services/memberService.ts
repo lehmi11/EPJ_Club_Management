@@ -36,7 +36,8 @@ export class MemberService {
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "true"},
         });
-        return mitglieds.length * 100;
+        const beitrag = mitglieds[0].mitgliederbeitrag;
+        return mitglieds.length * beitrag;
     }
 
     public async getTotalMembershipPaidCount() {
@@ -54,7 +55,8 @@ export class MemberService {
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "false"},
         });
-        return mitglieds.length * 100;
+        const beitrag = mitglieds[0].mitgliederbeitrag;
+        return mitglieds.length * beitrag;
     }
 
     public async getTotalMembershipNotPaidCount() {
@@ -72,7 +74,8 @@ export class MemberService {
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
         });
-        return mitglieds.length * 100;
+        const beitrag = mitglieds[0].mitgliederbeitrag;
+        return mitglieds.length * beitrag;
     }
 
     public async getTotalMembershipWarningCount() {
