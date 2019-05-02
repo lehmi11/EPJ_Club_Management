@@ -13,12 +13,9 @@ export class MemberService {
 
         const connection = getConnection();
         const repository = getRepository(Mitglied);
-        const repository2 =getRepository(Anlassbelegung);
+        const repository2 = getRepository(Anlassbelegung);
         const Anlassbeleg: Anlassbelegung[] = await repository2.find();
-        console.log(repository2);
-        console.log(Anlassbeleg);
         const mitglieds: Mitglied[] = await repository.find();
-        console.log(mitglieds);
         return mitglieds;
     }
 
@@ -36,11 +33,12 @@ export class MemberService {
     }
 
     public async getTotalMembershipPaid() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*)*100 as "paidMembership"
-            FROM mitgliedschaft
-            WHERE beitragbezahlt = true`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "true"},
+        });
+        return mitglieds.length * 100;
     }
 
     public async getTotalMembershipPaidCount() {
@@ -53,11 +51,12 @@ export class MemberService {
     }
 
     public async getTotalMembershipNotPaid() {
-        const {rows} = await db.client.query(
-            `SELECT COUNT(*)*100 AS "notPaidMembership"
-            FROM mitgliedschaft
-            WHERE mitgliedschaft.beitragbezahlt = false`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "false"},
+        });
+        return mitglieds.length * 100;
     }
 
     public async getTotalMembershipNotPaidCount() {
@@ -70,22 +69,23 @@ export class MemberService {
     }
 
     public async getTotalMembershipWarning() {
-        const {rows} = await db.client.query(`
-            SELECT COUNT(*)*100 AS "warning"
-            FROM mitgliedschaft
-            WHERE mitgliedschaft.beitragbezahlt = false
-            AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "false"},
+        });
+        return mitglieds.length * 100;
     }
 
     public async getTotalMembershipWarningCount() {
-        const {rows} = await db.client.query(`
-            SELECT COUNT(*) AS "warningCount"
-            FROM mitgliedschaft
-            WHERE mitgliedschaft.beitragbezahlt = false
-            AND (mitgliedschaft.rechnungsdatum - now()::date) > 1`);
-        return rows[0];
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "false"},
+        });
+        return mitglieds.length;
     }
+
 
     public async getNameOfMembersWithAddress() {
         const connection = getConnection();

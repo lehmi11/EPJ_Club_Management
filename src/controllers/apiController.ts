@@ -13,7 +13,7 @@ export class ApiController {
                 paymentStatus: [
                     membersPaidCount,
                     membersNotPaidCount,
-                    membersWarningCount.warningCount,
+                    membersWarningCount,
                 ],
             });
         } catch (error) {
@@ -28,9 +28,9 @@ export class ApiController {
             const totalMembershipWarning = await (clubStore.getTotalMembershipWarning());
 
             res.json({
-                totalMembershipNotPaid: totalMembershipNotPaid.notPaidMembership,
-                totalMembershipPaid: totalMembershipPaid.paidMembership,
-                totalMembershipWarning: totalMembershipWarning.warning,
+               totalMembershipNotPaid,
+               totalMembershipPaid,
+               totalMembershipWarning,
             });
 
         } catch (error) {

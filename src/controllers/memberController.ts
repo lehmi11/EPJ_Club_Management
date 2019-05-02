@@ -24,7 +24,7 @@ export class MemberController {
                 paymentStatus: [
                     membersPaidCount,
                     membersNotPaidCount,
-                    membersWarningCount.warningCount,
+                    membersWarningCount,
                 ],
             });
         } catch (error) {

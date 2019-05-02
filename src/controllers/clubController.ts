@@ -11,9 +11,9 @@ export class ClubController {
 
             res.render("dashboard_finance", {
                 title: "Finanz Dashboard",
-                totalMembershipNotPaid: totalMembershipNotPaid.notPaidMembership + " CHF",
-                totalMembershipPaid: totalMembershipPaid.paidMembership + " CHF",
-                totalMembershipWarning: totalMembershipWarning.warning + " CHF",
+                totalMembershipNotPaid: totalMembershipNotPaid + " CHF",
+                totalMembershipPaid: totalMembershipPaid + " CHF",
+                totalMembershipWarning: totalMembershipWarning + " CHF",
             });
 
         } catch (error) {
