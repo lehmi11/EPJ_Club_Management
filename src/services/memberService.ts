@@ -13,8 +13,6 @@ export class MemberService {
 
         const connection = getConnection();
         const repository = getRepository(Mitglied);
-        const repository2 = getRepository(Anlassbelegung);
-        const Anlassbeleg: Anlassbelegung[] = await repository2.find();
         const mitglieds: Mitglied[] = await repository.find();
         return mitglieds;
     }

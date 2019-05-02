@@ -1,5 +1,4 @@
 import {Request, Response} from "express-serve-static-core";
-import {clubStore} from "../services/clubStore";
 import {memberService} from "../services/memberService";
 
 export class MemberController {
