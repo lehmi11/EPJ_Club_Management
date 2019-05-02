@@ -1,29 +1,16 @@
 import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
+import {Anlass} from "./Anlass";
 import { Gruppe } from "./Gruppe";
 import { Mitglied } from "./Mitglied";
 
 @Entity("gruppenbelegung", { schema: "public" })
 export class Gruppenbelegung {
 
-    @Column("integer", {
-        nullable: false,
-        primary: true,
-        name: "gruppenid",
-    })
-    public gruppenid: number;
+    @ManyToOne((type) => Gruppe, (gruppe) => gruppe.id, { nullable: false, primary: true})
+    @JoinColumn({ name: "gruppeid", referencedColumnName: "id" })
+    public gruppeid: Gruppe;
 
-
-    @Column("integer", {
-        nullable: false,
-        primary: true,
-        name: "mitgliedid",
-    })
-    public mitgliedid: number;
-
-    @ManyToOne((type) => Gruppe, (gruppe) => gruppe)
-    public gruppe: Gruppe;
-
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied)
-    public mitglied: Mitglied;
-
+    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true})
+    @JoinColumn({ name: "mitgliedid", referencedColumnName: "id" })
+    public mitgliedid: Mitglied;
 }

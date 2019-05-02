@@ -2,6 +2,7 @@ import * as db from "../config/dbConfig";
 
 import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
+import {Anlassbelegung} from "../entities/Anlassbelegung";
 
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
@@ -12,8 +13,12 @@ export class MemberService {
 
         const connection = getConnection();
         const repository = getRepository(Mitglied);
-        console.log(repository);
+        const repository2 =getRepository(Anlassbelegung);
+        const Anlassbeleg: Anlassbelegung[] = await repository2.find();
+        console.log(repository2);
+        console.log(Anlassbeleg);
         const mitglieds: Mitglied[] = await repository.find();
+        console.log(mitglieds);
         return mitglieds;
     }
 

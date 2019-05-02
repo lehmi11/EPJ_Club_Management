@@ -1,6 +1,5 @@
 import {
     BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId} from "typeorm";
-import { Mitglied } from "./Mitglied";
 import { Verein } from "./Verein";
 
 @Entity("anlass", { schema: "public" })
@@ -75,11 +74,7 @@ export class Anlass {
     })
     public verantwortlicher: string | null;
 
-    @ManyToOne((type) => Verein, (verein) => verein.anlasss, { nullable: false })
+    @ManyToOne((type) => Verein, (verein) => verein.id, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein: Verein | null;
-
-
-
-
 }
