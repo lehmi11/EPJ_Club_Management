@@ -1,6 +1,4 @@
 import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
-import { Mitglied } from "./Mitglied";
-
 
 @Entity("gruppe", { schema: "public" })
 export class Gruppe {
@@ -26,8 +24,10 @@ export class Gruppe {
     })
     public berechtigung: string | null;
 
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.gruppes, { nullable: false })
-    @JoinTable({ name: "gruppenbelegung" })
-    public mitglieds: Mitglied[];
+    @Column("text", {
+        nullable: true,
+        name: "verantwortlicher",
+    })
+    public verantwortlicher: string | null;
 
 }
