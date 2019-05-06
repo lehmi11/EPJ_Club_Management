@@ -14,6 +14,28 @@ members.deleteMember = function() {
     });
 };
 
+/**
+ * Event registrieren zum Editieren von Mitgliedern
+ */
+members.editMember = function() {
+    $(document).on('click', ".editMember", function () {
+        // Mitgliedsdaten für die Anzeige im Modal laden
+        $.getJSON("/api/members/" + $(this).data('memberid'), function( member ) {
+
+            $("#editMemberModal .inputId").val(member.id);
+            $("#editMemberModal .selectGender").val(member.geschlecht);
+            $("#editMemberModal .inputFirstName").val(member.vorname);
+            $("#editMemberModal .inputLastName").val(member.name);
+            $("#editMemberModal .inputBirthday").val(member.geburtsdatum);
+            $("#editMemberModal .inputEmail").val(member.email);
+            $("#editMemberModal .inputStreet").val(member.strasse);
+            $("#editMemberModal .inputZip").val(member.plz);
+            $("#editMemberModal .inputCity").val(member.ort);
+
+        });
+    });
+}
+
 $(function() {
     let $appMembersWithAddress = $("#app_membersWithAddress");
 
@@ -32,6 +54,8 @@ $(function() {
     // Registriere Event zum Löschen des Mitglieds
     members.deleteMember();
 
+    // Registriere Event zum Editieren des Mitglieds
+    members.editMember();
 
 });
 

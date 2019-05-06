@@ -11,7 +11,7 @@ router.get("/members/paymentStatus", memberController.getMembersPaymentStatus.bi
 
 router.get("/members", memberController.getMembers.bind(memberController));
 router.post("/members", memberController.createMember.bind(memberController));
-// router.post("/members/edit", memberController.editMember.bind(memberController));
+router.post("/members/edit", memberController.editMember.bind(memberController));
 router.delete("/members/:memberId", memberController.deleteMember.bind(memberController));
 router.get("/members/:memberId", memberController.getMemberById.bind(memberController));
 

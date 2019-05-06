@@ -14,6 +14,9 @@
             <td>{{ strasse }}  </td>
             <td>{{ plz }} {{ ort }}</td>
             <td>
+                <a href="javascript:void(0);" class="editMember btn-primary btn-sm m-sm-1" data-toggle="modal" data-target="#editMemberModal" data-memberId="{{id}}">
+                    <i class="fas fa-edit"></i>
+                </a>
                 <a href="javascript:void(0);" class="deleteMember btn-danger btn-sm" data-memberId="{{id}}">
                     <i class="fas fa-trash"></i>
                 </a>

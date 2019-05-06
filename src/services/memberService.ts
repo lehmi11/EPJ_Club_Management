@@ -26,6 +26,13 @@ export class MemberService {
         await memberRepo.save(newMember);
     }
 
+    public async editMember(data) {
+        const connection = getConnection();
+        const memberRepo = getRepository(Mitglied);
+
+        await memberRepo.update(data.id, {...data, verein: {id: 1}});
+    }
+
     public async deleteMember(idToDelete: number) {
         await getConnection()
             .createQueryBuilder()

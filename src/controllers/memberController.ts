@@ -35,6 +35,16 @@ export class MemberController {
         }
     }
 
+    public async editMember(req: Request, res: Response) {
+        try {
+            await memberService.editMember(req.body);
+
+            res.redirect("/members");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async deleteMember(req: Request, res: Response) {
         try {
             await memberService.deleteMember(req.params.memberId);
