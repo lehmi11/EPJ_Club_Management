@@ -14,6 +14,37 @@ export class MemberController {
         }
     }
 
+    public async getMembersWithAddress(req: Request, res: Response) {
+        try {
+            const members = await (memberService.getNameOfMembersWithAddress());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async createMember(req: Request, res: Response) {
+        try {
+            await memberService.createMember(req.body);
+
+            res.redirect("/members");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getMemberById(req: Request, res: Response) {
+        try {
+            const member = await memberService.getMemberById(req.params.memberId);
+
+            res.json(member);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getMembersPaymentStatus(req: Request, res: Response) {
         try {
             const membersPaidCount = await (memberService.getTotalMembershipPaidCount());
@@ -24,9 +55,26 @@ export class MemberController {
                 paymentStatus: [
                     membersPaidCount,
                     membersNotPaidCount,
-                    membersWarningCount.warningCount,
+                    membersWarningCount,
                 ],
             });
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getFinanceDashboard(req: Request, res: Response) {
+        try {
+            const totalMembershipNotPaid = await (memberService.getTotalMembershipNotPaid());
+            const totalMembershipPaid = await (memberService.getTotalMembershipPaid());
+            const totalMembershipWarning = await (memberService.getTotalMembershipWarning());
+
+            res.json({
+                totalMembershipNotPaid,
+                totalMembershipPaid,
+                totalMembershipWarning,
+            });
+
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
@@ -43,26 +91,6 @@ export class MemberController {
         }
     }
 
-    public async getMembersWithAddress(req: Request, res: Response) {
-        try {
-            const members = await (memberService.getNameOfMembersWithAddress());
-
-            res.json(members);
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-
-    public async getMemberById(req: Request, res: Response) {
-        try {
-            const member = await memberService.getMemberById(req.params.memberId);
-
-            res.json(member);
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
 }
 
 export const memberController = new MemberController();

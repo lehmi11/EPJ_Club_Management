@@ -40,16 +40,14 @@ export class Mitgliedschaft {
     })
     public beitragbezahlt: boolean;
 
-
-
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.mitgliedschafts, { nullable: false })
-    @JoinColumn({ name: "mitgliedid" })
-    public mitglied: Mitglied | null;
-
     @Column("date", {
         nullable: true,
         name: "rechnungsdatum",
     })
     public rechnungsdatum: string | null;
+
+    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false })
+    @JoinColumn({ name: "mitgliedid" })
+    public mitglied: Mitglied | null;
 
 }
