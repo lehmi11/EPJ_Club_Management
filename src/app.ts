@@ -8,7 +8,7 @@ import {clubRoutes} from "./routes/clubRoutes";
 
 // Controllers
 import { createConnection } from "typeorm";
-
+import { clubController } from "./controllers/clubController";
 
 // Create express server
 const app = express();
