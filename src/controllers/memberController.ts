@@ -35,6 +35,16 @@ export class MemberController {
         }
     }
 
+    public async deleteMember(req: Request, res: Response) {
+        try {
+            await memberService.deleteMember(req.params.memberId);
+
+            res.send("OK");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getMemberById(req: Request, res: Response) {
         try {
             const member = await memberService.getMemberById(req.params.memberId);

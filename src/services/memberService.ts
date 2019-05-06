@@ -2,7 +2,6 @@ import * as db from "../config/dbConfig";
 
 import {getConnection, Raw} from "typeorm";
 import {getRepository} from "typeorm";
-import {Anlassbelegung} from "../entities/Anlassbelegung";
 
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
@@ -17,15 +16,23 @@ export class MemberService {
         return mitglieds;
     }
 
-    public async createMember(data: JSON) {
+    public async createMember(data) {
         const connection = getConnection();
         const memberRepo = getRepository(Mitglied);
-        console.log(data);
         const newMember = memberRepo.create({
             ...data,
             verein: {id: 1},
         });
         await memberRepo.save(newMember);
+    }
+
+    public async deleteMember(idToDelete: number) {
+        await getConnection()
+            .createQueryBuilder()
+            .delete()
+            .from(Mitglied)
+            .where("id = :id", { id: idToDelete})
+            .execute();
     }
 
     public async getNameOfMembersWithAddress() {

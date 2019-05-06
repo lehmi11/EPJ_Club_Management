@@ -1,0 +1,60 @@
+<!-- Modal -->
+<div class="modal fade" id="newMemberModal" tabindex="-1" role="dialog" aria-labelledby="newMemberModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newMemberLabel">Mitglied hinzufügen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newMemberForm" action="/api/members" method="POST">
+                    <div class="form-group">
+                        <label for="addSelectGender">Anrede</label>
+                        <select class="selectGender custom-select" id="addSelectGender" name="geschlecht" required>
+                            <option selected value="M">Herr</option>
+                            <option value="F">Frau</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="addInputFirstName">Vorname</label>
+                            <input type="text" class="inputFirstName form-control" id="addInputFirstName" name="vorname" placeholder="Vorname" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="addInputLastName">Nachname</label>
+                            <input type="text" class="inputLastName form-control" id="addInputLastName" name="name" placeholder="Nachname" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addInputBirthday">Geburtstag</label>
+                        <input type="date" class="inputBirthday form-control" id="addInputBirthday" name="geburtsdatum" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addInputEmail">E-Mail Adresse</label>
+                        <input type="email" class="inputEmail form-control" id="addInputEmail" name="email" aria-describedby="emailHelp" placeholder="E-Mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="addInputStreet">Strasse</label>
+                        <input type="text" class="inputStreet form-control" id="addInputStreet" name="strasse" placeholder="Strasse" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label for="addInputZip">PLZ</label>
+                            <input type="text" class="inputZip form-control" id="addInputZip" name="plz" placeholder="PLZ" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="addInputCity">Ort</label>
+                            <input type="text" class="inputCity form-control" id="addInputCity" name="ort" placeholder="Ort" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+                        <button type="submit" form="newMemberForm" class="btn btn-primary">Hinzufügen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
