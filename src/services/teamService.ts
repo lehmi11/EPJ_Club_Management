@@ -12,6 +12,14 @@ export class TeamService {
         return result;
     }
 
+    public async getTeamById(groupId: number) {
+        return await getConnection()
+            .getRepository(Gruppe)
+            .createQueryBuilder()
+            .where("id = :id", { id: groupId })
+            .getOne();
+    }
+
     public async getGroupsWithCount() {
         const { rows } = await db.client.query(`
             SELECT gruppe.name AS "Name",

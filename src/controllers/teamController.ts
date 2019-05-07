@@ -10,6 +10,16 @@ export class TeamController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+
+    public async getTeamById(req: Request, res: Response) {
+        try {
+            const group = await teamService.getTeamById(req.params.groupId);
+            res.json(group);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async getGroupsWithCount(req: Request, res: Response) {
         try {
             const groups = await (teamService.getGroupsWithCount());
