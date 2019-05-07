@@ -1,10 +1,10 @@
-$(function() {
+$(function () {
 
     let $appGroups = $("#app_groups");
 
     if ($appGroups.length > 0) {
 
-        $.getJSON("/api/groups", function ( groups ) {
+        $.getJSON("/api/groupsAll", function (groups) {
 
             let groupsTable = Handlebars.templates.group_table({
                 groups: groups,

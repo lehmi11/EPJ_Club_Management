@@ -68,19 +68,19 @@ templates['group_detail_table'] = template({"1":function(container,depth0,helper
 templates['group_table'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "    <tr>\r\n        <td>"
-    + alias4(((helper = (helper = helpers.Name || (depth0 != null ? depth0.Name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Name","hash":{},"data":data}) : helper)))
-    + "</td>\r\n        <td>"
+  return "        <tr>\r\n            <td>"
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</td>\r\n            <td>"
     + alias4(((helper = (helper = helpers.Anzahl || (depth0 != null ? depth0.Anzahl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Anzahl","hash":{},"data":data}) : helper)))
-    + "</td>\r\n        <td>"
-    + alias4(((helper = (helper = helpers.Verantwortlicher || (depth0 != null ? depth0.Verantwortlicher : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Verantwortlicher","hash":{},"data":data}) : helper)))
-    + "</td>\r\n        <td>\r\n            <a href=\"/teams_detail\" class=\"btn btn-outline-primary btn-sm mr-1\">Details</a>\r\n            <a href=\"/teams_change\" class=\"btn btn-primary btn-sm\">Bearbeiten</a>\r\n        </td>\r\n    </tr>\r\n";
+    + "</td>\r\n            <td>"
+    + alias4(((helper = (helper = helpers.verantwortlicher || (depth0 != null ? depth0.verantwortlicher : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"verantwortlicher","hash":{},"data":data}) : helper)))
+    + "</td>\r\n            <td>\r\n                <a href=\"/teams_detail\" class=\"btn btn-outline-primary btn-sm mr-1\">Details</a>\r\n                <a href=\"/teams_change\" class=\"btn btn-primary btn-sm\">Bearbeiten</a>\r\n            </td>\r\n        </tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"groupTable\" data-page-length='15'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Anzahl Mitglieder</th>\r\n        <th>Verantwortlicher</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
+  return "<table class=\"table table-sm table-hover\" id=\"groupTable\" data-page-length='15'>\r\n    <thead>\r\n        <tr>\r\n            <th>Name</th>\r\n            <th>Anzahl Mitglieder</th>\r\n            <th>Verantwortlicher</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.groups : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </tbody>\r\n</table>\r\n";
+    + "    </tbody>\r\n</table>";
 },"useData":true});
 templates['membersWithAddress_table'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;

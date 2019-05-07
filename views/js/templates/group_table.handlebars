@@ -1,22 +1,22 @@
 <table class="table table-sm table-hover" id="groupTable" data-page-length='15'>
     <thead>
-    <tr>
-        <th>Name</th>
-        <th>Anzahl Mitglieder</th>
-        <th>Verantwortlicher</th>
-    </tr>
+        <tr>
+            <th>Name</th>
+            <th>Anzahl Mitglieder</th>
+            <th>Verantwortlicher</th>
+        </tr>
     </thead>
     <tbody>
-    {{#each groups}}
-    <tr>
-        <td>{{Name}}</td>
-        <td>{{Anzahl}}</td>
-        <td>{{Verantwortlicher}}</td>
-        <td>
-            <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
-            <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>
-        </td>
-    </tr>
-    {{/each}}
+        {{#each groups}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{Anzahl}}</td>
+            <td>{{verantwortlicher}}</td>
+            <td>
+                <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
+                <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>
+            </td>
+        </tr>
+        {{/each}}
     </tbody>
 </table>
