@@ -9,7 +9,6 @@ import {clubRoutes} from "./routes/clubRoutes";
 // Controllers
 import { createConnection } from "typeorm";
 
-
 // Create express server
 const app = express();
 

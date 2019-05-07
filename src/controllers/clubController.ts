@@ -15,7 +15,7 @@ export class ClubController {
     }
 
     public async showMembersView(req: Request, res: Response) {
-        res.render("members", { title: "Mitglieder" });
+        res.render("members",   { title: "Mitglieder" });
     }
 
     public async showTeamsView(req: Request, res: Response) {
