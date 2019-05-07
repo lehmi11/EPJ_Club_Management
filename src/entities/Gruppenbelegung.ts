@@ -7,8 +7,8 @@ import { Mitglied } from "./Mitglied";
 export class Gruppenbelegung {
 
     @ManyToOne((type) => Gruppe, (gruppe) => gruppe.id, { nullable: false, primary: true})
-    @JoinColumn({ name: "gruppeid", referencedColumnName: "id" })
-    public gruppeid: Gruppe;
+    @JoinColumn({ name: "gruppenid", referencedColumnName: "id" })
+    public gruppenid: Gruppe;
 
     @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true})
     @JoinColumn({ name: "mitgliedid", referencedColumnName: "id" })
