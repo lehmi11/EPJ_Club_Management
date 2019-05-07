@@ -20,6 +20,7 @@ router.delete("/events/:eventId", eventController.deleteEvent.bind(eventControll
 router.get("/events/:eventId", eventController.getEventById.bind(eventController));
 
 router.get("/groups", teamController.getGroupsWithCount.bind(teamController));
+router.get("/groupsTest", teamController.getTeams.bind(teamController));
 router.post("/groups", teamController.createTeam.bind(teamController));
 // router.delete("/groups/:groupId", teamController.deleteTeam.bind(teamController));
 router.get("/groupWithMembers", teamController.getGroupWithMembers.bind(teamController));

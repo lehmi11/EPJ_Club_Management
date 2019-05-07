@@ -6,6 +6,12 @@ import { getRepository } from "typeorm";
 import { Gruppe } from "../entities/Gruppe";
 
 export class TeamService {
+    public async getTeams() {
+        const connection = getConnection();
+        const result = await connection.createQueryBuilder().select(["gr.name", "gr.berechtigung", "gr.verantwortlicher"]).from(Gruppe, "gr").getMany();
+        return result;
+    }
+
     public async getGroupsWithCount() {
         const { rows } = await db.client.query(`
             SELECT gruppe.name AS "Name",
