@@ -2,6 +2,7 @@ import * as db from "../config/dbConfig";
 
 import {getConnection, Raw} from "typeorm";
 import {getRepository} from "typeorm";
+import {Anlassbelegung} from "../entities/Anlassbelegung";
 
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
@@ -119,6 +120,15 @@ export class MemberService {
     }
 
     public async getTotalMembershipWarningCount() {
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds: Mitgliedschaft[] = await repository.find({
+            where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
+        });
+        return mitglieds.length;
+    }
+  
+    public async getNameOfMembersWithAddress() {
         const connection = getConnection();
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
