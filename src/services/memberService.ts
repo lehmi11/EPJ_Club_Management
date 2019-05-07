@@ -127,15 +127,6 @@ export class MemberService {
         });
         return mitglieds.length;
     }
-  
-    public async getNameOfMembersWithAddress() {
-        const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
-        const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
-        });
-        return mitglieds.length;
-    }
 
 }
 
