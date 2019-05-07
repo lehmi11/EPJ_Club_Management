@@ -1,5 +1,6 @@
 import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
 import { Anlass } from "./Anlass";
+import {Anlassbelegung} from "./Anlassbelegung";
 import { Gruppe } from "./Gruppe";
 import { Mitgliedschaft } from "./Mitgliedschaft";
 import { Verein } from "./Verein";
@@ -71,21 +72,14 @@ export class Mitglied {
     })
     public email: string | null;
 
-    @ManyToOne((type) => Verein, (verein) => verein.mitglieds, { nullable: false })
+    @Column("boolean", {
+        nullable: true,
+        name: "istVorstand",
+    })
+    public istVorstand: boolean | null;
+
+    @ManyToOne((type) => Verein, (verein) => verein.id, { nullable: false })
     @JoinColumn({ name: "vereinid" })
-    public verein2: Verein | null;
-
-    @ManyToOne((type) => Gruppe, (gruppe) => gruppe.mitglieds)
-    public gruppes: Gruppe[];
-
-    @ManyToOne((type) => Verein, (verein) => verein.mitglieds)
-    public vereins: Verein[];
-
-    @OneToMany((type) => Mitgliedschaft, (mitgliedschaft) => mitgliedschaft.mitglied)
-    public mitgliedschafts: Mitgliedschaft[];
-
-    @ManyToOne((type) => Anlass, (anlass) => anlass.mitglieds, { nullable: false })
-    @JoinTable({ name: "anlassbelegung" })
-    public anlasss: Anlass[];
+    public verein: Verein | null;
 
 }
