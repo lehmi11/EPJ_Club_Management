@@ -1,5 +1,4 @@
 import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
-import {Anlass} from "./Anlass";
 import { Gruppe } from "./Gruppe";
 import { Mitglied } from "./Mitglied";
 
