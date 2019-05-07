@@ -44,7 +44,6 @@ export class TeamService {
         const teamRepo = getRepository(Gruppe);
         const newTeam = teamRepo.create({
             ...data,
-            id: 2,
             berechtigung: null,
         });
         await teamRepo.save(newTeam);
