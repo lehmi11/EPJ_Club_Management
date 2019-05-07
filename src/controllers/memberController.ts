@@ -24,9 +24,26 @@ export class MemberController {
                 paymentStatus: [
                     membersPaidCount,
                     membersNotPaidCount,
-                    membersWarningCount.warningCount,
+                    membersWarningCount,
                 ],
             });
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getFinanceDashboard(req: Request, res: Response) {
+        try {
+            const totalMembershipNotPaid = await (memberService.getTotalMembershipNotPaid());
+            const totalMembershipPaid = await (memberService.getTotalMembershipPaid());
+            const totalMembershipWarning = await (memberService.getTotalMembershipWarning());
+
+            res.json({
+                totalMembershipNotPaid,
+                totalMembershipPaid,
+                totalMembershipWarning,
+            });
+
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
