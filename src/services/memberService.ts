@@ -17,6 +17,47 @@ export class MemberService {
         return mitglieds;
     }
 
+    public async createMember(data) {
+        const connection = getConnection();
+        const memberRepo = getRepository(Mitglied);
+        const newMember = memberRepo.create({
+            ...data,
+            verein: {id: 1},
+        });
+        await memberRepo.save(newMember);
+    }
+
+    public async editMember(data) {
+        const connection = getConnection();
+        const memberRepo = getRepository(Mitglied);
+
+        await memberRepo.update(data.id, {...data, verein: {id: 1}});
+    }
+
+    public async deleteMember(idToDelete: number) {
+        await getConnection()
+            .createQueryBuilder()
+            .delete()
+            .from(Mitglied)
+            .where("id = :id", { id: idToDelete})
+            .execute();
+    }
+
+    public async getNameOfMembersWithAddress() {
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const mitglieds: Mitglied[] = await repository.find({select: ["id", "name", "vorname", "strasse", "plz", "ort"]});
+        return mitglieds;
+    }
+
+    public async getMemberById(memberId: number) {
+        return await getConnection()
+            .getRepository(Mitglied)
+            .createQueryBuilder()
+            .where("id = :id", { id: memberId })
+            .getOne();
+    }
+
     public async getMembersFeeNotPaid() {
         const {rows} = await db.client.query(
             `SELECT mit.name AS "Nachname",
@@ -87,21 +128,6 @@ export class MemberService {
         return mitglieds.length;
     }
 
-
-    public async getNameOfMembersWithAddress() {
-        const connection = getConnection();
-        const repository = getRepository(Mitglied);
-        const mitglieds: Mitglied[] = await repository.find({select: ["name", "vorname", "strasse", "plz", "ort"]});
-        return mitglieds;
-    }
-
-    public async getMemberById(memberId: number) {
-        return await getConnection()
-            .getRepository(Mitglied)
-            .createQueryBuilder()
-            .where("id = :id", { id: memberId })
-            .getOne();
-    }
 }
 
 export const memberService = new MemberService();
