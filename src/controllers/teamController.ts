@@ -27,7 +27,7 @@ export class TeamController {
     public async createTeam(req: Request, res: Response) {
         try {
             await teamService.createTeam(req.body);
-            res.redirect("/groups");
+            res.redirect("/teams");
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
