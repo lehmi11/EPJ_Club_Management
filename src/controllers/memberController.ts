@@ -116,18 +116,6 @@ export class MemberController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-
-    public async getMembersNotPaid(req: Request, res: Response) {
-        try {
-            const members = await (memberService.getMembersFeeNotPaid());
-
-            res.json(members);
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-
 }
 
 export const memberController = new MemberController();
