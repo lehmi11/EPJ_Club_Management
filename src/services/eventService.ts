@@ -42,9 +42,11 @@ export class EventService {
     }
 
     public async getClubMeetings() {
-        const connection = getConnection();
-        const result = await connection.createQueryBuilder().select(["anl.id", "anl.name", "anl.datum", "anl.von", "anl.bis", "anl.ort"]).from(Anlass, "anl").getMany();
-        return result;
+        return await getConnection()
+            .getRepository(Anlass)
+            .createQueryBuilder()
+            .where("traktadenliste IS NOT NULL")
+            .getMany();
     }
 
     public async getSpecificEventWithMembers(eventId: number) {

@@ -45,7 +45,7 @@ export class EventController {
 
     public async getClubMeetings(req: Request, res: Response) {
         try {
-            const clubMeetings = await (eventService.getClubMeetings());
+            const clubMeetings = await eventService.getClubMeetings();
 
             res.json(clubMeetings);
         } catch (error) {

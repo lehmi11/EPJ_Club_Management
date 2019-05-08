@@ -1,5 +1,28 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['clubMeeting_table'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "        <tr>\n            <td>"
+    + alias4(((helper = (helper = helpers.datum || (depth0 != null ? depth0.datum : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"datum","hash":{},"data":data}) : helper)))
+    + "</td>\n            <td>"
+    + alias4(((helper = (helper = helpers.von || (depth0 != null ? depth0.von : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"von","hash":{},"data":data}) : helper)))
+    + " - "
+    + alias4(((helper = (helper = helpers.bis || (depth0 != null ? depth0.bis : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"bis","hash":{},"data":data}) : helper)))
+    + "</td>\n            <td>"
+    + alias4(((helper = (helper = helpers.plz || (depth0 != null ? depth0.plz : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"plz","hash":{},"data":data}) : helper)))
+    + " "
+    + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
+    + "</td>\n            <td>"
+    + alias4(((helper = (helper = helpers.traktadenliste || (depth0 != null ? depth0.traktadenliste : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"traktadenliste","hash":{},"data":data}) : helper)))
+    + "</td>\n        </tr>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<table class=\"table table-sm table-hover\" id=\"memberTable\" data-page-length='5'>\n    <thead>\n    <tr>\n        <th>Datum</th>\n        <th>Uhrzeit</th>\n        <th>Ort</th>\n        <th>Traktandenliste</th>\n    </tr>\n    </thead>\n    <tbody>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.clubMeeting : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </tbody>\n</table>\n";
+},"useData":true});
 templates['event_detail_table'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 

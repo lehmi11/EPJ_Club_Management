@@ -16,4 +16,20 @@ $(function() {
         });
 
     }
+
+    let $appClubMeeting = $("#app_vereinsversammlung");
+
+    if ($appClubMeeting.length > 0) {
+        $.getJSON("/api/clubMeeting", function (clubMeeting) {
+
+            let clubMeetingTable = Handlebars.templates.clubMeeting_table({
+                clubMeeting: clubMeeting,
+            });
+
+            $appClubMeeting.html(clubMeetingTable);
+
+            initDatatable("clubMeetingTable");
+        });
+
+    }
 });
