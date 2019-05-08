@@ -43,6 +43,16 @@ export class EventController {
         }
     }
 
+    public async getClubMeetings(req: Request, res: Response) {
+        try {
+            const clubMeetings = await eventService.getClubMeetings();
+
+            res.json(clubMeetings);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const eventController = new EventController();
