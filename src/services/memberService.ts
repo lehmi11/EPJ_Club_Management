@@ -2,7 +2,6 @@ import * as db from "../config/dbConfig";
 
 import {getConnection, Raw} from "typeorm";
 import {getRepository} from "typeorm";
-import {Anlassbelegung} from "../entities/Anlassbelegung";
 
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
@@ -41,6 +40,15 @@ export class MemberService {
             .from(Mitglied)
             .where("id = :id", { id: idToDelete})
             .execute();
+    }
+
+    public async getManagingComittee() {
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const ManagingComittee: Mitglied[] = await repository.find({
+            where: {istVorstand: "true"},
+        });
+        return ManagingComittee;
     }
 
     public async getNameOfMembersWithAddress() {
