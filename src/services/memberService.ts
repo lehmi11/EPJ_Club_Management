@@ -42,6 +42,15 @@ export class MemberService {
             .execute();
     }
 
+    public async getManagingComittee() {
+        const connection = getConnection();
+        const repository = getRepository(Mitglied);
+        const ManagingComittee: Mitglied[] = await repository.find({
+            where: {istVorstand: "true"},
+        });
+        return ManagingComittee;
+    }
+
     public async getNameOfMembersWithAddress() {
         const connection = getConnection();
         const repository = getRepository(Mitglied);
