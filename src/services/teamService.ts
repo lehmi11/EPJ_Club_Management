@@ -2,8 +2,12 @@ import * as db from "../config/dbConfig";
 
 import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
+import {Anlassbelegung} from "../entities/Anlassbelegung";
 
 import { Gruppe } from "../entities/Gruppe";
+import {Gruppenbelegung} from "../entities/Gruppenbelegung";
+import {Mitglied} from "../entities/Mitglied";
+import {Mitgliedschaft} from "../entities/Mitgliedschaft";
 
 export class TeamService {
     public async getGroupsWithCount() {
@@ -18,19 +22,11 @@ export class TeamService {
         return rows;
     }
 
-    public async getGroupWithMembers() {
-        const {rows} = await db.client.query(`
-            SELECT gruppe.name AS "Gruppenname",
-            gruppe.verantwortlicher AS "Verantwortlicher",
-            mitglied.name AS "Name",
-            mitglied.vorname AS "Vorname",
-            mitglied.strasse AS "Adresse",
-            mitglied.plz AS "PLZ",
-            mitglied.ort AS "Ort"
-            FROM gruppe INNER JOIN
-            Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
-            INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id;`);
-        return rows;
+    public async getGroupsWithMembers() {
+        const connection = getConnection();
+        const repository = getRepository(Gruppenbelegung);
+        const gruppe = repository.find();
+        return gruppe;
     }
 }
 

@@ -6,8 +6,8 @@ $(function() {
     if($app_verantwortlicher.length > 0){
 
         $.getJSON( "/api/groupWithMembers", function( data ) {
-            $app_verantwortlicher.html(data[0].Verantwortlicher);
-            $app_gruppenName.html(data[0].Gruppenname)
+            $app_verantwortlicher.html(data[0].gruppenid.verantwortlicher);
+            $app_gruppenName.html(data[0].gruppenid.name);
 
         });
 

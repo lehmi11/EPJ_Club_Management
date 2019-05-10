@@ -4,7 +4,8 @@ import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
 import { Anlass } from "../entities/Anlass";
-import {Mitglied} from "../entities/Mitglied";
+import {Anlassbelegung} from "../entities/Anlassbelegung";
+
 
 export class EventService {
 
@@ -50,23 +51,12 @@ export class EventService {
     }
 
     public async getSpecificEventWithMembers(eventId: number) {
-        const {rows} = await db.client.query(`
-            SELECT anlass.name AS "Name",
-            anlass.ort AS "Ort",
-            anlass.datum AS "Datum",
-            anlass.von AS "Start",
-            anlass.bis AS "Ende",
-            anlass.verantwortlicher AS "Verantwortlicher",
-            mitglied.name AS "Mitgliedname",
-            mitglied.vorname AS "Mitgliedvorname",
-            mitglied.strasse AS "Adresse",
-            mitglied.plz AS "PLZ",
-            mitglied.ort AS "Ort"
-            FROM anlass INNER JOIN
-            anlassbelegung ON anlass.id = anlassbelegung.anlassid INNER JOIN
-            mitglied ON mitglied.id = anlassbelegung.mitgliedid
-            WHERE anlass.id =` + eventId + `;`);
-        return rows;
+
+        const connection = getConnection();
+        const repository = getRepository(Anlassbelegung);
+        const events = repository.find({ relations: ["mitglied", "anlass"],
+            where: {anlassid: eventId}});
+        return events;
     }
 }
 

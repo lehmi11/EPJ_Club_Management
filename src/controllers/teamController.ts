@@ -13,9 +13,9 @@ export class TeamController {
         }
     }
 
-    public async getGroupWithMembers(req: Request, res: Response) {
+    public async getGroupsWithMembers(req: Request, res: Response) {
         try {
-            const members = await (teamService.getGroupWithMembers());
+            const members = await (teamService.getGroupsWithMembers());
 
             res.json(members);
 

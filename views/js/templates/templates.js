@@ -68,19 +68,21 @@ templates['event_table'] = template({"1":function(container,depth0,helpers,parti
     + "    </tbody>\n</table>\n";
 },"useData":true});
 templates['group_detail_table'] = template({"1":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "                    <tr>\n                        <td>"
-    + alias4(((helper = (helper = helpers.Name || (depth0 != null ? depth0.Name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Name","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.name : stack1), depth0))
     + " "
-    + alias4(((helper = (helper = helpers.Vorname || (depth0 != null ? depth0.Vorname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Vorname","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.vorname : stack1), depth0))
     + "</td>\n                        <td>"
-    + alias4(((helper = (helper = helpers.Adresse || (depth0 != null ? depth0.Adresse : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Adresse","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.strasse : stack1), depth0))
     + "</td>\n                        <td>"
-    + alias4(((helper = (helper = helpers.PLZ || (depth0 != null ? depth0.PLZ : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"PLZ","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.plz : stack1), depth0))
     + " "
-    + alias4(((helper = (helper = helpers.Ort || (depth0 != null ? depth0.Ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Ort","hash":{},"data":data}) : helper)))
-    + "</td>\n                        <td>\n                            <a href=\"mailto:some@email.com\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n                        </td>\n                    </tr>\n";
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.ort : stack1), depth0))
+    + "</td>\n                        <td>\n                            <a href=\"mailto:"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.email : stack1), depth0))
+    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n                        </td>\n                    </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
