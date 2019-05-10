@@ -51,13 +51,6 @@ export class MemberService {
         return ManagingComittee;
     }
 
-    public async getNameOfMembersWithAddress() {
-        const connection = getConnection();
-        const repository = getRepository(Mitglied);
-        const mitglieds: Mitglied[] = await repository.find({select: ["id", "name", "vorname", "strasse", "plz", "ort"]});
-        return mitglieds;
-    }
-
     public async getMemberById(memberId: number) {
         return await getConnection()
             .getRepository(Mitglied)

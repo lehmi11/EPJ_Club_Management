@@ -2,12 +2,9 @@ import * as db from "../config/dbConfig";
 
 import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
-import {Anlassbelegung} from "../entities/Anlassbelegung";
 
-import { Gruppe } from "../entities/Gruppe";
 import {Gruppenbelegung} from "../entities/Gruppenbelegung";
-import {Mitglied} from "../entities/Mitglied";
-import {Mitgliedschaft} from "../entities/Mitgliedschaft";
+
 
 export class TeamService {
     public async getGroupsWithCount() {
