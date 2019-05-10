@@ -9,14 +9,14 @@ import {Gruppenbelegung} from "../entities/Gruppenbelegung";
 export class TeamService {
     public async getGroups() {
         const connection = getConnection();
-        const repository = getRepository(Gruppe);
+        const repository = connection.getRepository(Gruppe);
         const groups = repository.find();
         return groups;
     }
 
     public async getGroupsWithMembers() {
         const connection = getConnection();
-        const repository = getRepository(Gruppenbelegung);
+        const repository = connection.getRepository(Gruppenbelegung);
         const gruppe = repository.find();
         return gruppe;
     }

@@ -11,14 +11,16 @@ export class MemberService {
     public async getMembers() {
 
         const connection = getConnection();
-        const repository = getRepository(Mitglied);
+        const repository = connection.getRepository(Mitglied);
         const mitglieds: Mitglied[] = await repository.find();
+        const connection2 = getConnection("test");
+        const test = connection2.getRepository(Mitglied);
         return mitglieds;
     }
 
     public async createMember(data) {
         const connection = getConnection();
-        const memberRepo = getRepository(Mitglied);
+        const memberRepo = connection.getRepository(Mitglied);
         const newMember = memberRepo.create({
             ...data,
             verein: {id: 1},
@@ -28,7 +30,7 @@ export class MemberService {
 
     public async editMember(data) {
         const connection = getConnection();
-        const memberRepo = getRepository(Mitglied);
+        const memberRepo = connection.getRepository(Mitglied);
 
         await memberRepo.update(data.id, {...data, verein: {id: 1}});
     }
@@ -44,7 +46,7 @@ export class MemberService {
 
     public async getManagingComittee() {
         const connection = getConnection();
-        const repository = getRepository(Mitglied);
+        const repository = connection.getRepository(Mitglied);
         const ManagingComittee: Mitglied[] = await repository.find({
             where: {istVorstand: "true"},
         });
@@ -61,7 +63,7 @@ export class MemberService {
 
     public async getMembersFeeNotPaid() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds = repository.find({ relations: ["mitglied"],
         where: {beitragbezahlt: "false"}});
         return mitglieds;
@@ -69,7 +71,7 @@ export class MemberService {
 
     public async getTotalMembershipPaid() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "true"},
         });
@@ -79,7 +81,7 @@ export class MemberService {
 
     public async getTotalMembershipPaidCount() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "true"},
             });
@@ -88,7 +90,7 @@ export class MemberService {
 
     public async getTotalMembershipNotPaid() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "false"},
         });
@@ -98,7 +100,7 @@ export class MemberService {
 
     public async getTotalMembershipNotPaidCount() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "false"},
         });
@@ -107,7 +109,7 @@ export class MemberService {
 
     public async getTotalMembershipWarning() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
         });
@@ -117,7 +119,7 @@ export class MemberService {
 
     public async getTotalMembershipWarningCount() {
         const connection = getConnection();
-        const repository = getRepository(Mitgliedschaft);
+        const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
         });

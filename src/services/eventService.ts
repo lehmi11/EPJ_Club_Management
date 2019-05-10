@@ -17,7 +17,7 @@ export class EventService {
 
     public async createEvent(data: JSON) {
         const connection = getConnection();
-        const eventRepo = getRepository(Anlass);
+        const eventRepo = connection.getRepository(Anlass);
         const newEvent = eventRepo.create({
             ...data,
             verein: {id: 1},
@@ -53,7 +53,7 @@ export class EventService {
     public async getSpecificEventWithMembers(eventId: number) {
 
         const connection = getConnection();
-        const repository = getRepository(Anlassbelegung);
+        const repository = connection.getRepository(Anlassbelegung);
         const events = repository.find({ relations: ["mitglied", "anlass"],
             where: {anlassid: eventId}});
         return events;
