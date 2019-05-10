@@ -122,7 +122,9 @@ templates['managingComittee_table'] = template({"1":function(container,depth0,he
     + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
     + "</td>\n            <td>"
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
-    + "</td>\n        </tr>\n";
+    + "</td>\n            <td>\n                <a href=\"mailto:"
+    + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
+    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

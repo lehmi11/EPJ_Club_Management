@@ -25,7 +25,8 @@ router.delete("/events/:eventId", eventController.deleteEvent.bind(eventControll
 router.get("/events/:eventId", eventController.getEventById.bind(eventController));
 
 // GroupRoutes
-router.get("/groups", teamController.getGroupsWithCount.bind(teamController));
-router.get("/groupWithMembers", teamController.getGroupsWithMembers.bind(teamController));
+router.get("/groups", teamController.getGroups.bind(teamController));
+router.get("/groups/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
+router.get("/groups/WithCount", teamController.getGroupsWithCount.bind(teamController));
 
 export const apiRoutes = router;
