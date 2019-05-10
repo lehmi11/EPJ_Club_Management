@@ -67,16 +67,11 @@ export class MemberService {
     }
 
     public async getMembersFeeNotPaid() {
-        const {rows} = await db.client.query(
-            `SELECT mit.name AS "Nachname",
-            mit.vorname AS "Vorname",
-            mit.strasse AS "Strasse",
-            mitgliedsch.mitgliederbeitrag AS "Betrag",
-            mit.plz AS "PLZ", mit.ort AS "ORT"
-            FROM mitglied mit INNER JOIN
-                mitgliedschaft mitgliedsch ON mitgliedsch.mitgliedid = mit.id
-            WHERE mitgliedsch.beitragbezahlt = false `);
-        return rows;
+        const connection = getConnection();
+        const repository = getRepository(Mitgliedschaft);
+        const mitglieds = repository.find({ relations: ["mitglied"],
+        where: {beitragbezahlt: "false"}});
+        return mitglieds;
     }
 
     public async getTotalMembershipPaid() {
