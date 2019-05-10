@@ -68,19 +68,21 @@ templates['event_table'] = template({"1":function(container,depth0,helpers,parti
     + "    </tbody>\n</table>\n";
 },"useData":true});
 templates['group_detail_table'] = template({"1":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "                    <tr>\n                        <td>"
-    + alias4(((helper = (helper = helpers.Name || (depth0 != null ? depth0.Name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Name","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.name : stack1), depth0))
     + " "
-    + alias4(((helper = (helper = helpers.Vorname || (depth0 != null ? depth0.Vorname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Vorname","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.vorname : stack1), depth0))
     + "</td>\n                        <td>"
-    + alias4(((helper = (helper = helpers.Adresse || (depth0 != null ? depth0.Adresse : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Adresse","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.strasse : stack1), depth0))
     + "</td>\n                        <td>"
-    + alias4(((helper = (helper = helpers.PLZ || (depth0 != null ? depth0.PLZ : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"PLZ","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.plz : stack1), depth0))
     + " "
-    + alias4(((helper = (helper = helpers.Ort || (depth0 != null ? depth0.Ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Ort","hash":{},"data":data}) : helper)))
-    + "</td>\n                        <td>\n                            <a href=\"mailto:some@email.com\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n                        </td>\n                    </tr>\n";
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.ort : stack1), depth0))
+    + "</td>\n                        <td>\n                            <a href=\"mailto:"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.email : stack1), depth0))
+    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n                        </td>\n                    </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -120,7 +122,9 @@ templates['managingComittee_table'] = template({"1":function(container,depth0,he
     + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
     + "</td>\n            <td>"
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
-    + "</td>\n        </tr>\n";
+    + "</td>\n            <td>\n                <a href=\"mailto:"
+    + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
+    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -129,25 +133,27 @@ templates['managingComittee_table'] = template({"1":function(container,depth0,he
     + "    </tbody>\n</table>\n";
 },"useData":true});
 templates['member_table'] = template({"1":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "        <tr>\n            <td>"
-    + alias4(((helper = (helper = helpers.Nachname || (depth0 != null ? depth0.Nachname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Nachname","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.name : stack1), depth0))
     + " "
-    + alias4(((helper = (helper = helpers.Vorname || (depth0 != null ? depth0.Vorname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Vorname","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.vorname : stack1), depth0))
     + "</td>\n            <td>"
-    + alias4(((helper = (helper = helpers.Strasse || (depth0 != null ? depth0.Strasse : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Strasse","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.strasse : stack1), depth0))
     + "</td>\n            <td>"
-    + alias4(((helper = (helper = helpers.PLZ || (depth0 != null ? depth0.PLZ : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"PLZ","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.plz : stack1), depth0))
     + " "
-    + alias4(((helper = (helper = helpers.ORT || (depth0 != null ? depth0.ORT : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ORT","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.ort : stack1), depth0))
     + "</td>\n            <td>"
-    + alias4(((helper = (helper = helpers.Betrag || (depth0 != null ? depth0.Betrag : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Betrag","hash":{},"data":data}) : helper)))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.email : stack1), depth0))
+    + "</td>\n            <td>"
+    + alias2(((helper = (helper = helpers.mitgliederbeitrag || (depth0 != null ? depth0.mitgliederbeitrag : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"mitgliederbeitrag","hash":{},"data":data}) : helper)))
     + " CHF</td>\n        </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"memberTable\" data-page-length='5'>\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Adresse</th>\n        <th>Stadt</th>\n        <th>Betrag</th>\n    </tr>\n    </thead>\n    <tbody>\n"
+  return "<table class=\"table table-sm table-hover\" id=\"memberTable\" data-page-length='5'>\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Adresse</th>\n        <th>Stadt</th>\n        <th>E-Mail</th>\n        <th>Betrag</th>\n    </tr>\n    </thead>\n    <tbody>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.members : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </tbody>\n</table>\n";
 },"useData":true});

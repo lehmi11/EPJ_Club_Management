@@ -4,7 +4,7 @@ $(function() {
 
     if ($appGroups.length > 0) {
 
-        $.getJSON("/api/groups", function ( groups ) {
+        $.getJSON("/api/groups/WithCount", function ( groups ) {
 
             let groupsTable = Handlebars.templates.group_table({
                 groups: groups,
