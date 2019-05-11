@@ -147,7 +147,9 @@ templates['member_table'] = template({"1":function(container,depth0,helpers,part
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.email : stack1), depth0))
     + "</td>\n            <td>"
     + alias2(((helper = (helper = helpers.mitgliederbeitrag || (depth0 != null ? depth0.mitgliederbeitrag : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"mitgliederbeitrag","hash":{},"data":data}) : helper)))
-    + " CHF</td>\n        </tr>\n";
+    + " CHF</td>\n            <td>\n                <a href=\"mailto:"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.email : stack1), depth0))
+    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

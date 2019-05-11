@@ -3,7 +3,6 @@ import {createConnection, getConnection, Raw} from "typeorm";
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
 
-
 export class MemberService {
 
     public async getMembers() {
