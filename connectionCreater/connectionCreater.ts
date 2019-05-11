@@ -1,7 +1,7 @@
 import {createConnection, createConnections} from "typeorm";
 
 export class ConnectionCreater {
-    public async createProductiveConnection() {
+    public async createDefaultConnection() {
         const connection = await createConnection({
             name: "test",
             type: "postgres",
@@ -20,19 +20,18 @@ export class ConnectionCreater {
     }
     public async createTestConnection() {
        const connection = await createConnection({
-            name: "test",
-            type: "postgres",
-            host: "sinv-56037.edu.hsr.ch",
-            port: 40000,
-            username: "postgres",
-            password: "clubmanager",
-            database: "clubManagerTest",
-            schema: "public",
-            dropSchema: true,
-            synchronize: false,
-            logging: false,
-            entities: [
-            "dist/entities/*.js"],
+           name: "test",
+           type: "postgres",
+           host: "sinv-56037.edu.hsr.ch",
+           port: 40000,
+           username: "postgres",
+           password: "clubmanager",
+           database: "clubManagerTest",
+           schema: "public",
+           synchronize: false,
+           logging: false,
+           entities: [
+               "dist/entities/*.js"],
        });
        return connection;
     }

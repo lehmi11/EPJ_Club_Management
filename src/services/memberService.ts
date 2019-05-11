@@ -1,10 +1,8 @@
-import * as db from "../config/dbConfig";
 
-import {getConnection, Raw} from "typeorm";
-import {getRepository} from "typeorm";
-
+import {createConnection, getConnection, Raw} from "typeorm";
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
+
 
 export class MemberService {
 
@@ -13,8 +11,6 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitglied);
         const mitglieds: Mitglied[] = await repository.find();
-        const connection2 = getConnection("test");
-        const test = connection2.getRepository(Mitglied);
         return mitglieds;
     }
 

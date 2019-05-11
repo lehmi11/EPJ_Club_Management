@@ -2,16 +2,14 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th>Anzahl Mitglieder</th>
         <th>Verantwortlicher</th>
     </tr>
     </thead>
     <tbody>
-    {{#each groups}}
+    {{#each group}}
     <tr>
-        <td>{{Name}}</td>
-        <td>{{Anzahl}}</td>
-        <td>{{Verantwortlicher}}</td>
+        <td>{{name}}</td>
+        <td>{{verantwortlicher}}</td>
         <td>
             <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
             <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>

@@ -1,8 +1,5 @@
-import * as db from "../config/dbConfig";
 
 import {getConnection} from "typeorm";
-import {getRepository} from "typeorm";
-
 import { Anlass } from "../entities/Anlass";
 import {Anlassbelegung} from "../entities/Anlassbelegung";
 

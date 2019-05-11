@@ -4,10 +4,10 @@ $(function() {
 
     if ($appGroups.length > 0) {
 
-        $.getJSON("/api/groups/WithCount", function ( groups ) {
+        $.getJSON("/api/groups", function ( group ) {
 
             let groupsTable = Handlebars.templates.group_table({
-                groups: groups,
+                group: group,
             });
 
             $appGroups.html(groupsTable);
