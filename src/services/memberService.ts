@@ -94,7 +94,7 @@ export class MemberService {
         const repository = getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
             where: {beitragbezahlt: "true"},
-            });
+        });
         return mitglieds.length;
     }
 

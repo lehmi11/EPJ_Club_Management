@@ -1,6 +1,7 @@
 import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
 import {Anlass} from "./Anlass";
 import { Mitglied } from "./Mitglied";
+import {Verein} from "./Verein";
 
 @Entity("anlassbelegung", { schema: "public" })
 export class Anlassbelegung {

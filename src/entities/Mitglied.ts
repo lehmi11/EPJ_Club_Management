@@ -1,4 +1,8 @@
 import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
+import { Anlass } from "./Anlass";
+import {Anlassbelegung} from "./Anlassbelegung";
+import { Gruppe } from "./Gruppe";
+import { Mitgliedschaft } from "./Mitgliedschaft";
 import { Verein } from "./Verein";
 
 
