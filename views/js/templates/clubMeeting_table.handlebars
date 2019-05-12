@@ -1,0 +1,20 @@
+<table class="table table-sm table-hover" id="memberTable" data-page-length='5'>
+    <thead>
+    <tr>
+        <th>Datum</th>
+        <th>Uhrzeit</th>
+        <th>Ort</th>
+        <th>Traktandenliste</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each clubMeeting}}
+        <tr>
+            <td>{{ datum }}</td>
+            <td>{{ von }} - {{ bis }}</td>
+            <td>{{ plz }} {{ ort }}</td>
+            <td>{{ traktadenliste }}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

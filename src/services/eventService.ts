@@ -4,6 +4,7 @@ import {getConnection} from "typeorm";
 import {getRepository} from "typeorm";
 
 import { Anlass } from "../entities/Anlass";
+import {Mitglied} from "../entities/Mitglied";
 
 export class EventService {
 
@@ -38,6 +39,14 @@ export class EventService {
             .createQueryBuilder()
             .where("id = :id", { id: eventId })
             .getOne();
+    }
+
+    public async getClubMeetings() {
+        return await getConnection()
+            .getRepository(Anlass)
+            .createQueryBuilder()
+            .where("traktadenliste IS NOT NULL")
+            .getMany();
     }
 
     public async getSpecificEventWithMembers(eventId: number) {

@@ -17,7 +17,7 @@ $(function() {
     // check if we found the members not paid element
     if ($appMembersNotPaid.length > 0) {
 
-        $.getJSON( "/api/members/notpaid", function( members ) {
+        $.getJSON( "/api/members/FeeNotPaid", function( members ) {
 
             let memberTable = Handlebars.templates.member_table({
                 members: members,

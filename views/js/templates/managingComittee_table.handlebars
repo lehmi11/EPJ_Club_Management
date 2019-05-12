@@ -1,0 +1,20 @@
+<table class="table table-sm table-hover" id="managingComitteeTable" data-page-length='5'>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Adresse</th>
+        <th>Stadt</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each managingComittee}}
+        <tr>
+            <td>{{ name }} {{ vorname }}</td>
+            <td>{{ strasse }}</td>
+            <td>{{ plz }} {{ ort }}</td>
+            <td>{{ email }}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

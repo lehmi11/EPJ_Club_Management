@@ -14,6 +14,30 @@ export class MemberController {
         }
     }
 
+    public async getMembersFeeNotPaid(req: Request, res: Response) {
+        try {
+            const members = await (memberService.getMembersFeeNotPaid());
+
+            res.json(members);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async getManagingComittee(req: Request, res: Response) {
+        try {
+            const ManagingComittee = await (memberService.getManagingComittee());
+
+            res.json(ManagingComittee);
+
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+
+
     public async getMembersWithAddress(req: Request, res: Response) {
         try {
             const members = await (memberService.getNameOfMembersWithAddress());
@@ -102,15 +126,20 @@ export class MemberController {
 
     public async getMembersNotPaid(req: Request, res: Response) {
         try {
-            const members = await (memberService.getMembersFeeNotPaid());
+            const totalMembershipNotPaid = await (memberService.getTotalMembershipNotPaid());
+            const totalMembershipPaid = await (memberService.getTotalMembershipPaid());
+            const totalMembershipWarning = await (memberService.getTotalMembershipWarning());
 
-            res.json(members);
+            res.json({
+                totalMembershipNotPaid,
+                totalMembershipPaid,
+                totalMembershipWarning,
+            });
 
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-
 }
 
 export const memberController = new MemberController();
