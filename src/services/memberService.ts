@@ -44,7 +44,6 @@ export class MemberService {
         const ManagingComittee: Mitglied[] = await repository.find({
             where: {istVorstand: "true"},
         });
-        console.log(ManagingComittee);
         return ManagingComittee;
     }
 
