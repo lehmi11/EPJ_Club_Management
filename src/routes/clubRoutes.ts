@@ -12,5 +12,6 @@ router.get("/events", clubController.showEventsView);
 router.get("/events_detail", clubController.showEventsDetailView);
 router.get("/dashboard", clubController.showFinanceDashboard);
 router.get("/profile", clubController.showProfile);
+router.get("/vorstand", clubController.showVorstand);
 
 export const clubRoutes = router;

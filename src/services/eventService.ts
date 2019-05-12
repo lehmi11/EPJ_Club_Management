@@ -2,6 +2,8 @@
 import {getConnection} from "typeorm";
 import { Anlass } from "../entities/Anlass";
 import {Anlassbelegung} from "../entities/Anlassbelegung";
+import {Mitglied} from "../entities/Mitglied";
+
 
 
 export class EventService {
@@ -46,6 +48,7 @@ export class EventService {
             .where("traktadenliste IS NOT NULL")
             .getMany();
     }
+
 
     public async getSpecificEventWithMembers(eventId: number) {
 

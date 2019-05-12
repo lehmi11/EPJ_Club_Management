@@ -1,4 +1,3 @@
-
 import {createConnection, getConnection, Raw} from "typeorm";
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
@@ -45,6 +44,7 @@ export class MemberService {
         const ManagingComittee: Mitglied[] = await repository.find({
             where: {istVorstand: "true"},
         });
+        console.log(ManagingComittee);
         return ManagingComittee;
     }
 
