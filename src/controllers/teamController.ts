@@ -12,17 +12,6 @@ export class TeamController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
-    public async getGroupsWithCount(req: Request, res: Response) {
-        try {
-            const groups = await (teamService.getGroupsWithCount());
-
-            res.json(groups);
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-
     public async getGroupsWithMembers(req: Request, res: Response) {
         try {
             const members = await (teamService.getGroupsWithMembers());
