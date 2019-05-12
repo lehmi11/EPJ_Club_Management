@@ -57,7 +57,7 @@ $(function() {
     let $appMembersWithAddress = $("#app_membersWithAddress");
 
     if ($appMembersWithAddress.length > 0) {
-        $.getJSON("/api/membersWithAddress", function( members ) {
+        $.getJSON("/api/members", function( members ) {
 
             let membersWithAddressTable = Handlebars.templates.membersWithAddress_table({
                 members: members,
@@ -74,7 +74,6 @@ $(function() {
     // Registriere Event zum Löschen des Mitglieds (Click zum Löschen im Modal)
     members.deleteMember();
 
-    // Registriere Event zum Editieren des Mitglieds
     members.editMember();
 
 });
