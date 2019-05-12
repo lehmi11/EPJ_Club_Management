@@ -95,11 +95,11 @@ templates['membersWithAddress_table'] = template({"1":function(container,depth0,
     + alias4(((helper = (helper = helpers.plz || (depth0 != null ? depth0.plz : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"plz","hash":{},"data":data}) : helper)))
     + " "
     + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
-    + "</td>\r\n            <td>\r\n                <a href=\"javascript:void(0);\" class=\"editMember btn-primary btn-sm m-sm-1\" data-toggle=\"modal\" data-target=\"#editMemberModal\" data-memberId=\""
+    + "</td>\r\n            <td>\r\n                <a href=\"javascript:void(0);\" class=\"btn editMember btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#editMemberModal\" data-memberId=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">\r\n                    <i class=\"fas fa-edit\"></i>\r\n                </a>\r\n                <a href=\"javascript:void(0);\" class=\"deleteMember btn-danger btn-sm\" data-memberId=\""
+    + "\">\r\n                    <i class=\"fas fa-edit\"></i>\r\n                </a>\r\n                <button type=\"button\" class=\"deleteMember btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#deleteConfirmationMemberModal\" data-memberId=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">\r\n                    <i class=\"fas fa-trash\"></i>\r\n                </a>\r\n            </td>\r\n        </tr>\r\n";
+    + "\">\r\n                    <i class=\"fas fa-trash\"></i>\r\n                </button>\r\n            </td>\r\n        </tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
