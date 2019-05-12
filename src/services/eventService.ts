@@ -1,10 +1,6 @@
-
 import {getConnection} from "typeorm";
 import { Anlass } from "../entities/Anlass";
 import {Anlassbelegung} from "../entities/Anlassbelegung";
-import {Mitglied} from "../entities/Mitglied";
-
-
 
 export class EventService {
 
@@ -51,7 +47,6 @@ export class EventService {
 
 
     public async getSpecificEventWithMembers(eventId: number) {
-
         const connection = getConnection();
         const repository = connection.getRepository(Anlassbelegung);
         const events = repository.find({ relations: ["mitglied", "anlass"],

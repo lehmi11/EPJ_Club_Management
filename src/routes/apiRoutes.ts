@@ -5,6 +5,7 @@ import {memberController} from "../controllers/memberController";
 import {teamController} from "../controllers/teamController";
 
 router.get("/dashboard", memberController.getFinanceDashboard.bind(memberController));
+
 // financeRoutes
 router.get("/members/notpaid", memberController.getMembersNotPaid.bind(memberController));
 router.get("/members/paymentStatus", memberController.getMembersPaymentStatus.bind(memberController));
