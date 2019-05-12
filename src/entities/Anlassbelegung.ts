@@ -6,12 +6,12 @@ import {Verein} from "./Verein";
 @Entity("anlassbelegung", { schema: "public" })
 export class Anlassbelegung {
 
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true})
-    @JoinColumn({ name: "mitgliedid", referencedColumnName: "id" })
+    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true, eager: true})
+    @JoinColumn({ name: "mitglie", referencedColumnName: "id" })
     public mitgliedid: Mitglied;
 
-    @ManyToOne((type) => Anlass, (anlass) => anlass.id, { nullable: false, primary: true})
-    @JoinColumn({ name: "anlassid", referencedColumnName: "id" })
+    @ManyToOne((type) => Anlass, (anlass) => anlass.id, { nullable: false, primary: true, eager: true})
+    @JoinColumn({ name: "anlass", referencedColumnName: "id" })
     public anlassid: Anlass;
 
 }
