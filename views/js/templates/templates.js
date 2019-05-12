@@ -123,60 +123,34 @@ templates['managingComittee_table'] = template({"1":function(container,depth0,he
     + "\">\r\n                    <i class=\"fas fa-edit\"></i>\r\n                </a>\r\n                <button type=\"button\" class=\"deleteMember btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#deleteConfirmationMemberModal\" data-memberId=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\r\n                    <i class=\"fas fa-trash\"></i>\r\n                </button>\r\n            </td>\r\n        </tr>\r\n";
-
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"managingComitteeTable\" data-page-length='5'>\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Adresse</th>\n        <th>Stadt</th>\n        <th>Email</th>\n    </tr>\n    </thead>\n    <tbody>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.managingComittee : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </tbody>\n</table>\n";
+  return "<table class=\"table table-sm table-hover\" id=\"membersWithAddressTable\"  data-page-length='10'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Adresse</th>\r\n        <th>Stadt</th>\r\n        <th></th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.members : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </tbody>\r\n</table>\r\n";
 },"useData":true});
 templates['member_table'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "        <tr>\n            <td>"
+  return "        <tr>\r\n            <td>"
     + alias4(((helper = (helper = helpers.Nachname || (depth0 != null ? depth0.Nachname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Nachname","hash":{},"data":data}) : helper)))
     + " "
     + alias4(((helper = (helper = helpers.Vorname || (depth0 != null ? depth0.Vorname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Vorname","hash":{},"data":data}) : helper)))
-    + "</td>\n            <td>"
+    + "</td>\r\n            <td>"
     + alias4(((helper = (helper = helpers.Strasse || (depth0 != null ? depth0.Strasse : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Strasse","hash":{},"data":data}) : helper)))
-    + "</td>\n            <td>"
+    + "</td>\r\n            <td>"
     + alias4(((helper = (helper = helpers.PLZ || (depth0 != null ? depth0.PLZ : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"PLZ","hash":{},"data":data}) : helper)))
     + " "
     + alias4(((helper = (helper = helpers.ORT || (depth0 != null ? depth0.ORT : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ORT","hash":{},"data":data}) : helper)))
-    + "</td>\n            <td>"
+    + "</td>\r\n            <td>"
     + alias4(((helper = (helper = helpers.Betrag || (depth0 != null ? depth0.Betrag : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Betrag","hash":{},"data":data}) : helper)))
-    + " CHF</td>\n        </tr>\n";
+    + " CHF</td>\r\n        </tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<table class=\"table table-sm table-hover\" id=\"memberTable\" data-page-length='5'>\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Adresse</th>\n        <th>Stadt</th>\n        <th>Betrag</th>\n    </tr>\n    </thead>\n    <tbody>\n"
+  return "<table class=\"table table-sm table-hover\" id=\"memberTable\" data-page-length='5'>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Adresse</th>\r\n        <th>Stadt</th>\r\n        <th>Betrag</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.members : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </tbody>\n</table>\n";
-},"useData":true});
-templates['membersWithAddress_table'] = template({"1":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
-
-  return "        <tr>\n            <td>"
-    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
-    + " "
-    + alias4(((helper = (helper = helpers.vorname || (depth0 != null ? depth0.vorname : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vorname","hash":{},"data":data}) : helper)))
-    + "</td>\n            <td>"
-    + alias4(((helper = (helper = helpers.strasse || (depth0 != null ? depth0.strasse : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"strasse","hash":{},"data":data}) : helper)))
-    + "  </td>\n            <td>"
-    + alias4(((helper = (helper = helpers.plz || (depth0 != null ? depth0.plz : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"plz","hash":{},"data":data}) : helper)))
-    + " "
-    + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
-    + "</td>\n            <td>\n                <a href=\"javascript:void(0);\" class=\"editMember btn-primary btn-sm m-sm-1\" data-toggle=\"modal\" data-target=\"#editMemberModal\" data-memberId=\""
-    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">\n                    <i class=\"fas fa-edit\"></i>\n                </a>\n                <a href=\"javascript:void(0);\" class=\"deleteMember btn-danger btn-sm\" data-memberId=\""
-    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">\n                    <i class=\"fas fa-trash\"></i>\n                </a>\n            </td>\n        </tr>\n";
-},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<table class=\"table table-sm table-hover\" id=\"membersWithAddressTable\"  data-page-length='10'>\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Adresse</th>\n        <th>Stadt</th>\n        <th></th>\n    </tr>\n    </thead>\n    <tbody>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.members : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </tbody>\n</table>\n";
+    + "    </tbody>\r\n</table>\r\n";
 },"useData":true});
 })();
