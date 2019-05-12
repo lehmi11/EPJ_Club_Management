@@ -36,8 +36,6 @@ export class MemberController {
         }
     }
 
-
-
     public async getMembersWithAddress(req: Request, res: Response) {
         try {
             const members = await (memberService.getNameOfMembersWithAddress());
