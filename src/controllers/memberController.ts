@@ -36,17 +36,6 @@ export class MemberController {
         }
     }
 
-    public async getMembersWithAddress(req: Request, res: Response) {
-        try {
-            const members = await (memberService.getNameOfMembersWithAddress());
-
-            res.json(members);
-
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-
     public async createMember(req: Request, res: Response) {
         try {
             await memberService.createMember(req.body);
