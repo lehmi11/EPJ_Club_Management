@@ -41,7 +41,7 @@ export class MemberService {
     public async getManagingComittee() {
         const connection = getConnection();
         const repository = connection.getRepository(Mitglied);
-        const ManagingComittee: Mitglied[] = await repository.find({
+        const ManagingComittee = await repository.find({
             where: {istVorstand: "true"},
         });
         return ManagingComittee;
@@ -53,13 +53,6 @@ export class MemberService {
             .createQueryBuilder()
             .where("id = :id", { id: memberId })
             .getOne();
-    }
-
-    public async getNameOfMembersWithAddress() {
-        const connection = getConnection();
-        const repository = connection.getRepository(Mitglied);
-        const mitglieds: Mitglied[] = await repository.find({select: ["id", "name", "vorname", "strasse", "plz", "ort"]});
-        return mitglieds;
     }
 
     public async getMembersFeeNotPaid() {
