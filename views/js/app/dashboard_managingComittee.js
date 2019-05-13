@@ -4,7 +4,7 @@ $(function() {
 
     if ($appEvents.length > 0) {
 
-        $.getJSON("/api/members/ManagingComittee", function( managingComittee ) {
+        $.getJSON("/api/managingComittee", function( managingComittee ) {
 
             let managingComitteTable = Handlebars.templates.managingComittee_table({
                 managingComittee: managingComittee,
