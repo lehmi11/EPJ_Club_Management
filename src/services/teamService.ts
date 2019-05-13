@@ -1,4 +1,3 @@
-
 import {getConnection} from "typeorm";
 import {Gruppe} from "../entities/Gruppe";
 import {Gruppenbelegung} from "../entities/Gruppenbelegung";
