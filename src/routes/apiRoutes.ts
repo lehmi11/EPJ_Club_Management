@@ -17,7 +17,7 @@ router.post("/members", memberController.createMember.bind(memberController));
 router.post("/members/edit", memberController.editMember.bind(memberController));
 router.delete("/members/:memberId", memberController.deleteMember.bind(memberController));
 router.get("/members/:memberId", memberController.getMemberById.bind(memberController));
-router.get("/members/ManagingComittee", memberController.getManagingComittee.bind(memberController));
+router.get("/managingComittee", memberController.getManagingComittee.bind(memberController));
 
 // eventRoutes
 router.get("/events", eventController.getEvents.bind(eventController));

@@ -41,7 +41,7 @@ export class MemberService {
     public async getManagingComittee() {
         const connection = getConnection();
         const repository = connection.getRepository(Mitglied);
-        const ManagingComittee: Mitglied[] = await repository.find({
+        const ManagingComittee = await repository.find({
             where: {istVorstand: "true"},
         });
         return ManagingComittee;
