@@ -1,11 +1,11 @@
 <div id="content-wrapper" class="d-flex flex-column">
-    <div id="content" class="pt4">
+    <div id="content" class="pt-4">
         <div class="container-fluid">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Termin Details</h1>
                 <a href="/events" class="btn btn-danger">Zurück</a>
             </div>
-            <div class="row">
+            <div class="row" id="app_eventDetail">
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="row">
@@ -13,16 +13,19 @@
                                 <img class="card-img-top" src="../views/img/grillfest.png" alt="Card image"
                                     style="width:100%">
                             </div>
-                            <div class="col-md8 px-3">
+                            <div class="col-md-8">
                                 <br>
-                                <h4 class="card-title" id="eventName">Oster-Event</h4>
+                                <h4 class="card-title" id="eventName"></h4>
                                 <p>
-                                    <span id="eventOrt">Ort: Zürich</span><br>
-                                    <span id="eventDatum">Datum: 18.04.2019</span><br>
-                                    <span id="eventZeit">Uhrzeit: 14:00 - 21:00</span>
+                                    <span>Ort: </span><span id="eventOrt"></span><br>
+                                    <span>Datum: </span><span id="eventDatum"></span><br>
+                                    <span>Uhrzeit: </span><span id="eventZeit"></span>
                                 </p>
+                                <h5 class="card-text">Beschreibung</h5>
+                                <span class="card-text" id="eventBeschreibung"></span>
+                                <br>
                                 <h5 class="card-text">Verantwortlicher:</h5>
-                                <span class="card-text" id="eventVerantwortlicher">Jameson Sandoval</span>
+                                <span class="card-text" id="eventVerantwortlicher"></span>
                                 <span class="card-text">
                                     <a href="mailto:some@email.com" target="_blank"
                                         class="btn btn-primary btn-sm ml-2">E-Mail</a>
@@ -33,7 +36,6 @@
                 </div>
             </div>
             <br>
-
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card shadow mb-4">
@@ -45,6 +47,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
