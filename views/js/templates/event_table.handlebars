@@ -10,16 +10,16 @@
     </thead>
     <tbody>
     {{#each events}}
-    <tr>
-        <td>{{name}}</td>
-        <td>{{datum}}</td>
-        <td>{{von}} - {{bis}}</td>
-        <td>{{ort}}</td>
-        <td>
-            <a href="/api/events/{{id}}" class="btn btn-outline-primary btn-sm mr-1">Details</a>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#anmeldenModal">Anmelden</button>
-        </td>
-    </tr>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{datum}}</td>
+            <td>{{von}} - {{bis}}</td>
+            <td>{{ort}}</td>
+            <td>
+                <a href="/api/events/{{id}}" class="btn btn-outline-primary btn-sm mr-1">Details</a>
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#anmeldenModal">Anmelden</button>
+            </td>
+        </tr>
     {{/each}}
     </tbody>
 </table>
