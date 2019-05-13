@@ -18,6 +18,12 @@
             <td>
                 <a href="/events/{{id}}" class="btn btn-outline-primary btn-sm mr-1">Details</a>
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#anmeldenModal">Anmelden</button>
+                <a href="javascript:void(0);" class="btn editEvent btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal" data-eventId="{{id}}">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <button type="button" class="deleteEvent btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationEventModal" data-eventId="{{id}}">
+                    <i class="fas fa-trash"></i>
+                </button>
             </td>
         </tr>
     {{/each}}
