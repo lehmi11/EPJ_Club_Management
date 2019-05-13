@@ -8,7 +8,7 @@
     "setup": "npm install",
     "build": "tsc",
     "build-watch": "tsc --watch",
-    "build-templates": "handlebars views/js/templates/ -f views/js/templates/templates.js",
+    "build-templates": "handlebars views/js/templates/*.handlebars -f views/js/templates/templates.js",
     "pretest": "npm run lint",
     "test": "npm run mocha",
     "prestart": "npm run build && npm run build-templates",

@@ -55,13 +55,6 @@ export class MemberService {
             .getOne();
     }
 
-    public async getNameOfMembersWithAddress() {
-        const connection = getConnection();
-        const repository = connection.getRepository(Mitglied);
-        const mitglieds: Mitglied[] = await repository.find({select: ["id", "name", "vorname", "strasse", "plz", "ort"]});
-        return mitglieds;
-    }
-
     public async getMembersFeeNotPaid() {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);

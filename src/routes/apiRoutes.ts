@@ -31,7 +31,4 @@ router.get("/clubMeeting", eventController.getClubMeetings.bind(eventController)
 router.get("/groups", teamController.getGroups.bind(teamController));
 router.get("/groups/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
 
-// TODO
-router.get("/membersWithAddress", memberController.getMembersWithAddress.bind(memberController));
-
 export const apiRoutes = router;
