@@ -85,6 +85,18 @@ export class EventController {
         }
     }
 
+    public async deleteParticipantFromEvent(req: Request, res: Response) {
+        try {
+            const eventId = req.params.eventId;
+            const memberId = req.params.memberId;
+            await eventService.deleteParticipantFromEvent(eventId, memberId);
+
+            res.send("OK");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const eventController = new EventController();

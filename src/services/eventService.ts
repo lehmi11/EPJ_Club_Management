@@ -80,6 +80,15 @@ export class EventService {
         return events;
     }
 
+    public async addParticipantToEvent(eventId: number, memberId: number) {
+        const repository = getConnection().getRepository(Anlassbelegung);
+        const participant = repository.create({
+            anlassid: {id: eventId},
+            mitgliedid: {id: memberId},
+        });
+        await repository.save(participant);
+    }
+
     public async deleteParticipantFromEvent(eventId: number, memberId: number) {
         const repository = getConnection().getRepository(Anlassbelegung);
         await repository.delete({
