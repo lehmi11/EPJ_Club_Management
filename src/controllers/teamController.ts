@@ -7,15 +7,7 @@ export class TeamController {
             const groups = await (teamService.getTeams());
             res.json(groups);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
-        }
-    }
-    public async getGroups(req: Request, res: Response) {
-        try {
-            const groups = await (teamService.getGroups());
-            res.json(groups);
-        } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -24,7 +16,7 @@ export class TeamController {
             const group = await teamService.getTeamById(req.params.groupId);
             res.json(group);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -33,7 +25,7 @@ export class TeamController {
             const groups = await (teamService.getGroupsWithCount());
             res.json(groups);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -42,7 +34,7 @@ export class TeamController {
             const groups = await (teamService.getGroupsWithMembers());
             res.json(groups);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
     public async getSpecificGroupWithMembers(req: Request, res: Response) {
@@ -50,7 +42,7 @@ export class TeamController {
             const groups = await (teamService.getSpecificGroupWithMembers(req.params.groupId));
             res.json(groups);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -60,7 +52,7 @@ export class TeamController {
             await teamService.createTeam(req.body);
             res.redirect("/teams");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -69,7 +61,7 @@ export class TeamController {
             await teamService.deleteTeam(req.body);
             res.redirect("/groups");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 }

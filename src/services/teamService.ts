@@ -1,14 +1,17 @@
-import { getRepository } from "typeorm";
 import { getConnection } from "typeorm";
+import { getRepository } from "typeorm";
 import * as db from "../config/dbConfig";
 import { Gruppe } from "../entities/Gruppe";
 import { Gruppenbelegung } from "../entities/Gruppenbelegung";
 
+
 export class TeamService {
+
     public async getTeams() {
         const connection = getConnection();
-        const result = await connection.createQueryBuilder().select(["gr.name", "gr.berechtigung", "gr.verantwortlicher"]).from(Gruppe, "gr").getMany();
-        return result;
+        const repository = connection.getRepository(Gruppe);
+        const groups = repository.find();
+        return groups;
     }
 
     public async getTeamById(groupId: number) {
@@ -38,13 +41,6 @@ export class TeamService {
         return rows;
     }
 
-
-    public async getGroups() {
-        const connection = getConnection();
-        const repository = connection.getRepository(Gruppe);
-        const groups = repository.find();
-        return groups;
-    }
     public async getGroupsWithMembers() {
         const connection = getConnection();
         const repository = connection.getRepository(Gruppenbelegung);
