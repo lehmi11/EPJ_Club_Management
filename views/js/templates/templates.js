@@ -116,7 +116,7 @@ templates['group_detail_table'] = template({"1":function(container,depth0,helper
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.ort : stack1), depth0))
     + "</td>\n                        <td>\n                            <a href=\"mailto:"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitgliedid : depth0)) != null ? stack1.email : stack1), depth0))
-    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n                        </td>\n                    </tr>\n";
+    + "\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n                        </td>\n                    </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -156,7 +156,7 @@ templates['managingComittee_table'] = template({"1":function(container,depth0,he
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
     + "</td>\n            <td>\n                <a href=\"mailto:"
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
-    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
+    + "\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -183,7 +183,7 @@ templates['member_table'] = template({"1":function(container,depth0,helpers,part
     + alias2(((helper = (helper = helpers.mitgliederbeitrag || (depth0 != null ? depth0.mitgliederbeitrag : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"mitgliederbeitrag","hash":{},"data":data}) : helper)))
     + " CHF</td>\n            <td>\n                <a href=\"mailto:"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.mitglied : depth0)) != null ? stack1.email : stack1), depth0))
-    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
+    + "\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n        </tr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -206,7 +206,7 @@ templates['membersWithAddress_table'] = template({"1":function(container,depth0,
     + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
     + "</td>\n            <td>\n                <a href=\"mailto:"
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
-    + "\" target=\"_blank\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n            <td>\n                <a href=\"javascript:void(0);\" class=\"btn editMember btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#editMemberModal\" data-memberId=\""
+    + "\" class=\"btn btn-outline-primary btn-sm\">E-Mail</a>\n            </td>\n            <td>\n                <a href=\"javascript:void(0);\" class=\"btn editMember btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#editMemberModal\" data-memberId=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n                    <i class=\"fas fa-edit\"></i>\n                </a>\n                <button type=\"button\" class=\"deleteMember btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#deleteConfirmationMemberModal\" data-memberId=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
