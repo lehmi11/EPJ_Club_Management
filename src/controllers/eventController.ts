@@ -63,6 +63,16 @@ export class EventController {
         }
     }
 
+    public async getParticipantsOfEvent(req: Request, res: Response) {
+        try {
+            const participants = await (eventService.getParticipantsOfEvent(req.params.eventId));
+
+            res.json(participants);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const eventController = new EventController();
