@@ -6,11 +6,11 @@ import { Mitglied } from "./Mitglied";
 export class Anlassbelegung {
 
     @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true, eager: true})
-    @JoinColumn({ name: "mitglie", referencedColumnName: "id" })
+    @JoinColumn({ name: "mitgliedid", referencedColumnName: "id" })
     public mitgliedid: Mitglied;
 
-    @ManyToOne((type) => Anlass, (anlass) => anlass.id, { nullable: false, primary: true, eager: true})
-    @JoinColumn({ name: "anlass", referencedColumnName: "id" })
+    @ManyToOne((type) => Anlass, (anlass) => anlass.id, { nullable: false, primary: true, eager: false})
+    @JoinColumn({ name: "anlassid", referencedColumnName: "id" })
     public anlassid: Anlass;
 
 }

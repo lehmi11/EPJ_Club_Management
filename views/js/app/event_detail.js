@@ -22,3 +22,28 @@ $(function() {
         });
     }
 });
+
+$(function() {
+
+    let $appParticipants = $("#app_eventParticipants");
+
+    /* There most certainly is a better way to do this */
+    let url = window.location.href;
+    let eventId = url.split("/").pop();
+
+    if ($appParticipants.length > 0) {
+
+        $.getJSON("/api/events/participants/" + eventId, function ( participants ) {
+
+            let participantsTable = Handlebars.templates.event_participant_table({
+                participants: participants,
+            });
+
+            $appParticipants.html(participantsTable);
+
+            initDatatable("participantsTable");
+
+        });
+
+    }
+});
