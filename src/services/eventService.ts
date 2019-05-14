@@ -20,6 +20,25 @@ export class EventService {
         await eventRepo.save(newEvent);
     }
 
+    public async editEvent(data) {
+        // const connection = getConnection();
+        // const eventRepo = connection.getRepository(Anlass);
+
+        // await eventRepo.update(data.id, {...data, verein: {id: 1}});
+        await getConnection()
+            .createQueryBuilder()
+            .update(Anlass)
+            .set({
+                name: data.name,
+                beschreibung: data.beschreibung,
+                datum: data.datum,
+                von: data.von,
+                bis: data.bis,
+                ort: data.ort})
+            .where("id = :id", { id: data.id })
+            .execute();
+    }
+
     public async deleteEvent(idToDelete: number) {
         await getConnection()
             .createQueryBuilder()
