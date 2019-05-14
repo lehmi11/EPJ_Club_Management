@@ -63,6 +63,40 @@ export class EventController {
         }
     }
 
+    public async getParticipantsOfEvent(req: Request, res: Response) {
+        try {
+            const participants = await (eventService.getParticipantsOfEvent(req.params.eventId));
+
+            res.json(participants);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async addParticipantToEvent(req: Request, res: Response) {
+        try {
+            const eventId = req.params.eventId;
+            const memberId = req.body.id;
+            await eventService.addParticipantToEvent(eventId, memberId);
+
+            res.redirect("/events/" + eventId);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
+    public async deleteParticipantFromEvent(req: Request, res: Response) {
+        try {
+            const eventId = req.params.eventId;
+            const memberId = req.params.memberId;
+            await eventService.deleteParticipantFromEvent(eventId, memberId);
+
+            res.send("OK");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const eventController = new EventController();

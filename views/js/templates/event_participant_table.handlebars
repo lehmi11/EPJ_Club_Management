@@ -1,0 +1,23 @@
+<table class="table table-sm table-hover" id="eventParticipantsTable" data-page-length='15'>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Adresse</th>
+        <th>Ort</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each participants}}
+        <tr>
+            <td>{{mitgliedid.name}} {{mitgliedid.vorname}}</td>
+            <td>{{mitgliedid.strasse}}</td>
+            <td>{{mitgliedid.plz}} {{mitgliedid.ort}}</td>
+            <td>
+                <a href="mailto:{{mitgliedid.email}}" class="btn btn-outline-primary btn-sm">E-Mail</a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+<a href="mailto:?bcc={{#each participants}}{{mitgliedid.email}};{{/each}}" class="btn btn-outline-primary btn-sm">E-Mail an alle Teilnehmer</a>
