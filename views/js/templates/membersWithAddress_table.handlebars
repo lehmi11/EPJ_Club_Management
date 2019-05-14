@@ -14,6 +14,9 @@
             <td>{{ strasse }}  </td>
             <td>{{ plz }} {{ ort }}</td>
             <td>
+                <a href="mailto:{{ email }}" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
+            </td>
+            <td>
                 <a href="javascript:void(0);" class="btn editMember btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal" data-memberId="{{id}}">
                     <i class="fas fa-edit"></i>
                 </a>
