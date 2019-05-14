@@ -27,6 +27,7 @@ router.delete("/events/:eventId", eventController.deleteEvent.bind(eventControll
 router.get("/events/:eventId", eventController.getEventById.bind(eventController));
 router.get("/clubMeeting", eventController.getClubMeetings.bind(eventController));
 router.get("/events/participants/:eventId", eventController.getParticipantsOfEvent.bind(eventController));
+router.post("/events/participants/:eventId", eventController.addParticipantToEvent.bind(eventController));
 
 
 // groupRoutes

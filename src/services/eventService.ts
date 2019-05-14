@@ -79,6 +79,14 @@ export class EventService {
         const events = await repository.find({where: {anlassid: eventId}});
         return events;
     }
+
+    public async deleteParticipantFromEvent(eventId: number, memberId: number) {
+        const repository = getConnection().getRepository(Anlassbelegung);
+        await repository.delete({
+            anlassid: {id: eventId},
+            mitgliedid: {id: memberId},
+        });
+    }
 }
 
 export const eventService = new EventService();

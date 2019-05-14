@@ -73,6 +73,18 @@ export class EventController {
         }
     }
 
+    public async addParticipantToEvent(req: Request, res: Response) {
+        try {
+            const eventId = req.params.eventId;
+            const memberId = req.body.id;
+            await eventService.addParticipantToEvent(eventId, memberId);
+
+            res.redirect("/events/" + eventId);
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const eventController = new EventController();
