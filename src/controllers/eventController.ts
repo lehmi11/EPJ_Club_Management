@@ -23,6 +23,16 @@ export class EventController {
         }
     }
 
+    public async editEvent(req: Request, res: Response) {
+        try {
+            await eventService.editEvent(req.body);
+
+            res.redirect("/events");
+        } catch (error) {
+            console.log(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async deleteEvent(req: Request, res: Response) {
         try {
             await eventService.deleteEvent(req.params.eventId);
