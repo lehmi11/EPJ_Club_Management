@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-import * as db from "../config/dbConfig";
-
-import { getConnection } from "typeorm";
 import { getRepository } from "typeorm";
-
+import { getConnection } from "typeorm";
+import * as db from "../config/dbConfig";
 import { Gruppe } from "../entities/Gruppe";
+import { Gruppenbelegung } from "../entities/Gruppenbelegung";
 
 export class TeamService {
     public async getTeams() {
@@ -21,6 +19,13 @@ export class TeamService {
             .getOne();
     }
 
+    public async getSpecificGroupWithMembers(groupID: number) {
+        const connection = getConnection();
+        const repository = connection.getRepository(Gruppenbelegung);
+        const groups = repository.find({ where: { gruppenid: groupID } });
+        return groups;
+    }
+
     public async getGroupsWithCount() {
         const { rows } = await db.client.query(`
             SELECT gruppe.name AS "Name",
@@ -31,12 +36,9 @@ export class TeamService {
                 mitglied ON gruppenbelegung.mitgliedid = mitglied.id
                 GROUP BY gruppe.name, gruppe.verantwortlicher;`);
         return rows;
-=======
-import {getConnection} from "typeorm";
-import {Gruppe} from "../entities/Gruppe";
-import {Gruppenbelegung} from "../entities/Gruppenbelegung";
+    }
 
-export class TeamService {
+
     public async getGroups() {
         const connection = getConnection();
         const repository = connection.getRepository(Gruppe);
@@ -48,30 +50,6 @@ export class TeamService {
         const repository = connection.getRepository(Gruppenbelegung);
         const groups = repository.find();
         return groups;
->>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
-    }
-    public async getSpecificGroupWithMembers(groupID: number) {
-
-<<<<<<< HEAD
-    public async getGroupWithMembers() {
-        const { rows } = await db.client.query(`
-            SELECT gruppe.name AS "Gruppenname",
-            gruppe.verantwortlicher AS "Verantwortlicher",
-            mitglied.name AS "Name",
-            mitglied.vorname AS "Vorname",
-            mitglied.strasse AS "Adresse",
-            mitglied.plz AS "PLZ",
-            mitglied.ort AS "Ort"
-            FROM gruppe INNER JOIN
-            Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
-            INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id;`);
-        return rows;
-=======
-        const connection = getConnection();
-        const repository = connection.getRepository(Gruppenbelegung);
-        const groups = repository.find({where: {gruppenid: groupID}});
-        return groups;
->>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
     }
 
     public async createTeam(data: JSON) {
@@ -93,5 +71,5 @@ export class TeamService {
             .execute();
     }
 }
-
 export const teamService = new TeamService();
+

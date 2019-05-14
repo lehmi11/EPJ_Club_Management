@@ -30,18 +30,14 @@ router.get("/events/participants/:eventId", eventController.getParticipantsOfEve
 router.post("/events/participants/:eventId", eventController.addParticipantToEvent.bind(eventController));
 router.delete("/events/participants/:eventId/member/:memberId", eventController.deleteParticipantFromEvent.bind(eventController));
 
-<<<<<<< HEAD
-router.get("/groups", teamController.getGroupsWithCount.bind(teamController));
+// groupRoutes
+router.get("/groups", teamController.getGroups.bind(teamController));
 router.get("/groups/:groupId", teamController.getTeamById.bind(teamController));
 router.get("/groupsAll", teamController.getTeams.bind(teamController));
 router.post("/groups", teamController.createTeam.bind(teamController));
 // router.delete("/groups/:groupId", teamController.deleteTeam.bind(teamController));
-router.get("/groupWithMembers", teamController.getGroupWithMembers.bind(teamController));
-=======
->>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
-
-// groupRoutes
-router.get("/groups", teamController.getGroups.bind(teamController));
 router.get("/groups/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
+router.get("/groups/WithMembers/:groupId", teamController.getSpecificGroupWithMembers.bind(teamController));
+router.get("/groups/WithCount", teamController.getGroupsWithCount.bind(teamController));
 
 export const apiRoutes = router;
