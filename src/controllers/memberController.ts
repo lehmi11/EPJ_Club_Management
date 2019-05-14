@@ -1,5 +1,5 @@
-import {Request, Response} from "express-serve-static-core";
-import {memberService} from "../services/memberService";
+import { Request, Response } from "express-serve-static-core";
+import { memberService } from "../services/memberService";
 
 export class MemberController {
 
@@ -10,7 +10,7 @@ export class MemberController {
             res.json(members);
 
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -21,7 +21,7 @@ export class MemberController {
             res.json(members);
 
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -32,7 +32,7 @@ export class MemberController {
             res.json(ManagingComittee);
 
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -42,7 +42,7 @@ export class MemberController {
 
             res.redirect("/members");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -52,7 +52,7 @@ export class MemberController {
 
             res.redirect("/members");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -62,7 +62,7 @@ export class MemberController {
 
             res.send("OK");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -72,7 +72,7 @@ export class MemberController {
 
             res.json(member);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -82,7 +82,7 @@ export class MemberController {
             const membersNotPaidCount = await (memberService.getTotalMembershipNotPaidCount());
             const membersWarningCount = await (memberService.getTotalMembershipWarningCount());
 
-            res.json( {
+            res.json({
                 paymentStatus: [
                     membersPaidCount,
                     membersNotPaidCount,
@@ -90,7 +90,7 @@ export class MemberController {
                 ],
             });
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -107,7 +107,7 @@ export class MemberController {
             });
 
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -118,7 +118,7 @@ export class MemberController {
             res.json(members);
 
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
