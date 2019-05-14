@@ -4,16 +4,21 @@
         <th>Name</th>
         <th>Adresse</th>
         <th>Stadt</th>
+        <th>E-Mail</th>
         <th>Betrag</th>
     </tr>
     </thead>
     <tbody>
     {{#each members}}
         <tr>
-            <td>{{ Nachname }} {{ Vorname }}</td>
-            <td>{{ Strasse }}</td>
-            <td>{{ PLZ }} {{ ORT }}</td>
-            <td>{{ Betrag }} CHF</td>
+            <td>{{ mitglied.name }} {{ mitglied.vorname }}</td>
+            <td>{{ mitglied.strasse }}</td>
+            <td>{{ mitglied.plz }} {{ mitglied.ort }}</td>
+            <td>{{ mitglied.email }}</td>
+            <td>{{ mitgliederbeitrag }} CHF</td>
+            <td>
+                <a href="mailto:{{mitglied.email}}" class="btn btn-outline-primary btn-sm">E-Mail</a>
+            </td>
         </tr>
     {{/each}}
     </tbody>

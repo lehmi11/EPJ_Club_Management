@@ -1,0 +1,165 @@
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content" class="pt-4">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Vorstand</h1>
+                <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#newMemberModal">
+                    <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    <span class="text">Hinzufügen</span>
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="newMemberModal" tabindex="-1" role="dialog" aria-labelledby="newMemberModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="newMemberLabel">Mitglied hinzufügen</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputSurname">Vorname</label>
+                                        <input type="text" class="form-control" id="inputSurname" placeholder="Vorname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputName">Nachname</label>
+                                        <input type="text" class="form-control" id="inputName" placeholder="Nachname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputBirthday">Geburtstag</label>
+                                        <input type="date" class="form-control" id="inputBirthday">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail">E-Mail Adresse</label>
+                                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="E-Mail">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStreet">Strasse</label>
+                                        <input type="text" class="form-control" id="inputStreet" placeholder="Strasse">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-8">
+                                            <label for="inputZip">PLZ</label>
+                                            <input type="text" class="form-control" id="inputZip">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputCity">Ort</label>
+                                            <input type="text" class="form-control" id="inputCity">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+                                <button type="button" class="btn btn-primary">Hinzufügen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Content Row -->
+            <div class="row">
+
+                <div class="col-xl-12">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Vorstandsmitglieder</h6>
+                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
+                                   aria-label="Search">
+                        </div>
+                        <div class="card-body" id="app_vorstand">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800"></h1>
+                <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#newVersammlungModal">
+                    <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    <span class="text">Hinzufügen</span>
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="newVersammlungModal" tabindex="-1" role="dialog" aria-labelledby="newMemberModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="newVersammlungLabel">Versammlung hinzufügen</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputName">Name</label>
+                                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputOrt">Ort</label>
+                                        <input type="text" class="form-control" id="inputOrt" placeholder="Ort">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputDatum">Datum</label>
+                                        <input type="date" class="form-control" id="inputDatum">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputVon">Von</label>
+                                        <input type="text" class="form-control" id="inputVon" placeholder="Von">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputBis">Bis</label>
+                                        <input type="text" class="form-control" id="inputBis" placeholder="Bis">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputTrak">Traktandenliste</label>
+                                        <input type="text" class="form-control" id="inputTrak" placeholder="Traktandenliste">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+                                <button type="button" class="btn btn-primary">Hinzufügen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-xl-12">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Nächste Vereinsversammlung</h6>
+                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
+                                   aria-label="Search">
+                        </div>
+                        <div class="card-body" id="app_vereinsversammlung">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+<!-- Page level plugins -->
+<script src="../views/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../views/vendor/datatables/dataTables.bootstrap4.min.js"></script>

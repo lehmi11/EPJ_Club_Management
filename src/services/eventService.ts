@@ -1,26 +1,42 @@
-import * as db from "../config/dbConfig";
-
-import {getConnection} from "typeorm";
-import {getRepository} from "typeorm";
-
+import { getConnection, getRepository } from "typeorm";
 import { Anlass } from "../entities/Anlass";
+import { Anlassbelegung } from "../entities/Anlassbelegung";
+import { Mitglied } from "../entities/Mitglied";
 
 export class EventService {
 
     public async getEvents() {
         const connection = getConnection();
-        const result = await connection.createQueryBuilder().select(["anl.id", "anl.name", "anl.datum", "anl.von", "anl.bis", "anl.ort"]).from(Anlass, "anl").getMany();
+        const result = await connection.createQueryBuilder()
+            .select(["anl.id", "anl.name", "anl.datum", "anl.von", "anl.bis", "anl.ort"])
+            .from(Anlass, "anl")
+            .getMany();
         return result;
     }
 
     public async createEvent(data: JSON) {
         const connection = getConnection();
-        const eventRepo = getRepository(Anlass);
+        const eventRepo = connection.getRepository(Anlass);
         const newEvent = eventRepo.create({
             ...data,
             verein: {id: 1},
         });
         await eventRepo.save(newEvent);
+    }
+
+    public async editEvent(data) {
+        await getConnection()
+            .createQueryBuilder()
+            .update(Anlass)
+            .set({
+                name: data.name,
+                beschreibung: data.beschreibung,
+                datum: data.datum,
+                von: data.von,
+                bis: data.bis,
+                ort: data.ort})
+            .where("id = :id", { id: data.id })
+            .execute();
     }
 
     public async deleteEvent(idToDelete: number) {
@@ -40,24 +56,45 @@ export class EventService {
             .getOne();
     }
 
+    public async getClubMeetings() {
+        return await getConnection()
+            .getRepository(Anlass)
+            .createQueryBuilder()
+            .where("traktadenliste IS NOT NULL")
+            .getMany();
+    }
+
+
     public async getSpecificEventWithMembers(eventId: number) {
-        const {rows} = await db.client.query(`
-            SELECT anlass.name AS "Name",
-            anlass.ort AS "Ort",
-            anlass.datum AS "Datum",
-            anlass.von AS "Start",
-            anlass.bis AS "Ende",
-            anlass.verantwortlicher AS "Verantwortlicher",
-            mitglied.name AS "Mitgliedname",
-            mitglied.vorname AS "Mitgliedvorname",
-            mitglied.strasse AS "Adresse",
-            mitglied.plz AS "PLZ",
-            mitglied.ort AS "Ort"
-            FROM anlass INNER JOIN
-            anlassbelegung ON anlass.id = anlassbelegung.anlassid INNER JOIN
-            mitglied ON mitglied.id = anlassbelegung.mitgliedid
-            WHERE anlass.id =` + eventId + `;`);
-        return rows;
+        const connection = getConnection();
+        const repository = connection.getRepository(Anlassbelegung);
+        const events = repository.find({ relations: ["mitglied", "anlass"],
+            where: {anlassid: eventId}});
+        return events;
+    }
+
+    public async getParticipantsOfEvent(eventId: number) {
+        const connection = getConnection();
+        const repository = connection.getRepository(Anlassbelegung);
+        const events = await repository.find({where: {anlassid: eventId}});
+        return events;
+    }
+
+    public async addParticipantToEvent(eventId: number, memberId: number) {
+        const repository = getConnection().getRepository(Anlassbelegung);
+        const participant = repository.create({
+            anlassid: {id: eventId},
+            mitgliedid: {id: memberId},
+        });
+        await repository.save(participant);
+    }
+
+    public async deleteParticipantFromEvent(eventId: number, memberId: number) {
+        const repository = getConnection().getRepository(Anlassbelegung);
+        await repository.delete({
+            anlassid: {id: eventId},
+            mitgliedid: {id: memberId},
+        });
     }
 }
 

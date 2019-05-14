@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as db from "../config/dbConfig";
 
 import { getConnection } from "typeorm";
@@ -30,8 +31,28 @@ export class TeamService {
                 mitglied ON gruppenbelegung.mitgliedid = mitglied.id
                 GROUP BY gruppe.name, gruppe.verantwortlicher;`);
         return rows;
-    }
+=======
+import {getConnection} from "typeorm";
+import {Gruppe} from "../entities/Gruppe";
+import {Gruppenbelegung} from "../entities/Gruppenbelegung";
 
+export class TeamService {
+    public async getGroups() {
+        const connection = getConnection();
+        const repository = connection.getRepository(Gruppe);
+        const groups = repository.find();
+        return groups;
+    }
+    public async getGroupsWithMembers() {
+        const connection = getConnection();
+        const repository = connection.getRepository(Gruppenbelegung);
+        const groups = repository.find();
+        return groups;
+>>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
+    }
+    public async getSpecificGroupWithMembers(groupID: number) {
+
+<<<<<<< HEAD
     public async getGroupWithMembers() {
         const { rows } = await db.client.query(`
             SELECT gruppe.name AS "Gruppenname",
@@ -45,6 +66,12 @@ export class TeamService {
             Gruppenbelegung ON gruppe.id = gruppenbelegung.gruppenid
             INNER JOIN mitglied ON gruppenbelegung.mitgliedid = mitglied.id;`);
         return rows;
+=======
+        const connection = getConnection();
+        const repository = connection.getRepository(Gruppenbelegung);
+        const groups = repository.find({where: {gruppenid: groupID}});
+        return groups;
+>>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
     }
 
     public async createTeam(data: JSON) {

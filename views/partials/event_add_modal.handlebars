@@ -1,0 +1,47 @@
+<div class="modal fade" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="newEventModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newEventLabel">Neuen Anlass hinzufügen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newEventForm" action="/api/events" method="POST">
+                    <div class="form-group">
+                        <label for="inputEvent">Anlass</label>
+                        <input type="text" class="form-control" id="inputEvent" name="name" placeholder="Anlass" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDate">Datum</label>
+                        <input type="date" class="form-control" id="inputDate" name="datum" placeholder="Datum">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Beschreibung</label>
+                        <textarea class="form-control" id="inputDescription" name="beschreibung" placeholder="Beschreibung"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFrom">Von</label>
+                        <input type="time" class="form-control" id="inputFrom" name="von" aria-describedby="emailHelp"
+                            placeholder="Von">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTo">Bis</label>
+                        <input type="time" class="form-control" id="inputTo" name="bis" aria-describedby="emailHelp"
+                            placeholder="Bis">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPlace">Ort</label>
+                        <input type="text" class="form-control" id="inputPlace" name="ort" placeholder="Ort">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="newEventForm" class="btn btn-primary">Hinzufügen</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>

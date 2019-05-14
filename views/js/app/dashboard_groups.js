@@ -4,10 +4,14 @@ $(function () {
 
     if ($appGroups.length > 0) {
 
+<<<<<<< HEAD
         $.getJSON("/api/groupsAll", function (groups) {
+=======
+        $.getJSON("/api/groups", function ( group ) {
+>>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
 
             let groupsTable = Handlebars.templates.group_table({
-                groups: groups,
+                group: group,
             });
 
             $appGroups.html(groupsTable);

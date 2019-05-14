@@ -2,6 +2,7 @@ import { Request, Response } from "express-serve-static-core";
 import { teamService } from "../services/teamService";
 
 export class TeamController {
+<<<<<<< HEAD
     public async getTeams(req: Request, res: Response) {
         try {
             const groups = await (teamService.getTeams());
@@ -10,6 +11,13 @@ export class TeamController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+=======
+    public async getGroups(req: Request, res: Response) {
+        try {
+            const members = await (teamService.getGroups());
+
+            res.json(members);
+>>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
 
     public async getTeamById(req: Request, res: Response) {
         try {
@@ -19,6 +27,7 @@ export class TeamController {
             console.log(`Controller Error-Message: ${error}`);
         }
     }
+<<<<<<< HEAD
 
     public async getGroupsWithCount(req: Request, res: Response) {
         try {
@@ -31,6 +40,12 @@ export class TeamController {
     public async getGroupWithMembers(req: Request, res: Response) {
         try {
             const members = await (teamService.getGroupWithMembers());
+=======
+    public async getGroupsWithMembers(req: Request, res: Response) {
+        try {
+            const members = await (teamService.getGroupsWithMembers());
+
+>>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
             res.json(members);
         } catch (error) {
             console.log(`Controller Error-Message: ${error}`);
@@ -58,3 +73,4 @@ export class TeamController {
 }
 
 export const teamController = new TeamController();
+

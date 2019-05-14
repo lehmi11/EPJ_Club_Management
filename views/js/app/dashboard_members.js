@@ -1,13 +1,30 @@
 var members = function() {};
 
-members.deleteMember = function() {
+/**
+ * Event zum Durchreichen der MemberId durch Klick auf Mülleimer Icon an das Modal
+ */
+members.deleteMemberModal = function() {
+    // Übertrage die ID
     $(document).on('click', ".deleteMember", function() {
+        // Hole ID vom Button
         let memberId = $(this).attr('data-memberId');
 
+        // Hänge die ID an den Button im Modal an
+        $(".deleteConfirmationMember").attr('data-memberId', memberId);
+    });
+};
+
+/**
+ * Event registrieren zum Löschen durch Buttonklick im Modal
+ */
+members.deleteMember = function() {
+    $(document).on('click', ".deleteConfirmationMember", function() {
+
+        let memberId = $(this).attr('data-memberId');
         $.ajax({
             url: '/api/members/' + memberId,
             type: 'DELETE',
-            success: function(result) {
+            success: function() {
                 window.location.href = '/members';
             }
         });
@@ -34,13 +51,13 @@ members.editMember = function() {
 
         });
     });
-}
+};
 
 $(function() {
     let $appMembersWithAddress = $("#app_membersWithAddress");
 
     if ($appMembersWithAddress.length > 0) {
-        $.getJSON("/api/membersWithAddress", function( members ) {
+        $.getJSON("/api/members", function( members ) {
 
             let membersWithAddressTable = Handlebars.templates.membersWithAddress_table({
                 members: members,
@@ -51,11 +68,12 @@ $(function() {
         });
     }
 
-    // Registriere Event zum Löschen des Mitglieds
+    // Registriere Event zum Öffnen des Löschenmodals
+    members.deleteMemberModal();
+
+    // Registriere Event zum Löschen des Mitglieds (Click zum Löschen im Modal)
     members.deleteMember();
 
-    // Registriere Event zum Editieren des Mitglieds
     members.editMember();
 
 });
-

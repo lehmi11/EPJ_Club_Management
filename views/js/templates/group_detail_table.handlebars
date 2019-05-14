@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-xl-12">
         <div class="card shadow mb-4">
@@ -18,11 +17,11 @@
                     <tbody>
                     {{#each groups}}
                     <tr>
-                        <td>{{Name}} {{Vorname}}</td>
-                        <td>{{Adresse}}</td>
-                        <td>{{PLZ}} {{Ort}}</td>
+                        <td>{{mitgliedid.name}} {{mitgliedid.vorname}}</td>
+                        <td>{{mitgliedid.strasse}}</td>
+                        <td>{{mitgliedid.plz}} {{mitgliedid.ort}}</td>
                         <td>
-                            <a href="mailto:some@email.com" target="_blank" class="btn btn-outline-primary btn-sm">E-Mail</a>
+                            <a href="mailto:{{mitgliedid.email}}" class="btn btn-outline-primary btn-sm">E-Mail</a>
                         </td>
                     </tr>
                     {{/each}}

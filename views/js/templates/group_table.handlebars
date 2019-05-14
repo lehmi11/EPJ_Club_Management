@@ -1,5 +1,6 @@
 <table class="table table-sm table-hover" id="groupTable" data-page-length='15'>
     <thead>
+<<<<<<< HEAD
         <tr>
             <th>Name</th>
             <th>Anzahl Mitglieder</th>
@@ -18,5 +19,23 @@
             </td>
         </tr>
         {{/each}}
+=======
+    <tr>
+        <th>Name</th>
+        <th>Verantwortlicher</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each group}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{verantwortlicher}}</td>
+        <td>
+            <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
+            <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>
+        </td>
+    </tr>
+    {{/each}}
+>>>>>>> d4e0e1d984c347076c756de4b5bb9473e97bbf0f
     </tbody>
 </table>

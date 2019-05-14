@@ -5,9 +5,9 @@ $(function() {
 
     if($app_verantwortlicher.length > 0){
 
-        $.getJSON( "/api/groupWithMembers", function( data ) {
-            $app_verantwortlicher.html(data[0].Verantwortlicher);
-            $app_gruppenName.html(data[0].Gruppenname)
+        $.getJSON( "/api/groups/WithMembers", function( data ) {
+            $app_verantwortlicher.html(data[0].gruppenid.verantwortlicher);
+            $app_gruppenName.html(data[0].gruppenid.name);
 
         });
 
@@ -17,7 +17,7 @@ $(function() {
 
     if ($appGroupDetail.length > 0) {
 
-        $.getJSON("/api/groupWithMembers", function ( groups ) {
+        $.getJSON("/api/groups/WithMembers", function ( groups ) {
 
             let groupsTable = Handlebars.templates.group_detail_table({
                 groups: groups,
