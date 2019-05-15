@@ -1,17 +1,15 @@
-import { getConnection, getRepository } from "typeorm";
+import { getConnection, getRepository, Raw } from "typeorm";
 import { Anlass } from "../entities/Anlass";
 import { Anlassbelegung } from "../entities/Anlassbelegung";
-import { Mitglied } from "../entities/Mitglied";
 
 export class EventService {
 
     public async getEvents() {
-        const connection = getConnection();
-        const result = await connection.createQueryBuilder()
-            .select(["anl.id", "anl.name", "anl.datum", "anl.von", "anl.bis", "anl.ort"])
-            .from(Anlass, "anl")
-            .getMany();
-        return result;
+        const repository = getConnection().getRepository(Anlass);
+        const events: Anlass[] = await repository.find({
+            where: {datum: Raw((alias) => `${alias} > (NOW() - interval '1 day')`)},
+        });
+        return events;
     }
 
     public async createEvent(data: JSON) {
