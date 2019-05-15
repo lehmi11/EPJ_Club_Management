@@ -4,7 +4,6 @@ import * as db from "../config/dbConfig";
 import { Gruppe } from "../entities/Gruppe";
 import { Gruppenbelegung } from "../entities/Gruppenbelegung";
 
-
 export class TeamService {
 
     public async getTeams() {
@@ -27,18 +26,6 @@ export class TeamService {
         const repository = connection.getRepository(Gruppenbelegung);
         const groups = repository.find({ where: { gruppenid: groupID } });
         return groups;
-    }
-
-    public async getGroupsWithCount() {
-        const { rows } = await db.client.query(`
-            SELECT gruppe.name AS "Name",
-            gruppe.verantwortlicher AS "Verantwortlicher",
-            COUNT(*) AS "Anzahl"
-            FROM gruppe INNER JOIN gruppenbelegung
-                ON gruppe.id = gruppenbelegung.gruppenid INNER JOIN
-                mitglied ON gruppenbelegung.mitgliedid = mitglied.id
-                GROUP BY gruppe.name, gruppe.verantwortlicher;`);
-        return rows;
     }
 
     public async getGroupsWithMembers() {

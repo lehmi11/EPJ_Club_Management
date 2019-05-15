@@ -37,6 +37,5 @@ router.post("/groups", teamController.createTeam.bind(teamController));
 // router.delete("/groups/:groupId", teamController.deleteTeam.bind(teamController));
 router.get("/groups/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
 router.get("/groups/WithMembers/:groupId", teamController.getSpecificGroupWithMembers.bind(teamController));
-router.get("/groups/WithCount", teamController.getGroupsWithCount.bind(teamController));
 
 export const apiRoutes = router;
