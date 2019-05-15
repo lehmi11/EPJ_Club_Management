@@ -3,6 +3,7 @@
     <tr>
         <th>Name</th>
         <th>Verantwortlicher</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -11,8 +12,14 @@
         <td>{{name}}</td>
         <td>{{verantwortlicher}}</td>
         <td>
+
+            <a href="/teams_change" class="btn btn-primary btn-sm">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a href="/" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash"></i>
+            </a>
             <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
-            <a href="/teams_change" class="btn btn-primary btn-sm">Bearbeiten</a>
         </td>
     </tr>
     {{/each}}
