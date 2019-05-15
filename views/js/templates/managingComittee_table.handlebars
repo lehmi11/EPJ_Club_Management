@@ -5,6 +5,7 @@
         <th>Adresse</th>
         <th>Stadt</th>
         <th>Email</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -14,6 +15,9 @@
             <td>{{ strasse }}</td>
             <td>{{ plz }} {{ ort }}</td>
             <td>{{ email }}</td>
+            <td>
+                <a href="mailto:{{ email }}" class="btn btn-outline-primary btn-sm">E-Mail</a>
+            </td>
         </tr>
     {{/each}}
     </tbody>

@@ -1,4 +1,4 @@
-function initDatatable(tableID) {
+function initDatatable(tableID, disabledSorting) {
 
     let $table = $("#" + tableID);
 
@@ -44,7 +44,11 @@ function initDatatable(tableID) {
                     "1": "1 Spalte kopiert"
                 }
             }
-        }
+        },
+        "columnDefs": [ {
+            "targets": disabledSorting,
+            "orderable": false
+        } ]
     } );
 
     // Custom search field
