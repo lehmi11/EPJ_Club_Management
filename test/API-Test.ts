@@ -5,16 +5,6 @@ import request from "request";
 let apiUrl = "http://127.0.0.1:3001/api";
 
 
-var jsonDataObj = { 'mes': 'hey dude', 'yo': ['im here', 'and here'] };
-request.post({
-  url: 'https://api.site.com',
-  body: jsonDataObj,
-  json: true
-}, function (error, response, body) {
-  console.log(body);
-});
-
-
 describe("CRUD User", function () {
 
   it("create new User", (done) => {
@@ -33,34 +23,9 @@ describe("CRUD User", function () {
       },
       json: true
     }, function (error, response, body) {
-      console.log(body);
-    });
-
-    /*
-    })
-      .send(JSON.stringify({
-        geschlecht: "M",
-        vorname: "Test-vorname",
-        name: "Test-nachname",
-        geburtsdatum: "1993-12-12",
-        email: "",
-        strasse: "Teststrasse 12",
-        plz: "4123",
-        ort: "nirgendwo",
-      })
-      )
-      */
-      .then((res) => {
-      const body = res.body;
-      expect(body).to.property("id");
-      expect(body).to.property("name");
-      expect(body).to.property("plz");
-
       done();
-    })
-      .catch((err) => done(err));
+    });
   });
-
 
   it("return User", function (done) {
     console.log(apiUrl + "/members/1");
@@ -72,12 +37,23 @@ describe("CRUD User", function () {
         expect(bodyObj.geburtsdatum).to.equal("1991-03-05");
         expect(bodyObj.geschlecht).to.equal("M");
         expect(bodyObj.strasse).to.equal("Sonnenhof 4");
-        expect(bodyObj.plz).to.equal("8853");
+        expect(bodyObj.plz).to.equal(8853);
         expect(bodyObj.ort).to.equal("Lachen");
         expect(bodyObj.email).to.equal("t.reusser@hotmail.com");
-        expect(bodyObj.istVorstand).to.equal("true");
+        expect(bodyObj.istVorstand).to.equal(true);
         console.log(body);
         done();
       });
   });
+
+  it("delete User", function (done) {
+    console.log(apiUrl + "/members/65");
+    request.delete({ url: apiUrl + "/members/71" },
+      function (error, response, body) {
+        console.log(body);
+        done();
+      });
+  });
+
+
 });
