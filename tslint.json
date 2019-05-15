@@ -3,7 +3,9 @@
     //"rulesDirectory": ["path/to/custom/rules/directory/", "another/path/"],
     "rules": {
         "max-line-length": {
-            "options": [200]
+            "options": [
+                120
+            ]
         },
         "new-parens": true,
         "no-arg": true,
@@ -13,12 +15,21 @@
         "object-literal-sort-keys": false,
         "no-console": {
             "severity": "warning",
-            "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+            "options": [
+                "debug",
+                "info",
+                "log",
+                "time",
+                "timeEnd",
+                "trace"
+            ]
         }
     },
     "jsRules": {
         "max-line-length": {
-            "options": [120]
+            "options": [
+                120
+            ]
         }
     }
 }

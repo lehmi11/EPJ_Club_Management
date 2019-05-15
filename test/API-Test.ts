@@ -12,6 +12,7 @@ describe("CRUD User", function () {
     request.post({
       url: apiUrl + "/members",
       body: {
+        id: 5000,
         geschlecht: "M",
         vorname: "Bla-vorname",
         name: "Bla-nachname",
@@ -47,8 +48,8 @@ describe("CRUD User", function () {
   });
 
   it("delete User", function (done) {
-    console.log(apiUrl + "/members/65");
-    request.delete({ url: apiUrl + "/members/71" },
+    console.log(apiUrl + "/members/5000");
+    request.delete({ url: apiUrl + "/members/5000" },
       function (error, response, body) {
         console.log(body);
         done();
