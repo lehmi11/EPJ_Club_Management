@@ -13,6 +13,7 @@ router.get("/members/FeeNotPaid", memberController.getMembersFeeNotPaid.bind(mem
 
 // memberRoutes
 router.get("/members", memberController.getMembers.bind(memberController));
+router.get("/members/name/:name", memberController.getMemberByName.bind(memberController));
 router.post("/members", memberController.createMember.bind(memberController));
 router.post("/members/edit", memberController.editMember.bind(memberController));
 router.delete("/members/:memberId", memberController.deleteMember.bind(memberController));

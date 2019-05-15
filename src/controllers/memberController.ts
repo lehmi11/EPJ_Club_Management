@@ -6,20 +6,26 @@ export class MemberController {
     public async getMembers(req: Request, res: Response) {
         try {
             const members = await (memberService.getMembers());
-
             res.json(members);
-
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
         }
     }
 
+    public async getMemberByName(req: Request, res: Response) {
+        try {
+            const members = await (memberService.getMemberByName(req.params.name));
+            res.json(members);
+        } catch (error) {
+            console.error(`Controller Error-Message: ${error}`);
+        }
+    }
+
+
     public async getMembersFeeNotPaid(req: Request, res: Response) {
         try {
             const members = await (memberService.getMembersFeeNotPaid());
-
             res.json(members);
-
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
         }
@@ -28,9 +34,7 @@ export class MemberController {
     public async getManagingComittee(req: Request, res: Response) {
         try {
             const ManagingComittee = await (memberService.getManagingComittee());
-
             res.json(ManagingComittee);
-
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
         }
@@ -39,7 +43,6 @@ export class MemberController {
     public async createMember(req: Request, res: Response) {
         try {
             await memberService.createMember(req.body);
-
             res.redirect("/members");
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
@@ -49,7 +52,6 @@ export class MemberController {
     public async editMember(req: Request, res: Response) {
         try {
             await memberService.editMember(req.body);
-
             res.redirect("/members");
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
@@ -59,7 +61,6 @@ export class MemberController {
     public async deleteMember(req: Request, res: Response) {
         try {
             await memberService.deleteMember(req.params.memberId);
-
             res.send("OK");
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
@@ -69,7 +70,6 @@ export class MemberController {
     public async getMemberById(req: Request, res: Response) {
         try {
             const member = await memberService.getMemberById(req.params.memberId);
-
             res.json(member);
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
@@ -81,7 +81,6 @@ export class MemberController {
             const membersPaidCount = await (memberService.getTotalMembershipPaidCount());
             const membersNotPaidCount = await (memberService.getTotalMembershipNotPaidCount());
             const membersWarningCount = await (memberService.getTotalMembershipWarningCount());
-
             res.json({
                 paymentStatus: [
                     membersPaidCount,
@@ -99,7 +98,6 @@ export class MemberController {
             const totalMembershipNotPaid = await (memberService.getTotalMembershipNotPaid());
             const totalMembershipPaid = await (memberService.getTotalMembershipPaid());
             const totalMembershipWarning = await (memberService.getTotalMembershipWarning());
-
             res.json({
                 totalMembershipNotPaid,
                 totalMembershipPaid,
@@ -114,9 +112,7 @@ export class MemberController {
     public async getMembersNotPaid(req: Request, res: Response) {
         try {
             const members = await (memberService.getMembersFeeNotPaid());
-
             res.json(members);
-
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
         }
