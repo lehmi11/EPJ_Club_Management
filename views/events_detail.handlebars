@@ -1,40 +1,30 @@
-<!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
-    <div id="content" class="pt4">
-
-        <!-- Begin Page Content -->
+    <div id="content" class="pt-4">
         <div class="container-fluid">
-
-            <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Termin Details</h1>
                 <a href="/events" class="btn btn-danger">Zurück</a>
-
-                <!-- Modal -->
-
             </div>
-
-            <div class="row">
+            <div class="row" id="app_eventDetail">
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="row">
-                            <div class="col-md-4">
-                                <img class="card-img-top" src="../views/img/grillfest.png" alt="Card image" style="width:100%">
-                            </div>
-                            <div class="col-md8 px-3">
+                            <div class="col-md-8">
                                 <br>
-                                <h4 class="card-title" id="eventName">Oster-Event</h4>
+                                <h4 class="card-title" id="eventName"></h4>
                                 <p>
-                                <span id="eventOrt">Ort: Zürich</span><br>
-                                <span id="eventDatum">Datum: 18.04.2019</span><br>
-                                <span id="eventZeit">Uhrzeit: 14:00 - 21:00</span>
+                                    <span>Ort: </span><span id="eventOrt"></span><br>
+                                    <span>Datum: </span><span id="eventDatum"></span><br>
+                                    <span>Uhrzeit: </span><span id="eventZeit"></span>
                                 </p>
+                                <h5 class="card-text">Beschreibung</h5>
+                                <span class="card-text" id="eventBeschreibung" style="white-space:pre;"></span>
+                                <br>
                                 <h5 class="card-text">Verantwortlicher:</h5>
-                                <span class="card-text" id="eventVerantwortlicher">Jameson Sandoval</span>
+                                <span class="card-text" id="eventVerantwortlicher"></span>
                                 <span class="card-text">
-                                    <a href="mailto:some@email.com" target="_blank" class="btn btn-primary btn-sm ml-2">E-Mail</a>
+                                    <a href="mailto:some@email.com" target="_blank"
+                                        class="btn btn-primary btn-sm ml-2">E-Mail</a>
                                 </span>
                             </div>
                         </div>
@@ -42,24 +32,18 @@
                 </div>
             </div>
             <br>
-
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Teilnehmer</h6>
                         </div>
-                        <div class="card-body" id="app_event_detail">
+                        <div class="card-body" id="app_eventParticipants">
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-        <!-- /.container-fluid -->
-
     </div>
-    <!-- End of Main Content -->
-
 </div>
-<!-- End of Content Wrapper -->

@@ -9,7 +9,7 @@ router.get("/teams", clubController.showTeamsView);
 router.get("/teams_detail", clubController.showTeamsDetailView);
 router.get("/teams_change", clubController.showTeamsChangeView);
 router.get("/events", clubController.showEventsView);
-router.get("/events_detail", clubController.showEventsDetailView);
+router.get("/events/:eventId", clubController.showEventsDetailView);
 router.get("/dashboard", clubController.showFinanceDashboard);
 router.get("/profile", clubController.showProfile);
 router.get("/vorstand", clubController.showVorstand);

@@ -1,99 +1,27 @@
-<!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
     <div id="content" class="pt-4">
-
-        <!-- Begin Page Content -->
         <div class="container-fluid">
-
-            <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Terminübersicht</h1>
                 <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#newEventModal">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-plus"></i>
-                        </span>
+                    <span class="icon text-white-50">
+                        <i class="fas fa-plus"></i>
+                    </span>
                     <span class="text">Hinzufügen</span>
                 </a>
-
-                <!-- Modal -->
-                <div class="modal fade" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="newEventModal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="newEventLabel">Neues Event hinzufügen</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="newEventForm" action="/api/events" method="POST">
-                                    <div class="form-group">
-                                        <label for="inputEvent">Anlass</label>
-                                        <input type="text" class="form-control" id="inputEvent" name="name" placeholder="Anlass" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputDate">Datum</label>
-                                        <input type="date" class="form-control" id="inputDate" name="datum" placeholder="Datum" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputFrom">Von</label>
-                                        <input type="time" class="form-control" id="inputFrom" name="von" aria-describedby="emailHelp" placeholder="Von" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputTo">Bis</label>
-                                        <input type="time" class="form-control" id="inputTo" name="bis" aria-describedby="emailHelp" placeholder="Bis" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPlace">Ort</label>
-                                        <input type="text" class="form-control" id="inputPlace" name="ort" placeholder="Ort" >
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" form="newEventForm" class="btn btn-primary">Hinzufügen</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade " id="anmeldenModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Anmeldung</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Sie haben sich erfolgreich für den Anlass angemeldet.
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+                {{> event_add_modal }}
+                {{> event_edit_modal }}
+                {{> event_delete_confirmation_modal }}
+                {{> event_register_confirmation_modal }}
             </div>
-
+            
             <div class="row">
-
-                <!-- DataTales Example -->
                 <div class="col-xl-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Anlässe</h6>
-                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
-                                   aria-label="Search">
+                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4"
+                                id="dataTableSearch" placeholder="Suche..." aria-label="Search">
                         </div>
                         <div class="card-body" id="app_events">
                         </div>
@@ -102,7 +30,4 @@
             </div>
         </div>
     </div>
-    <!-- End of Main Content -->
-
 </div>
-<!-- End of Content Wrapper -->

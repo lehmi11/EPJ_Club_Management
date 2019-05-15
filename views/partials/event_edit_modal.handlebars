@@ -1,0 +1,67 @@
+<div class="modal fade" id="editEventModal" tabindex="-1" role="dialog" aria-labelledby="editEventModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEventLabel">Anlass bearbeiten</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editEventForm" action="/api/events/edit" method="POST">
+                    <div class="form-group">
+                        <label for="inputId">Id</label>
+                        <input type="text" class="inputId form-control" id="inputId" name="id" placeholder="Id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEvent">Anlass</label>
+                        <input type="text" class="inputEvent form-control" id="inputEvent" name="name"
+                            placeholder="Anlass" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDate">Datum</label>
+                        <input type="date" class="inputDate form-control" id="inputDate" name="datum"
+                            placeholder="Datum">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Beschreibung</label>
+                        <textarea class="inputDescription form-control" id="inputDescription" name="beschreibung" placeholder="Beschreibung"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFrom">Von</label>
+                        <input type="time" class="inputFrom form-control" id="inputFrom" name="von"
+                            aria-describedby="emailHelp" placeholder="Von">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTo">Bis</label>
+                        <input type="time" class="inputTo form-control" id="inputTo" name="bis"
+                            aria-describedby="emailHelp" placeholder="Bis">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPlace">Ort</label>
+                        <input type="text" class="inputPlace form-control" id="inputPlace" name="ort" placeholder="Ort">
+                    </div>
+                    <!-- Prepared for later use 
+                    <div class="form-group">
+                        <label for="inputTranscript">Protokoll</label>
+                        <input type="text" class="inputTranscript form-control" id="inputTranscript" name="protokoll" placeholder="Protokoll" value="0" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAgenda">Traktanden</label>
+                        <input type="text" class="inputAgenda form-control" id="inputAgenda" name="traktandenliste" placeholder="Traktanden" value="0" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputResponsible">Verantwortlicher</label>
+                        <input type="text" class="inputResponsible form-control" id="inputResponsible" name="verantwortlicher" placeholder="Verantwortlicher" value="0" readonly>
+                    </div>
+                    -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="editEventForm" class="btn btn-primary">Speichern</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
