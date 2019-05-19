@@ -1,5 +1,5 @@
-import {Request, Response} from "express-serve-static-core";
-import {eventService} from "../services/eventService";
+import { Request, Response } from "express-serve-static-core";
+import { eventService } from "../services/eventService";
 
 export class EventController {
 

@@ -7,11 +7,9 @@ export class EventService {
 
     public async getEvents() {
         const connection = getConnection();
-        const result = await connection.createQueryBuilder()
-            .select(["anl.id", "anl.name", "anl.datum", "anl.von", "anl.bis", "anl.ort"])
-            .from(Anlass, "anl")
-            .getMany();
-        return result;
+        const repository = connection.getRepository(Anlass);
+        const events = repository.find();
+        return events;
     }
 
     public async createEvent(data: JSON) {
@@ -19,7 +17,7 @@ export class EventService {
         const eventRepo = connection.getRepository(Anlass);
         const newEvent = eventRepo.create({
             ...data,
-            verein: {id: 1},
+            verein: { id: 1 },
         });
         await eventRepo.save(newEvent);
     }
@@ -34,7 +32,8 @@ export class EventService {
                 datum: data.datum,
                 von: data.von,
                 bis: data.bis,
-                ort: data.ort})
+                ort: data.ort
+            })
             .where("id = :id", { id: data.id })
             .execute();
     }
@@ -44,7 +43,7 @@ export class EventService {
             .createQueryBuilder()
             .delete()
             .from(Anlass)
-            .where("id = :id", { id: idToDelete})
+            .where("id = :id", { id: idToDelete })
             .execute();
     }
 
@@ -68,23 +67,25 @@ export class EventService {
     public async getSpecificEventWithMembers(eventId: number) {
         const connection = getConnection();
         const repository = connection.getRepository(Anlassbelegung);
-        const events = repository.find({ relations: ["mitglied", "anlass"],
-            where: {anlassid: eventId}});
+        const events = repository.find({
+            relations: ["mitglied", "anlass"],
+            where: { anlassid: eventId }
+        });
         return events;
     }
 
     public async getParticipantsOfEvent(eventId: number) {
         const connection = getConnection();
         const repository = connection.getRepository(Anlassbelegung);
-        const events = await repository.find({where: {anlassid: eventId}});
+        const events = await repository.find({ where: { anlassid: eventId } });
         return events;
     }
 
     public async addParticipantToEvent(eventId: number, memberId: number) {
         const repository = getConnection().getRepository(Anlassbelegung);
         const participant = repository.create({
-            anlassid: {id: eventId},
-            mitgliedid: {id: memberId},
+            anlassid: { id: eventId },
+            mitgliedid: { id: memberId },
         });
         await repository.save(participant);
     }
@@ -92,8 +93,8 @@ export class EventService {
     public async deleteParticipantFromEvent(eventId: number, memberId: number) {
         const repository = getConnection().getRepository(Anlassbelegung);
         await repository.delete({
-            anlassid: {id: eventId},
-            mitgliedid: {id: memberId},
+            anlassid: { id: eventId },
+            mitgliedid: { id: memberId },
         });
     }
 }
