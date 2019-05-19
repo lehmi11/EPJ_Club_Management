@@ -1,4 +1,7 @@
-import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
+import {
+    BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne,
+    OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId,
+} from "typeorm";
 
 @Entity("gruppe", { schema: "public" })
 export class Gruppe {
