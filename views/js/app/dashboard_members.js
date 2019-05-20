@@ -64,7 +64,7 @@ $(function() {
             });
 
             $appMembersWithAddress.html(membersWithAddressTable);
-            initDatatable("membersWithAddressTable");
+            initDatatable("membersWithAddressTable", 3);
         });
     }
 
