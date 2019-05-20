@@ -39,6 +39,7 @@
     "express-handlebars": "^3.0.2",
     "express-hbs": "^2.1.2",
     "pg": "^7.9.0",
+    "sinon": "^7.3.2",
     "tslib": "^1.9.3",
     "typeorm": "^0.2.16"
   },

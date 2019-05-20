@@ -11,14 +11,15 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Teamübersicht</h1>
                 <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#newTeamModal">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-plus"></i>
-                        </span>
+                    <span class="icon text-white-50">
+                        <i class="fas fa-plus"></i>
+                    </span>
                     <span class="text">Hinzufügen</span>
                 </a>
 
                 <!-- Modal -->
-                <div class="modal fade" id="newTeamModal" tabindex="-1" role="dialog" aria-labelledby="newTeamModal" aria-hidden="true">
+                <div class="modal fade" id="newTeamModal" tabindex="-1" role="dialog" aria-labelledby="newTeamModal"
+                    aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -28,19 +29,21 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form id="newTeamForm" action="/api/groups" method="POST">
                                     <div class="form-group">
                                         <label for="inputTeam">Team</label>
-                                        <input type="text" class="form-control" id="inputTeam" placeholder="Team">
+                                        <input type="text" class="form-control" id="inputTeam" name="name"
+                                            placeholder="Team">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputVerantwortlicher">Verantwortlicher</label>
-                                        <input type="text" class="form-control" id="inputVerantwortlicher" placeholder="Verantwortlicher">
+                                        <input type="text" class="form-control" id="inputVerantwortlicher"
+                                            name="verantwortlicher" placeholder="Verantwortlicher">
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Hinzufügen</button>
+                                <button type="submit" form="newTeamForm" class="btn btn-primary">Hinzufügen</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
                             </div>
                         </div>
@@ -80,8 +83,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Teams</h6>
-                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4" id="dataTableSearch" placeholder="Suche..."
-                                   aria-label="Search">
+                            <input type="text" class="form-control form-control-sm small border-0 col-sm-4"
+                                id="dataTableSearch" placeholder="Suche..." aria-label="Search">
                         </div>
                         <div class="card-body" id="app_groups">
                         </div>
