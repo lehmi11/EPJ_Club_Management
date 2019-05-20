@@ -23,4 +23,9 @@ export class Verein {
         name: "name",
     })
     public name: string;
+    constructor(id: number, grundüngsjahr: string, name: string) {
+        this.id = id;
+        this.gründungsjahr = grundüngsjahr;
+        this.name = name;
+    }
 }

@@ -49,5 +49,16 @@ export class Mitgliedschaft {
     @ManyToOne(() => Mitglied, (mitglied) => mitglied.id, { nullable: false })
     @JoinColumn({ name: "mitgliedid" })
     public mitglied: Mitglied | null;
+    constructor(id: number, mitgliederbeitrag: number, eintrittsdatum: string, austrittsdatum: string,
+                beitragbezahlt: boolean, rechnungsdatum: string, mitglied: Mitglied) {
+        this.id = id;
+        this.mitgliederbeitrag = mitgliederbeitrag;
+        this.eintrittsdatum = eintrittsdatum;
+        this.austrittsdatum = austrittsdatum;
+        this.beitragbezahlt = beitragbezahlt;
+        this.rechnungsdatum = rechnungsdatum;
+        this.mitglied = mitglied;
+    }
 
 }
+
