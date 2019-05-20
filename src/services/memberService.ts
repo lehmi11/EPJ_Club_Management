@@ -1,15 +1,21 @@
-import {createConnection, getConnection, Raw} from "typeorm";
+import { createConnection, getConnection, Raw } from "typeorm";
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
 
 export class MemberService {
 
     public async getMembers() {
-
         const connection = getConnection();
         const repository = connection.getRepository(Mitglied);
         const mitglieds: Mitglied[] = await repository.find();
         return mitglieds;
+    }
+
+    public async getMemberByName(member: string) {
+        const connection = getConnection();
+        const repository = connection.getRepository(Mitglied);
+        const mitglied = await repository.find({ where: { name: member } });
+        return mitglied;
     }
 
     public async createMember(data) {
@@ -17,7 +23,7 @@ export class MemberService {
         const memberRepo = connection.getRepository(Mitglied);
         const newMember = memberRepo.create({
             ...data,
-            verein: {id: 1},
+            verein: { id: 1 },
         });
         await memberRepo.save(newMember);
     }
@@ -26,7 +32,7 @@ export class MemberService {
         const connection = getConnection();
         const memberRepo = connection.getRepository(Mitglied);
 
-        await memberRepo.update(data.id, {...data, verein: {id: 1}});
+        await memberRepo.update(data.id, { ...data, verein: { id: 1 } });
     }
 
     public async deleteMember(idToDelete: number) {
@@ -34,7 +40,7 @@ export class MemberService {
             .createQueryBuilder()
             .delete()
             .from(Mitglied)
-            .where("id = :id", { id: idToDelete})
+            .where("id = :id", { id: idToDelete })
             .execute();
     }
 
@@ -42,7 +48,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitglied);
         const ManagingComittee = await repository.find({
-            where: {istVorstand: "true"},
+            where: { istVorstand: "true" },
         });
         return ManagingComittee;
     }
@@ -58,8 +64,10 @@ export class MemberService {
     public async getMembersFeeNotPaid() {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
-        const mitglieds = repository.find({ relations: ["mitglied"],
-        where: {beitragbezahlt: "false"}});
+        const mitglieds = repository.find({
+            relations: ["mitglied"],
+            where: { beitragbezahlt: "false" },
+        });
         return mitglieds;
     }
 
@@ -67,7 +75,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "true"},
+            where: { beitragbezahlt: "true" },
         });
         const beitrag = mitglieds[0].mitgliederbeitrag;
         return mitglieds.length * beitrag;
@@ -77,7 +85,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "true"},
+            where: { beitragbezahlt: "true" },
         });
         return mitglieds.length;
     }
@@ -86,7 +94,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false"},
+            where: { beitragbezahlt: "false" },
         });
         const beitrag = mitglieds[0].mitgliederbeitrag;
         return mitglieds.length * beitrag;
@@ -96,7 +104,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false"},
+            where: { beitragbezahlt: "false" },
         });
         return mitglieds.length;
     }
@@ -105,7 +113,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
+            where: { beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`) },
         });
         const beitrag = mitglieds[0].mitgliederbeitrag;
         return mitglieds.length * beitrag;
@@ -115,7 +123,7 @@ export class MemberService {
         const connection = getConnection();
         const repository = connection.getRepository(Mitgliedschaft);
         const mitglieds: Mitgliedschaft[] = await repository.find({
-            where: {beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`)},
+            where: { beitragbezahlt: "false", rechnungsdatum: Raw((alias) => `${alias} < NOW()`) },
         });
         return mitglieds.length;
     }

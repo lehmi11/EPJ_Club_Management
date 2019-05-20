@@ -9,7 +9,7 @@ export class EventController {
 
             res.json(events);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -19,7 +19,7 @@ export class EventController {
 
             res.redirect("/events");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -29,7 +29,7 @@ export class EventController {
 
             res.redirect("/events");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -39,7 +39,7 @@ export class EventController {
 
             res.send("OK");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -49,7 +49,7 @@ export class EventController {
 
             res.json(event);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -59,7 +59,7 @@ export class EventController {
 
             res.json(clubMeetings);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -69,7 +69,7 @@ export class EventController {
 
             res.json(participants);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -81,7 +81,7 @@ export class EventController {
 
             res.redirect("/events/" + eventId);
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 
@@ -93,7 +93,7 @@ export class EventController {
 
             res.send("OK");
         } catch (error) {
-            console.log(`Controller Error-Message: ${error}`);
+            console.error(`Controller Error-Message: ${error}`);
         }
     }
 

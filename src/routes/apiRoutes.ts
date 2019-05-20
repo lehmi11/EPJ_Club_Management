@@ -13,6 +13,7 @@ router.get("/members/FeeNotPaid", memberController.getMembersFeeNotPaid.bind(mem
 
 // memberRoutes
 router.get("/members", memberController.getMembers.bind(memberController));
+router.get("/members/name/:name", memberController.getMemberByName.bind(memberController));
 router.post("/members", memberController.createMember.bind(memberController));
 router.post("/members/edit", memberController.editMember.bind(memberController));
 router.delete("/members/:memberId", memberController.deleteMember.bind(memberController));
@@ -31,9 +32,12 @@ router.post("/events/participants/:eventId", eventController.addParticipantToEve
 router.delete("/events/participants/:eventId/member/:memberId", eventController
     .deleteParticipantFromEvent.bind(eventController));
 
-
 // groupRoutes
-router.get("/groups", teamController.getGroups.bind(teamController));
-router.get("/groups/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
+router.get("/groups", teamController.getTeams.bind(teamController));
+router.get("/groups/:groupId", teamController.getTeamById.bind(teamController));
+router.post("/groups", teamController.createTeam.bind(teamController));
+router.delete("/groups/:groupId", teamController.deleteTeam.bind(teamController));
+router.get("/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
+router.get("/groups/WithMembers/:groupId", teamController.getSpecificGroupWithMembers.bind(teamController));
 
 export const apiRoutes = router;
