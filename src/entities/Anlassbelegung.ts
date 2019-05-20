@@ -12,5 +12,9 @@ export class Anlassbelegung {
     @ManyToOne(() => Anlass, (anlass) => anlass.id, { nullable: false, primary: true, eager: false})
     @JoinColumn({ name: "anlassid", referencedColumnName: "id" })
     public anlassid: Anlass;
+    constructor(anlassid: Anlass, mitgliedid: Mitglied) {
+        this.mitgliedid = mitgliedid;
+        this.anlassid = anlassid;
+    }
 
 }

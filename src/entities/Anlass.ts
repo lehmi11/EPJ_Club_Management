@@ -76,4 +76,20 @@ export class Anlass {
     @ManyToOne(() => Verein, (verein) => verein.id, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein: Verein | null;
+
+    constructor(id: number, datum: string, von: string, bis: string, ort: string, name: string,
+                beschreibung: string, protokoll: string, traktadenliste: string, verantwortlicher: string,
+                verein: Verein){
+        this.id = id;
+        this.datum = datum;
+        this.von = von;
+        this.bis = bis;
+        this.ort = ort;
+        this.name = name;
+        this.beschreibung = beschreibung;
+        this.protokoll = protokoll;
+        this.traktadenliste = traktadenliste;
+        this.verantwortlicher = verantwortlicher;
+        this.verein = verein;
+    }
 }

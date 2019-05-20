@@ -12,4 +12,8 @@ export class Gruppenbelegung {
     @ManyToOne(() => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true, eager: true})
     @JoinColumn({ name: "mitgliedid"})
     public mitgliedid: Mitglied | null;
+    constructor(gruppenid: Gruppe, mitgliedid: Mitglied) {
+        this.gruppenid = gruppenid;
+        this.mitgliedid = mitgliedid;
+    }
 }
