@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId} from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne} from "typeorm";
 import { Verein } from "./Verein";
 
 @Entity("anlass", { schema: "public" })
@@ -79,7 +79,7 @@ export class Anlass {
 
     constructor(id: number, datum: string, von: string, bis: string, ort: string, name: string,
                 beschreibung: string, protokoll: string, traktadenliste: string, verantwortlicher: string,
-                verein: Verein){
+                verein: Verein) {
         this.id = id;
         this.datum = datum;
         this.von = von;

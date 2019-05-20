@@ -1,4 +1,4 @@
-import { Request, Response } from "express-serve-static-core";
+import { Response } from "express-serve-static-core";
 
 export class ClubController {
 

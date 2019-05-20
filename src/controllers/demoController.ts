@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 
 export let index = ( res: Response) => {
     res.render("login", { title: "login", onlyShowMainContent: "true" });
