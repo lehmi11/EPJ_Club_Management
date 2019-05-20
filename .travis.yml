@@ -14,7 +14,7 @@ before_script:
 
 script:
   - npm test
-  - sonar-scanner
+  - if [ $TRAVIS_PULL_REQUEST == false]; then sonar-scanner; fi
 
 after_success:
   - npm pack
