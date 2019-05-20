@@ -41,7 +41,7 @@ $(function() {
 
             $appParticipants.html(participantsTable);
 
-            initDatatable("participantsTable");
+            initDatatable("participantsTable", 3);
 
         });
 

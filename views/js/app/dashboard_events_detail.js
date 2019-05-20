@@ -30,7 +30,7 @@ $(function() {
 
             $appEventDetail.html(eventTable);
 
-            initDatatable("eventTable");
+            initDatatable("eventTable", 3);
         });
 
     }

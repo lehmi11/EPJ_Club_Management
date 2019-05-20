@@ -20,7 +20,7 @@ $(function () {
             });
 
             $appGroupDetail.html(groupsTable);
-            initDatatable("groupTable");
+            initDatatable("groupTable", 3);
         });
 
     }

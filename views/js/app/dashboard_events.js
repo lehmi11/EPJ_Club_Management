@@ -53,7 +53,7 @@ $(function() {
 
             $appEvents.html(eventTable);
 
-            initDatatable("eventTable");
+            initDatatable("eventTable", 4);
         });
 
     }
