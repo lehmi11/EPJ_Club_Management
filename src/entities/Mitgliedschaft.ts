@@ -46,7 +46,7 @@ export class Mitgliedschaft {
     })
     public rechnungsdatum: string | null;
 
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false })
+    @ManyToOne(() => Mitglied, (mitglied) => mitglied.id, { nullable: false })
     @JoinColumn({ name: "mitgliedid" })
     public mitglied: Mitglied | null;
 

@@ -5,11 +5,11 @@ import { Mitglied } from "./Mitglied";
 @Entity("gruppenbelegung", { schema: "public" })
 export class Gruppenbelegung {
 
-    @ManyToOne((type) => Gruppe, (gruppe) => gruppe.id, { nullable: false, primary: true, eager: true})
+    @ManyToOne(() => Gruppe, (gruppe) => gruppe.id, { nullable: false, primary: true, eager: true})
     @JoinColumn({ name: "gruppenid"})
     public gruppenid: Gruppe | null;
 
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true, eager: true})
+    @ManyToOne(() => Mitglied, (mitglied) => mitglied.id, { nullable: false , primary: true, eager: true})
     @JoinColumn({ name: "mitgliedid"})
     public mitgliedid: Mitglied | null;
 }

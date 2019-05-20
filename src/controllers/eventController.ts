@@ -3,7 +3,7 @@ import { eventService } from "../services/eventService";
 
 export class EventController {
 
-    public async getEvents(req: Request, res: Response) {
+    public async getEvents( res: Response) {
         try {
             const events = await (eventService.getEvents());
 
@@ -53,7 +53,7 @@ export class EventController {
         }
     }
 
-    public async getClubMeetings(req: Request, res: Response) {
+    public async getClubMeetings( res: Response) {
         try {
             const clubMeetings = await eventService.getClubMeetings();
 

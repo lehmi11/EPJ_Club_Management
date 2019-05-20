@@ -74,7 +74,7 @@ export class Mitglied {
     })
     public istVorstand: boolean | null;
 
-    @ManyToOne((type) => Verein, (verein) => verein.id, { nullable: false })
+    @ManyToOne(() => Verein, (verein) => verein.id, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein: Verein | null;
 
