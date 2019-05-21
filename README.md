@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/monzond/EPJ_Club_Management.svg?branch=master)](https://travis-ci.org/monzond/EPJ_Club_Management)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=monzond_EPJ_Club_Management&metric=alert_status)](https://sonarcloud.io/dashboard?id=monzond_EPJ_Club_Management)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=monzond_EPJ_Club_Management&metric=ncloc)](https://sonarcloud.io/dashboard?id=monzond_EPJ_Club_Management)
 
 # EPJ Club Manager
