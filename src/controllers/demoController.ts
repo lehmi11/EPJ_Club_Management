@@ -1,41 +1,41 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 
-export let index = (req: Request, res: Response) => {
+export let index = ( res: Response) => {
     res.render("login", { title: "login", onlyShowMainContent: "true" });
 };
 
-export let forgotPassword = (req: Request, res: Response) => {
+export let forgotPassword = ( res: Response) => {
     res.render("forgot-password", { title: "Passwort vergessen", onlyShowMainContent: "true" });
 };
 
-export let membersView = (req: Request, res: Response) => {
+export let membersView = ( res: Response) => {
     res.render("members", { title: "Mitglieder" });
 };
 
-export let teamsView = (req: Request, res: Response) => {
+export let teamsView = ( res: Response) => {
     res.render("teams", { title: "Teams" });
 };
 
-export let teamsDetailView = (req: Request, res: Response) => {
+export let teamsDetailView = ( res: Response) => {
     res.render("teams_detail", { title: "Team Detail"});
 };
 
-export let teamsChangeView = (req: Request, res: Response) => {
+export let teamsChangeView = ( res: Response) => {
     res.render("teams_change", { title: "Team bearbeiten"});
 };
 
-export let eventsView = (req: Request, res: Response) => {
+export let eventsView = ( res: Response) => {
     res.render("events", { title: "Terminübersicht" });
 };
 
-export let eventsDetailView = (req: Request, res: Response) => {
+export let eventsDetailView = ( res: Response) => {
     res.render("events_detail", { title: "Event Detail"});
 };
 
-export let dashboard = (req: Request, res: Response) => {
+export let dashboard = ( res: Response) => {
     res.render("dashboard_finance", { title: "Dashboard" });
 };
 
-export let profile = (req: Request, res: Response) => {
+export let profile = ( res: Response) => {
     res.render("profile", { title: "Profil" });
 };

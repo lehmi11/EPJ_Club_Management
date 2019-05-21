@@ -1,6 +1,4 @@
 import { getConnection } from "typeorm";
-import { getRepository } from "typeorm";
-import * as db from "../config/dbConfig";
 import { Gruppe } from "../entities/Gruppe";
 import { Gruppenbelegung } from "../entities/Gruppenbelegung";
 
@@ -37,7 +35,7 @@ export class TeamService {
 
     public async createTeam(data: JSON) {
         const connection = getConnection();
-        const teamRepo = getRepository(Gruppe);
+        const teamRepo = connection.getRepository(Gruppe);
         const newTeam = teamRepo.create({
             ...data,
             berechtigung: null,
