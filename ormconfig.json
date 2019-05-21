@@ -21,7 +21,6 @@
     "password": "clubmanager",
     "database": "clubManagerTest",
     "schema": "public",
-    "dropSchema": true,
     "synchronize": false,
     "logging": false,
     "entities": [

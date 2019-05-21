@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId } from "typeorm";
+import {  Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { Mitglied } from "./Mitglied";
 
 
@@ -46,8 +46,19 @@ export class Mitgliedschaft {
     })
     public rechnungsdatum: string | null;
 
-    @ManyToOne((type) => Mitglied, (mitglied) => mitglied.id, { nullable: false })
+    @ManyToOne(() => Mitglied, (mitglied) => mitglied.id, { nullable: false })
     @JoinColumn({ name: "mitgliedid" })
     public mitglied: Mitglied | null;
+    constructor(id: number, mitgliederbeitrag: number, eintrittsdatum: string, austrittsdatum: string,
+                beitragbezahlt: boolean, rechnungsdatum: string, mitglied: Mitglied) {
+        this.id = id;
+        this.mitgliederbeitrag = mitgliederbeitrag;
+        this.eintrittsdatum = eintrittsdatum;
+        this.austrittsdatum = austrittsdatum;
+        this.beitragbezahlt = beitragbezahlt;
+        this.rechnungsdatum = rechnungsdatum;
+        this.mitglied = mitglied;
+    }
 
 }
+

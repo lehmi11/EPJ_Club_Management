@@ -1,7 +1,6 @@
-import { getConnection, getRepository } from "typeorm";
+import { getConnection } from "typeorm";
 import { Anlass } from "../entities/Anlass";
 import { Anlassbelegung } from "../entities/Anlassbelegung";
-import { Mitglied } from "../entities/Mitglied";
 
 export class EventService {
 

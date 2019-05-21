@@ -3,7 +3,7 @@ import { memberService } from "../services/memberService";
 
 export class MemberController {
 
-    public async getMembers(req: Request, res: Response) {
+    public async getMembers( res: Response) {
         try {
             const members = await (memberService.getMembers());
             res.json(members);
@@ -22,7 +22,7 @@ export class MemberController {
     }
 
 
-    public async getMembersFeeNotPaid(req: Request, res: Response) {
+    public async getMembersFeeNotPaid( res: Response) {
         try {
             const members = await (memberService.getMembersFeeNotPaid());
             res.json(members);
@@ -31,7 +31,7 @@ export class MemberController {
         }
     }
 
-    public async getManagingComittee(req: Request, res: Response) {
+    public async getManagingComittee( res: Response) {
         try {
             const ManagingComittee = await (memberService.getManagingComittee());
             res.json(ManagingComittee);
@@ -76,7 +76,7 @@ export class MemberController {
         }
     }
 
-    public async getMembersPaymentStatus(req: Request, res: Response) {
+    public async getMembersPaymentStatus( res: Response) {
         try {
             const membersPaidCount = await (memberService.getTotalMembershipPaidCount());
             const membersNotPaidCount = await (memberService.getTotalMembershipNotPaidCount());
@@ -93,7 +93,7 @@ export class MemberController {
         }
     }
 
-    public async getFinanceDashboard(req: Request, res: Response) {
+    public async getFinanceDashboard( res: Response) {
         try {
             const totalMembershipNotPaid = await (memberService.getTotalMembershipNotPaid());
             const totalMembershipPaid = await (memberService.getTotalMembershipPaid());
@@ -109,7 +109,7 @@ export class MemberController {
         }
     }
 
-    public async getMembersNotPaid(req: Request, res: Response) {
+    public async getMembersNotPaid( res: Response) {
         try {
             const members = await (memberService.getMembersFeeNotPaid());
             res.json(members);
