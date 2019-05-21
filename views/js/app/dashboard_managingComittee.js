@@ -12,7 +12,7 @@ $(function() {
 
             $appEvents.html(managingComitteTable);
 
-            initDatatable("managingComitteeTable", 4);
+            initDatatable("managingComitteeTable");
         });
 
     }

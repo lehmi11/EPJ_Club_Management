@@ -63,9 +63,9 @@ export class Anlass {
 
     @Column("text", {
         nullable: true,
-        name: "traktadenliste",
+        name: "traktandenliste",
     })
-    public traktadenliste: string | null;
+    public traktandenliste: string | null;
 
     @Column("text", {
         nullable: true,

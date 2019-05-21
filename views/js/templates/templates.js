@@ -14,7 +14,7 @@ templates['clubMeeting_table'] = template({"1":function(container,depth0,helpers
     + " "
     + alias4(((helper = (helper = helpers.ort || (depth0 != null ? depth0.ort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ort","hash":{},"data":data}) : helper)))
     + "</td>\r\n            <td>"
-    + alias4(((helper = (helper = helpers.traktadenliste || (depth0 != null ? depth0.traktadenliste : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"traktadenliste","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.traktandenliste || (depth0 != null ? depth0.traktandenliste : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"traktandenliste","hash":{},"data":data}) : helper)))
     + "</td>\r\n        </tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;

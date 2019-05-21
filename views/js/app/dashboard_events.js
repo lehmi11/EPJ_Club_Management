@@ -34,7 +34,7 @@ events.editEvent = function() {
             $("#editEventModal .inputTo").val(event.bis);
             $("#editEventModal .inputPlace").val(event.ort);
             $("#editEventModal .inputTranscript").val(event.protokoll);
-            $("#editEventModal .inputAgenda").val(event.traktadenliste);
+            $("#editEventModal .inputAgenda").val(event.traktandenliste);
             $("#editEventModal .inputResponsible").val(event.verantwortlicher);
         });
     });
