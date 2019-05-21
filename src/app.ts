@@ -13,6 +13,7 @@ const app = express();
 // DB connection
 createConnection();
 
+
 // Express configuration
 app.use(bodyParser.urlencoded({
     extended: true,
