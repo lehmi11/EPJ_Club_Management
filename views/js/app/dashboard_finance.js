@@ -25,7 +25,7 @@ $(function() {
 
             $appMembersNotPaid.html(memberTable);
 
-            initDatatable("memberTable");
+            initDatatable("memberTable", 4);
         });
     }
 

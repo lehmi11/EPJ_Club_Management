@@ -59,7 +59,7 @@ export class EventService {
         return await getConnection()
             .getRepository(Anlass)
             .createQueryBuilder()
-            .where("traktadenliste IS NOT NULL")
+            .where("traktandenliste IS NOT NULL")
             .getMany();
     }
 

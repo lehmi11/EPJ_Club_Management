@@ -12,7 +12,7 @@ $(function() {
 
             $appEvents.html(managingComitteTable);
 
-            initDatatable("managingComitteeTable");
+            initDatatable("managingComitteeTable", 4);
         });
 
     }
@@ -28,7 +28,7 @@ $(function() {
 
             $appClubMeeting.html(clubMeetingTable);
 
-            initDatatable("clubMeetingTable");
+            initDatatable("clubMeetingTable", 5);
         });
 
     }

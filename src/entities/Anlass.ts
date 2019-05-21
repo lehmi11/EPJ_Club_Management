@@ -63,9 +63,9 @@ export class Anlass {
 
     @Column("text", {
         nullable: true,
-        name: "traktadenliste",
+        name: "traktandenliste",
     })
-    public traktadenliste: string | null;
+    public traktandenliste: string | null;
 
     @Column("text", {
         nullable: true,
@@ -78,7 +78,7 @@ export class Anlass {
     public verein: Verein | null;
 
     constructor(id: number, datum: string, von: string, bis: string, ort: string, name: string,
-                beschreibung: string, protokoll: string, traktadenliste: string, verantwortlicher: string,
+                beschreibung: string, protokoll: string, traktandenliste: string, verantwortlicher: string,
                 verein: Verein) {
         this.id = id;
         this.datum = datum;
@@ -88,7 +88,7 @@ export class Anlass {
         this.name = name;
         this.beschreibung = beschreibung;
         this.protokoll = protokoll;
-        this.traktadenliste = traktadenliste;
+        this.traktandenliste = traktandenliste;
         this.verantwortlicher = verantwortlicher;
         this.verein = verein;
     }
