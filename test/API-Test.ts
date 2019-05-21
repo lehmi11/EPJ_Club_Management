@@ -8,7 +8,7 @@ describe("get an existend User", () => {
 
   it("should return Thomas Reusser with id 1", (done) => {
     request.get({ url: apiUrl + "/members/1" },
-      (error, response, body) => {
+      (body) => {
         const bodyObj = JSON.parse(body);
         expect(bodyObj.id).to.equal(1);
         expect(bodyObj.name).to.equal("Reusser");
@@ -53,7 +53,7 @@ describe("CRUD User", () => {
 
   it("should return Test-User by id", (done) => {
     request.get({ url: apiUrl + "/members/5000" },
-      (error, response, body) => {
+      (body) => {
         const bodyObj = JSON.parse(body);
         expect(bodyObj.id).to.equal(5000);
         expect(bodyObj.name).to.equal("Test-Nachname");
@@ -70,7 +70,7 @@ describe("CRUD User", () => {
 
   it("should return Test-User by name", (done) => {
     request.get({ url: apiUrl + "/members/name/Test-Nachname" },
-      (error, response, body) => {
+      (body) => {
         const bodyObj = JSON.parse(body);
         expect(bodyObj[0].name).to.equal("Test-Nachname");
         expect(bodyObj[0].vorname).to.equal("Test-Vorname");
@@ -180,7 +180,7 @@ describe("should change an event", () => {
 
   it("should return the change attributes of Test-Event", () => {
     request.get({ url: apiUrl + "/events/5001" },
-      (error, response, body) => {
+      (body) => {
         const bodyObj = JSON.parse(body);
         expect(bodyObj.id).to.equal(5001);
         expect(bodyObj.datum).to.equal("2019-08-08");
@@ -297,7 +297,7 @@ describe("should assign Test-Users to event", () => {
 
   it("should return three participants of the event", () => {
     request.get({ url: apiUrl + "/events/participants/5001" },
-      (error, response, body) => {
+      (body) => {
         const bodyObj = JSON.parse(body);
         expect(bodyObj).to.have.lengthOf(3);
         expect(bodyObj[0].mitgliedid.vorname).to.equal("Test-Vorname01");
@@ -420,7 +420,7 @@ describe("should delete one of three Test-Users of an event", () => {
 
   it("should return only two participants of the event", () => {
     request.get({ url: apiUrl + "/events/participants/5001" },
-      (error, response, body) => {
+      (body) => {
         const bodyObj = JSON.parse(body);
         expect(bodyObj).to.have.lengthOf(2);
         expect(bodyObj[0].mitgliedid.vorname).to.equal("Test-Vorname01");
