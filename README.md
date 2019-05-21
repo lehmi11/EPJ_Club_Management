@@ -21,3 +21,5 @@ Run tests
 $ npm test
 ```
 
+### API Documentation
+The documentation of the API can be found [here](https://documenter.getpostman.com/view/7190402/S1Lzw6Pi?version=latest).
