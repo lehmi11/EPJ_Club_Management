@@ -9,7 +9,7 @@ $(function () {
             });
 
             $appGroups.html(groupsTable);
-            initDatatable("groupsTable");
+            initDatatable("groupsTable", 2);
         });
 
     }

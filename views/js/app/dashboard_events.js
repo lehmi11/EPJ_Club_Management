@@ -25,6 +25,7 @@ events.deleteEvent = function() {
 events.editEvent = function() {
     $(document).on("click", ".editEvent", function() {
         $.getJSON("/api/events/" + $(this).data("eventid"), function(event) {
+
             $("#editEventModal .inputId").val(event.id);
             $("#editEventModal .inputEvent").val(event.name);
             $("#editEventModal .inputDate").val(event.datum);
@@ -53,7 +54,7 @@ $(function() {
 
             $appEvents.html(eventTable);
 
-            initDatatable("eventTable");
+            initDatatable("eventTable", 4);
         });
 
     }

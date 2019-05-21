@@ -3,7 +3,7 @@ import { Response } from "express-serve-static-core";
 export class ClubController {
 
     public async showFinanceDashboard( res: Response) {
-        res.render("dashboard_finance", { title: "dashboard_finance" });
+        res.render("dashboard_finance", { title: "Dashboard" });
     }
 
     public async showIndex( res: Response) {
