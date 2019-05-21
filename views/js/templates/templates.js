@@ -131,7 +131,7 @@ templates['group_table'] = template({"1":function(container,depth0,helpers,parti
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "</td>\r\n        <td>"
     + alias4(((helper = (helper = helpers.verantwortlicher || (depth0 != null ? depth0.verantwortlicher : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"verantwortlicher","hash":{},"data":data}) : helper)))
-    + "</td>\r\n        <td>\r\n            <a href=\"/teams_change\" class=\"btn btn-primary btn-sm\">\r\n                <i class=\"fas fa-edit\"></i>\r\n            </a>\r\n            <a href=\"/\" class=\"btn btn-danger btn-sm\">\r\n                <i class=\"fas fa-trash\"></i>\r\n            </a>\r\n            <a href=\"/teams_detail\" class=\"btn btn-outline-primary btn-sm mr-1\">Details</a>\r\n        </td>\r\n    </tr>\r\n";
+    + "</td>\r\n        <td>\r\n            <a href=\"/teams_change\" class=\"btn btn-primary btn-sm\">\r\n                <i class=\"fas fa-edit\"></i>\r\n            </a>\r\n            <a href=\"/teams\" class=\"btn btn-danger btn-sm\">\r\n                <i class=\"fas fa-trash\"></i>\r\n            </a>\r\n            <a href=\"/teams_detail\" class=\"btn btn-outline-primary btn-sm mr-1\">Details</a>\r\n        </td>\r\n    </tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
