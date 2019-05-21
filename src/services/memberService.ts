@@ -1,4 +1,4 @@
-import { createConnection, getConnection, Raw } from "typeorm";
+import { getConnection, Raw } from "typeorm";
 import { Mitglied } from "../entities/Mitglied";
 import { Mitgliedschaft } from "../entities/Mitgliedschaft";
 
@@ -18,7 +18,7 @@ export class MemberService {
         return mitglied;
     }
 
-    public async createMember(data) {
+    public async createMember(data: JSON) {
         const connection = getConnection();
         const memberRepo = connection.getRepository(Mitglied);
         const newMember = memberRepo.create({

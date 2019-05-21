@@ -74,6 +74,7 @@ $(function() {
     // Registriere Event zum Löschen des Mitglieds (Click zum Löschen im Modal)
     members.deleteMember();
 
+    // Registriere Event zum Editieren des Mitglieds
     members.editMember();
 
 });

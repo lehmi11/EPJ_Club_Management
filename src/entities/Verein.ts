@@ -1,7 +1,4 @@
-import {
-    BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany,
-    ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId,
-} from "typeorm";
+import { Column, Entity } from "typeorm";
 
 @Entity("verein", { schema: "public" })
 export class Verein {
@@ -26,4 +23,9 @@ export class Verein {
         name: "name",
     })
     public name: string;
+    constructor(id: number, grundüngsjahr: string, name: string) {
+        this.id = id;
+        this.gründungsjahr = grundüngsjahr;
+        this.name = name;
+    }
 }

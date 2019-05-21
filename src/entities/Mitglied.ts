@@ -1,7 +1,4 @@
-import {
-    BaseEntity, Column, Entity, Index, JoinColumn, JoinTable, ManyToMany,
-    ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, RelationId,
-} from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { Verein } from "./Verein";
 
 
@@ -77,8 +74,23 @@ export class Mitglied {
     })
     public istVorstand: boolean | null;
 
-    @ManyToOne((type) => Verein, (verein) => verein.id, { nullable: false })
+    @ManyToOne(() => Verein, (verein) => verein.id, { nullable: false })
     @JoinColumn({ name: "vereinid" })
     public verein: Verein | null;
+    constructor(id: number, name: string, vorname: string, geburtsdatum: string, geschlecht: string,
+                strasse: string, plz: number, ort: string, email: string, istVorstand: boolean,
+                verein: Verein) {
+        this.id = id;
+        this.name = name;
+        this.vorname = vorname;
+        this.geburtsdatum = geburtsdatum;
+        this.geschlecht = geschlecht;
+        this.strasse = strasse;
+        this.plz = plz;
+        this.ort = ort;
+        this.email = email;
+        this.istVorstand = istVorstand;
+        this.verein = verein;
+    }
 
 }
