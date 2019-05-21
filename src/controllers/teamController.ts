@@ -2,7 +2,7 @@ import { Request, Response } from "express-serve-static-core";
 import { teamService } from "../services/teamService";
 
 export class TeamController {
-    public async getTeams( res: Response) {
+    public async getTeams( req: Request, res: Response) {
         try {
             const groups = await (teamService.getTeams());
             res.json(groups);
@@ -20,7 +20,7 @@ export class TeamController {
         }
     }
 
-    public async getGroupsWithMembers( res: Response) {
+    public async getGroupsWithMembers( req: Request, res: Response) {
         try {
             const groups = await (teamService.getGroupsWithMembers());
             res.json(groups);

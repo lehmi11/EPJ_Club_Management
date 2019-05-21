@@ -22,6 +22,7 @@ export class EventService {
         });
         await eventRepo.save(newEvent);
     }
+    /* tslint:disable */
 
     public async editEvent(data) {
         await getConnection()
@@ -38,6 +39,7 @@ export class EventService {
             .execute();
     }
 
+    /* tslint:enable */
     public async deleteEvent(idToDelete: number) {
         await getConnection()
             .createQueryBuilder()
