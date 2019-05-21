@@ -17,7 +17,8 @@
     "mocha": "mocha --require @babel/register -r ts-node/register test/*.ts",
     "lint": "tslint --project .",
     "copy-win": "xcopy /S /Y src\\views\\* dist\\views\\",
-    "copy-linux": "cp -R src/views/* dist/views/"
+    "copy-linux": "cp -R src/views/* dist/views/",
+    "ci": "start-server-and-test start 3001 test"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "@types/express": "^4.16.1",
     "@types/express-handlebars": "0.0.30",
     "@types/express-serve-static-core": "^4.16.2",
+    "@types/request": "^2.48.1",
     "body-parser": "^1.18.3",
     "circular-json": "^0.5.9",
     "express": "^4.16.4",
@@ -52,6 +54,7 @@
     "@types/pg": "^7.4.14",
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
+    "start-server-and-test": "^1.9.0",
     "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
     "typeorm-model-generator": "^0.3.3",
