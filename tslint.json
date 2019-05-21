@@ -3,7 +3,7 @@
     //"rulesDirectory": ["path/to/custom/rules/directory/", "another/path/"],
     "rules": {
         "max-line-length": {
-            "options": [200]
+            "options": [120]
         },
         "new-parens": true,
         "no-arg": true,
