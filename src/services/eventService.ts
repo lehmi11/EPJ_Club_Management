@@ -32,7 +32,7 @@ export class EventService {
                 datum: data.datum,
                 von: data.von,
                 bis: data.bis,
-                ort: data.ort
+                ort: data.ort,
             })
             .where("id = :id", { id: data.id })
             .execute();
@@ -69,7 +69,7 @@ export class EventService {
         const repository = connection.getRepository(Anlassbelegung);
         const events = repository.find({
             relations: ["mitglied", "anlass"],
-            where: { anlassid: eventId }
+            where: { anlassid: eventId },
         });
         return events;
     }
