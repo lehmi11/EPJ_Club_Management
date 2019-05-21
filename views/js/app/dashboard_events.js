@@ -25,6 +25,7 @@ events.deleteEvent = function() {
 events.editEvent = function() {
     $(document).on("click", ".editEvent", function() {
         $.getJSON("/api/events/" + $(this).data("eventid"), function(event) {
+
             $("#editEventModal .inputId").val(event.id);
             $("#editEventModal .inputEvent").val(event.name);
             $("#editEventModal .inputDate").val(event.datum);
@@ -33,7 +34,7 @@ events.editEvent = function() {
             $("#editEventModal .inputTo").val(event.bis);
             $("#editEventModal .inputPlace").val(event.ort);
             $("#editEventModal .inputTranscript").val(event.protokoll);
-            $("#editEventModal .inputAgenda").val(event.traktandenliste);
+            $("#editEventModal .inputAgenda").val(event.traktadenliste);
             $("#editEventModal .inputResponsible").val(event.verantwortlicher);
         });
     });
