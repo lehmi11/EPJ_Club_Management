@@ -1,10 +1,8 @@
 import * as bodyParser from "body-parser";
 import express from "express";
 import hbs from "express-handlebars";
-import * as db from "./config/dbConfig";
 import {apiRoutes} from "./routes/apiRoutes";
 import {clubRoutes} from "./routes/clubRoutes";
-
 
 // Controllers
 import { createConnection } from "typeorm";
@@ -13,7 +11,6 @@ import { createConnection } from "typeorm";
 const app = express();
 
 // DB connection
-db.client.connect();
 createConnection();
 
 // Express configuration
