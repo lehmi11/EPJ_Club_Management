@@ -9,11 +9,9 @@ addons:
 
 before_script:
   - npm run setup
-  - npm run build
-  - npm run build-templates
 
 script:
-  - npm test
+  - npm run ci
   - if [ $TRAVIS_PULL_REQUEST == false ]; then sonar-scanner; fi
 
 after_success:
