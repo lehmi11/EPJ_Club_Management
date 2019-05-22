@@ -13,12 +13,17 @@ $ npm run setup
 
 Start server
 ```sh
-$ npm run start
+$ npm start
 ```
 
-Run tests
+Run tests (only when server is started)
 ```sh
 $ npm test
+```
+
+Start server and run tests
+```sh
+$ npm run ci
 ```
 
 ### API Documentation
