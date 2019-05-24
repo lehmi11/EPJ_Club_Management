@@ -118,6 +118,15 @@ export class MemberController {
         }
     }
 
+    public async setPaymentstatusToDone( req: Request, res: Response) {
+        try {
+            await memberService.setPaymentstatusToDone(req.params.memberId);
+            res.redirect("/dashboard");
+        } catch (error) {
+            console.error(`Controller Error-Message: ${error}`);
+        }
+    }
+
 }
 
 export const memberController = new MemberController();

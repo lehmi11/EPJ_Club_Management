@@ -128,6 +128,11 @@ export class MemberService {
         return mitglieds.length;
     }
 
+    public async setPaymentstatusToDone(memberId: number) {
+        const repository = getConnection().getRepository(Mitgliedschaft);
+        await repository.update(memberId, {beitragbezahlt: true});
+    }
+
 }
 
 export const memberService = new MemberService();

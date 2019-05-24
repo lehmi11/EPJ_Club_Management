@@ -1,3 +1,19 @@
+var memberPaymentstatus = function() {};
+
+memberPaymentstatus.setPaymentstatus = function() {
+    $(document).on("click", ".setPaymentstatus", function() {
+        let memberId = $(this).attr("data-memberId");
+
+        $.ajax({
+            url: "/api/members/setPaymentstatusToDone/" + memberId,
+            type: 'POST',
+            success: function() {
+                window.location.href = "/dashboard";
+            }
+        });
+    });
+};
+
 $(function() {
 
     let $appDashboardFinance = $("#app_dashboard_finance");
@@ -75,4 +91,6 @@ $(function() {
             });
         }
     }
+
+    memberPaymentstatus.setPaymentstatus();
 });
