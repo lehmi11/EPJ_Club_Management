@@ -10,7 +10,8 @@ router.get("/dashboard", memberController.getFinanceDashboard.bind(memberControl
 router.get("/members/notpaid", memberController.getMembersNotPaid.bind(memberController));
 router.get("/members/paymentStatus", memberController.getMembersPaymentStatus.bind(memberController));
 router.get("/members/FeeNotPaid", memberController.getMembersFeeNotPaid.bind(memberController));
-router.post("/members/setPaymentstatusToDone/:memberId", memberController.setPaymentstatusToDone.bind(memberController));
+router.post("/members/setPaymentstatusToDone/:memberId",
+    memberController.setPaymentstatusToDone.bind(memberController));
 
 // memberRoutes
 router.get("/members", memberController.getMembers.bind(memberController));
