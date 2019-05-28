@@ -43,6 +43,12 @@ export class TeamService {
         await teamRepo.save(newTeam);
     }
 
+    public async editTeam(data) {
+        const connection = getConnection();
+        const teamRepo = connection.getRepository(Gruppe);
+        await teamRepo.update(data.id, { ...data });
+    }
+
     public async deleteTeam(idToDelete: number) {
         await getConnection()
             .createQueryBuilder()

@@ -36,9 +36,10 @@ router.delete("/events/participants/:eventId/member/:memberId",
 
 // groupRoutes
 router.get("/groups", teamController.getTeams.bind(teamController));
-router.get("/groups/:groupId", teamController.getTeamById.bind(teamController));
+router.get("/groups/:teamId", teamController.getTeamById.bind(teamController));
 router.post("/groups", teamController.createTeam.bind(teamController));
-router.delete("/groups/:groupId", teamController.deleteTeam.bind(teamController));
+router.post("/groups/edit", teamController.editTeam.bind(teamController));
+router.delete("/groups/:teamId", teamController.deleteTeam.bind(teamController));
 router.get("/WithMembers", teamController.getGroupsWithMembers.bind(teamController));
 router.get("/groups/WithMembers/:groupId", teamController.getSpecificGroupWithMembers.bind(teamController));
 

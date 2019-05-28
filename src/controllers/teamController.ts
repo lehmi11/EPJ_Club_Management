@@ -46,10 +46,19 @@ export class TeamController {
         }
     }
 
+    public async editTeam(req: Request, res: Response) {
+        try {
+            await teamService.editTeam(req.body);
+            res.redirect("/teams");
+        } catch (error) {
+            console.error(`Controller Error-Message: ${error}`);
+        }
+    }
+
     public async deleteTeam(req: Request, res: Response) {
         try {
-            await teamService.deleteTeam(req.body);
-            res.redirect("/groups");
+            await teamService.deleteTeam(req.params.teamId);
+            res.send("OK");
         } catch (error) {
             console.error(`Controller Error-Message: ${error}`);
         }

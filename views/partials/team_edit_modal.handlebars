@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div class="modal fade" id="editTeamModal" tabindex="-1" role="dialog" aria-labelledby="editTeamModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editTeamLabel">Gruppe bearbeiten</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editTeamForm" action="/api/groups/edit" method="POST">
+                    <input class="inputId" type="hidden" name="id" value=""/>
+                    <div class="form-group">
+                        <label for="inputTeam">Team-Name</label>
+                        <input type="text" class="inputTeam form-control" id="inputTeam" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputVerantwortlicher">Verantwortlicher</label>
+                        <input type="text" class="inputVerantwortlicher form-control" 
+                            id="inputVerantwortlicher" name="verantwortlicher" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="editTeamForm" class="btn btn-primary">Speichern</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>

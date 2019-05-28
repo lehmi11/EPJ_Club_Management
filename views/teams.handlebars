@@ -17,72 +17,18 @@
                     <span class="text">Hinzufügen</span>
                 </a>
 
-                <!-- Modal -->
-                <div class="modal fade" id="newTeamModal" tabindex="-1" role="dialog" aria-labelledby="newTeamModal"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="newTeamLabel">Team hinzufügen</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="newTeamForm" action="/api/groups" method="POST">
-                                    <div class="form-group">
-                                        <label for="inputTeam">Team</label>
-                                        <input type="text" class="form-control" id="inputTeam" name="name"
-                                            placeholder="Team">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputVerantwortlicher">Verantwortlicher</label>
-                                        <input type="text" class="form-control" id="inputVerantwortlicher"
-                                            name="verantwortlicher" placeholder="Verantwortlicher">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" form="newTeamForm" class="btn btn-primary">Hinzufügen</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade " id="bearbeitenModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Anmeldung</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Sie haben sich erfolgreich für den Anlass angemeldet.
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                {{> team_add_modal}}
+                {{> team_edit_modal}}
+                {{> team_delete_confirmation_modal}}
 
             </div>
-
+                
             <!-- Content Row -->
             <div class="row">
-
                 <div class="col-xl-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Teams</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Gruppenliste</h6>
                             <input type="text" class="form-control form-control-sm small border-0 col-sm-4"
                                 id="dataTableSearch" placeholder="Suche..." aria-label="Search">
                         </div>
@@ -100,3 +46,7 @@
 
 </div>
 <!-- End of Content Wrapper -->
+
+<!-- Page level plugins -->
+<script src="../views/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../views/vendor/datatables/dataTables.bootstrap4.min.js"></script>
