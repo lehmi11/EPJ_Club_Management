@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div class="modal fade" id="newTeamModal" tabindex="-1" role="dialog" aria-labelledby="newTeamModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newTeamLabel">Team hinzufügen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newTeamForm" action="/api/groups" method="POST">
+                    <div class="form-group">
+                        <label for="inputTeam">Team-Name</label>
+                        <input type="text" class="form-control" id="inputTeam" name="name"
+                            placeholder="Team-Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputVerantwortlicher">Verantwortlicher</label>
+                        <input type="text" class="form-control" id="inputVerantwortlicher"
+                            name="verantwortlicher" placeholder="Verantwortlicher" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" form="newTeamForm" class="btn btn-primary">Hinzufügen</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

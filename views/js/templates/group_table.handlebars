@@ -11,15 +11,16 @@
     <tr>
         <td>{{name}}</td>
         <td>{{verantwortlicher}}</td>
-        <td>
-            <a href="/teams_change" class="btn btn-primary btn-sm">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a href="/teams" class="btn btn-danger btn-sm">
-                <i class="fas fa-trash"></i>
-            </a>
-            <a href="/teams_detail" class="btn btn-outline-primary btn-sm mr-1">Details</a>
-        </td>
+
+            <td>
+                <a href="javascript:void(0);" class="btn editTeam btn-primary btn-sm" data-toggle="modal" data-target="#editTeamModal" data-teamId="{{id}}">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <button type="button" class="deleteTeam btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationTeamModal" data-teamId="{{id}}">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <a href="/teams/{{id}}" class="btn btn-outline-primary btn-sm mr-1">Details</a>
+            </td>
     </tr>
     {{/each}}
     </tbody>
