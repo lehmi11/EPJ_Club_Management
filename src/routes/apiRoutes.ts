@@ -10,6 +10,8 @@ router.get("/dashboard", memberController.getFinanceDashboard.bind(memberControl
 router.get("/members/notpaid", memberController.getMembersNotPaid.bind(memberController));
 router.get("/members/paymentStatus", memberController.getMembersPaymentStatus.bind(memberController));
 router.get("/members/FeeNotPaid", memberController.getMembersFeeNotPaid.bind(memberController));
+router.post("/members/setPaymentstatusToDone/:memberId",
+    memberController.setPaymentstatusToDone.bind(memberController));
 
 // memberRoutes
 router.get("/members", memberController.getMembers.bind(memberController));
@@ -29,7 +31,8 @@ router.get("/events/:eventId", eventController.getEventById.bind(eventController
 router.get("/clubMeeting", eventController.getClubMeetings.bind(eventController));
 router.get("/events/participants/:eventId", eventController.getParticipantsOfEvent.bind(eventController));
 router.post("/events/participants/:eventId", eventController.addParticipantToEvent.bind(eventController));
-router.delete("/events/participants/:eventId/member/:memberId", eventController.deleteParticipantFromEvent.bind(eventController));
+router.delete("/events/participants/:eventId/member/:memberId",
+    eventController.deleteParticipantFromEvent.bind(eventController));
 
 // groupRoutes
 router.get("/groups", teamController.getTeams.bind(teamController));
